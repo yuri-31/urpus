@@ -25,7 +25,8 @@ When you want to categorize new vocabulary by a lot of different topics, situati
 <https://docs.google.com/spreadsheets/d/1qB8ahcg4BL8cNEF48V_g7IRzvOhlSItBExLeZWAL1xo/edit?usp=sharing>
 
 ## 設計書
-<...>
+<https://drive.google.com/file/d/1sofdhdkmdzR3QbQxcWL7je-qKQ1VPxRw/view?usp=sharing>
+<https://docs.google.com/spreadsheets/d/1UsDh2z6BC1W56sd9QBnxAzFNDLp-qdR3qi9UmcgoKtQ/edit?usp=sharing>
 
 ## 開発環境
 - OS：Linux(CentOS)
