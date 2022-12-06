@@ -16,6 +16,7 @@
         <div>
           <a><span>LOGO</span></a>
           <div>
+            <% if user_signed_in? %>
             <ul>
               <li>
                 <div>
@@ -39,10 +40,11 @@
               </li>
               <li>
                 <div>
-                  <%= link_to "PROFILE IMAGE", root_path %>
+                  <%= link_to "PROFILE IMAGE", my_page_path %>
                 </div>
               </li>
             </ul>
+            <% end %>
           </div>
         </div>
       </nav>
