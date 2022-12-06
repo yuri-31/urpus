@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Urpus</title>
+    <title>urpus</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,47 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <div>
+          <a><span>LOGO</span></a>
+          <div>
+            <ul>
+              <li>
+                <div>
+                  <%= link_to "MY BOOK", root_path %>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <%= link_to "FIND A BOOK", root_path %>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <%= link_to "DICTIONARY", root_path %>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <%= link_to "TIMELINE", root_path %>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <%= link_to "PROFILE IMAGE", root_path %>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <p>©footer.text</p>
+    </footer>
   </body>
 </html>
