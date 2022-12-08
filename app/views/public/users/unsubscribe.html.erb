@@ -1,0 +1,12 @@
+<%= form_with model: @user, url: withdraw_path, method: :patch do |f| %>
+<div>
+    <h1>ARE YOU SURE?</h1>
+    <p>
+        Once you delete your account,<br>
+        you will immediately lose access to your account<br>
+        or any information you have registered.
+    </p>
+    <%= link_to "NOT GONNA DO THIS", root_path %>
+    <%= f.submit "DELETE ACCOUNT" %>
+</div>
+<% end %>
