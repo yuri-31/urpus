@@ -3,11 +3,15 @@
         <h2>MY PAGE</h2>
     </div>
     <div>
-        <%= @user.nickname %><br>
-        <p>@<%= @user.login_id %></p>
-        <div>
-            <%= @user.note %>
-        </div>
+        <p>NICKNAME: <%= @user.nickname %></p>
+    </div>
+    <div>
+        <p>lOGIN ID: @<%= @user.login_id %></p>
+    <div>
+        <p>NOTE: <%= @user.note %></p>
+    </div>
+    <div>
+        <%= link_to "EDIT", edit_user_path %>
         <%= link_to "LOG OUT", destroy_user_session_path, method: :delete %>
     </div>
 </div>
