@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'users/unsubscribe' => 'public/users#unsubscribe', as: 'unsubscribe'
   patch 'users/withdraw' => 'public/users#withdraw', as: 'withdraw'
   
-  
+  scope module: 'public' do
+    resources :books, only: [:index, :create, :edit, :update, :destroy]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

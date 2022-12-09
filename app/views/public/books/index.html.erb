@@ -1,0 +1,25 @@
+<%= form_with model: @new_book, url: books_path, method: :post do |f| %>
+<div>
+    <div>
+        <h2>CREATE NEW BOOK:</h2>
+        <%= f.text_field :name %>
+        <%= f.submit 'CREATE' %>
+    </div>
+    <div>
+        <h2>BOOKS</h2>
+        <div>
+            <% @books.each do |book| %>
+                <%= link_to book.name %><br>
+            <% end %>
+        </div>
+    </div>
+    <div>
+        <h2>PAGES</h2>
+        <div>
+            
+        </div>
+    </div>
+
+    <% link_to "GO CHECK THIS BOOK!" %>
+</div>
+<% end %>
