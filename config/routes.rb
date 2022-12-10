@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   patch 'users/withdraw' => 'public/users#withdraw', as: 'withdraw'
   
   scope module: 'public' do
-    resources :books, only: [:index, :create, :edit, :update, :destroy]
+    resources :books, only: [:index, :create, :show, :edit, :update, :destroy]
+    resources :pages, only: [:index, :create]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

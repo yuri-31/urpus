@@ -1,0 +1,13 @@
+<%= form_with model: @new_page, url: pages_path, method: :post do |f| %>
+<div>
+    <h2>PAGES of: <%= @book.name %></h2>
+    <%= f.text_field :name %>
+    <%= f.submit 'ADD NEW PAGE' %>
+    <div>
+        <% @pages.each do |page| %>
+            <%= link_to page.name %><br>
+        <% end %>
+    </div>
+</div>
+<%= f.hidden_field :book_id, :value => @book.id %>
+<% end %>

@@ -6,20 +6,30 @@
         <%= f.submit 'CREATE' %>
     </div>
     <div>
-        <h2>BOOKS</h2>
+        <h2>BOOKS:</h2>
         <div>
             <% @books.each do |book| %>
-                <%= link_to book.name %><br>
+                <%= link_to book.name, books_path(id: book.id) %><br>
             <% end %>
         </div>
     </div>
     <div>
-        <h2>PAGES</h2>
+        <h2>
+            PAGES of:
+            <% if params[:id] %>
+                <%= @book.name %>
+            <% end %>
+        </h2>
+        <% if params[:id] %>
         <div>
-            
+            <% @pages.each do |page| %>
+                <%= page.name %><br>
+            <% end %>
         </div>
+        <% end %>
     </div>
-
-    <% link_to "GO CHECK THIS BOOK!" %>
+    <% if params[:id] %>
+    <%= link_to "GO CHECK THIS BOOK!", book_path(@book.id) %>
+    <% end %>
 </div>
 <% end %>

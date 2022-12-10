@@ -4,11 +4,12 @@ class Public::BooksController < ApplicationController
         @new_book = Book.new
         @books = current_user.books
         
-        # if params[:book][:id]
-        #     @book = Book.find(params[:id])
-        #     @pages = @book.pages
-        # end
+        if params[:id]
+            @book = Book.find(params[:id])
+            @pages = @book.pages
+        end
     end
+    
     
     def create
         @new_book = Book.new(book_params)
@@ -16,11 +17,21 @@ class Public::BooksController < ApplicationController
         @new_book.save
         redirect_to request.referer
     end
+
+    def show
+        @new_page = Page.new
+        @book = Book.find(params[:id])
+        @pages = @book.pages
+    end
     
     
     private
     def book_params
         params.require(:book).permit(:name)
+    end
+    
+    def page_params
+        params.require(:page).permit(:name)
     end
         
 end
