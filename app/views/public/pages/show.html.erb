@@ -1,0 +1,38 @@
+<%= form_with model: @word, url: words_path, method: :post do |f| %>
+<div>
+    <%= link_to 'Back to the BOOK', book_path(@page.book_id) %>
+    <h2><%= @page.name %></h2>
+    <div>
+        <div>
+            <%= f.label :name, 'word' %><br>
+            <%= f.text_field :name %>
+        </div>
+        <div>
+            <%= f.label :form, 'word form' %><br>
+            <%= f.select :form, Word.forms.keys.to_a, include_blank: "not selected" %>
+        </div>
+        <div>
+            <%= f.label :content, 'meaning' %><br>
+            <%= f.text_area :content %>
+        </div>
+        <div>
+            <%= f.label :sentence, 'example' %><br>
+            <%= f.text_area :sentence %>
+        </div>
+        <%= f.hidden_field :page_id, :value => @page.id %>
+        <%= f.submit 'ADD!' %>
+    </div>
+    <div>
+        <% @words.each do |word| %>
+            <h3><%= word.name %></h3>
+            <p>[<%= word.form %>]</p>
+            <% word.meanings.each do |meaning| %>
+                <p>- <%= meaning.content %></p>
+            <% end %>
+            <% word.examples.each do |example| %>
+                <p><%= example.sentence %></p>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+<% end %>

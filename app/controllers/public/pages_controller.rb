@@ -6,8 +6,19 @@ class Public::PagesController < ApplicationController
         redirect_to request.referer
     end
     
+    def show
+        @word = Word.new
+        @page = Page.find(params[:id])
+        @words = @page.words
+    end
+    
+    
     private
     def page_params
         params.require(:page).permit(:name, :book_id)
     end
+    
+    # def word_params
+    #     params.require(:word).permit(:name)
+    # end
 end

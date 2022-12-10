@@ -5,7 +5,7 @@
     <%= f.submit 'ADD NEW PAGE' %>
     <div>
         <% @pages.each do |page| %>
-            <%= link_to page.name %><br>
+            <%= link_to page.name, page_path(page.id) %><br>
         <% end %>
     </div>
 </div>
