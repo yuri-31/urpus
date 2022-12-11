@@ -25,7 +25,9 @@
     <div>
         <% @words.each do |word| %>
             <h3><%= word.name %></h3>
-            <p>[<%= word.form %>]</p>
+            <% if word.form %>
+                <p>[<%= word.form %>]</p>
+            <% end %>
             <% word.meanings.each do |meaning| %>
                 <p>- <%= meaning.content %></p>
             <% end %>
