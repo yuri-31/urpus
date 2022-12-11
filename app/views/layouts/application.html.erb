@@ -16,7 +16,30 @@
         <div>
           <a><span>LOGO</span></a>
           <div>
-            <% if user_signed_in? %>
+            <% if admin_signed_in? %>
+            <ul>
+              <li>
+                <div>
+                  <%= link_to "NEW POST", root_path %>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <%= link_to "COLUMNS", root_path %>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <%= link_to "USERS", root_path %>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <%= link_to "SIGN OUT", destroy_admin_session_path, method: :delete %>
+                </div>
+              </li>
+            </ul>
+            <% elsif user_signed_in? %>
             <ul>
               <li>
                 <div>
