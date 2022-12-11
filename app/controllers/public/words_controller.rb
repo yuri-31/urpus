@@ -1,5 +1,6 @@
 class Public::WordsController < ApplicationController
     
+# Posting to three columns at a time via public/words#create
     def create
         @word = Word.new(word_params)
         @word.save
@@ -20,7 +21,7 @@ class Public::WordsController < ApplicationController
     
     private
     def word_params
-        params.require(:word).permit(:page_id, :form, :is_learnt, :name)
+        params.require(:word).permit(:page_id, :form, :name)
     end
     
     def meaning_params
