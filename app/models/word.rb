@@ -1,5 +1,6 @@
 class Word < ApplicationRecord
     
+    belongs_to :user
     belongs_to :page
     has_many :meanings
     has_many :examples

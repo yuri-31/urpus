@@ -18,10 +18,14 @@ class Public::WordsController < ApplicationController
         redirect_to request.referer
     end
     
+    def index
+        @words = current_user.words.order("name")
+        
+    end
     
     private
     def word_params
-        params.require(:word).permit(:page_id, :form, :name)
+        params.require(:word).permit(:page_id, :user_id, :form, :name)
     end
     
     def meaning_params

@@ -21,6 +21,7 @@
             <%= f.text_area :sentence %>
         </div>
         <%= f.hidden_field :page_id, :value => @page.id %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.submit 'ADD!' %>
     </div>
     <div>
