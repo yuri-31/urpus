@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
   
+  scope module: 'admin' do
+    resources :topics, only: [:index, :create]
+  end
+  
   
   get '/users/my_page' => 'public/users#show', as: 'my_page'
   get '/users/info/edit' => 'public/users#edit', as: 'edit_user'

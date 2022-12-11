@@ -1,0 +1,13 @@
+<%= form_with model: @topic, url: topics_path, method: :post do |f| %>
+<div>
+    <div>
+        <%= f.text_field :name %>
+        <%= f.submit 'ADD' %>
+    </div>
+    <div>
+        <% @topics.each do |topic| %>
+            <%= topic.name %><br>
+        <% end %>
+    </div>
+</div>
+<% end %> 
