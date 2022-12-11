@@ -1,7 +1,8 @@
 <%= form_with model: @word, url: words_path, method: :post do |f| %>
 <div>
-    <%= link_to 'Back to the BOOK', book_path(@page.book_id) %>
+    <%= link_to 'BACK', book_path(@page.book_id) %>
     <h2><%= @page.name %></h2>
+    <p>(<%= @page.words.count %> words)</p>
     <div>
         <div>
             <%= f.label :name, 'word' %><br>
@@ -28,11 +29,15 @@
             <% if word.form %>
                 <p>[<%= word.form %>]</p>
             <% end %>
-            <% word.meanings.each do |meaning| %>
-                <p>- <%= meaning.content %></p>
+            <% if word.meanings %>
+                <% word.meanings.each do |meaning| %>
+                    <p><%= meaning.content %></p>
+                <% end %>
             <% end %>
-            <% word.examples.each do |example| %>
-                <p><%= example.sentence %></p>
+            <% if word.examples %>
+                <% word.examples.each do |example| %>
+                    <p><%= example.sentence %></p>
+                <% end %>
             <% end %>
         <% end %>
     </div>
