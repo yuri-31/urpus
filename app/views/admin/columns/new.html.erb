@@ -1,0 +1,27 @@
+<%= form_with model: @column, url: admin_columns_path, method: :post do |f| %>
+<div>
+    <div>
+        
+        <%= f.label :title, 'TITLE:' %>
+        <%= f.text_field :title %>
+        <%= f.label :topic_id, 'TOPIC:' %>
+        <%= f.collection_select :topic_id, Topic.all.order(created_at: :desc), :id, :name, include_blank: "not selected" %><br>
+        <%= f.text_area :article %><br>
+        <%= f.label :writer, 'WRITER:' %>
+        <%= f.text_field :writer %><br>
+        <%= f.radio_button :is_public, true %>
+        <%= f.label :is_public, 'PUBLIC', value: true %>
+        <%= f.radio_button :is_public, false %>
+        <%= f.label :is_public, 'HIDDEN', value: false %><br>
+        <%= f.submit 'POST' %> 
+    </div>
+    <div>
+        <h2>TOPICS</h2>
+        <ul>
+            <% @topics.each do |topic| %>
+                <li><%= topic.name %></li><br>
+            <% end %>
+        </ul>
+    </div>
+</div>
+<% end %>

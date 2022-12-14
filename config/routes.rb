@@ -13,8 +13,9 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
   
-  scope module: 'admin' do
+  namespace :admin do
     resources :topics, only: [:index, :create]
+    resources :columns, only: [:new, :create, :edit]
   end
   
   
