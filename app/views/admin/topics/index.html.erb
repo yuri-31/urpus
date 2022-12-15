@@ -1,13 +1,20 @@
-<%= form_with model: @topic, url: admin_topics_path, method: :post do |f| %>
 <div>
     <div>
-        <%= f.text_field :name %>
-        <%= f.submit 'ADD' %>
+        <h2>TOPICS</h2>
+        <ul>
+            <% @topics.each do |topic| %>
+                <li><%= topic.name %> (<%= topic.columns.count %>)</li><br>
+            <% end %>
+        </ul>
     </div>
+    <% @columns.each do |column| %>
     <div>
-        <% @topics.each do |topic| %>
-            <%= topic.name %><br>
-        <% end %>
+        <h1><%= column.title %></h1>
+        <div>
+            <%= column.article %>
+        </div>
+        <p>Written by: <%= column.writer %></p>
     </div>
+    <% end %>
 </div>
-<% end %> 
+ 
