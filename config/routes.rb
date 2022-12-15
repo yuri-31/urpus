@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :topics, only: [:index, :create]
     resources :columns, only: [:new, :create, :edit]
+    resources :users, only: [:index, :edit, :update]
   end
   
   
