@@ -2,6 +2,7 @@ class Admin::ColumnsController < ApplicationController
     def new
         @column = Column.new
         @topics = current_admin.topics
+        @topic = Topic.new
     end
     
     def create
