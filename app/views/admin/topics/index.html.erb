@@ -10,6 +10,15 @@
     <% @columns.each do |column| %>
     <div>
         <h1><%= column.title %></h1>
+        <%= form_with model: column, url: update_column_status_path(column.id), method: :patch do |f| %>
+            <% if column.is_public == true %>
+                <%= f.hidden_field :is_public, :value => false %>
+                <%= f.submit 'PUBLIC' %>
+            <% elsif column.is_public == false %>
+                <%= f.hidden_field :is_public, :value => true %>
+                <%= f.submit 'HIDDEN' %>
+            <% end %>
+        <% end %>
         <div>
             <%= column.article %>
         </div>

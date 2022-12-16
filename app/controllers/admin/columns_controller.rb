@@ -14,9 +14,17 @@ class Admin::ColumnsController < ApplicationController
     def edit
     end
     
+    def update_status
+        column = Column.find(params[:id])
+        column.update(column_status_params)
+        redirect_to request.referer
+    end
     
     private
     def column_params
         params.require(:column).permit(:title, :topic_id, :article, :writer, :is_public)
+    end
+    def column_status_params
+        params.require(:column).permit(:is_public)
     end
 end
