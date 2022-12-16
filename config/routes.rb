@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :books, only: [:index, :create, :show, :edit, :update, :destroy]
     resources :pages, only: [:create, :show]
     resources :words, only: [:create, :index]
+    resources :topics, only: [:index]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,21 @@
+<div>
+    <div>
+        <h2>TOPICS</h2>
+        <ul>
+            <% @topics.each do |topic| %>
+                <li><%= topic.name %> (<%= topic.columns.where(is_public: true).count %>)</li><br>
+            <% end %>
+        </ul>
+    </div>
+    <% @columns.each do |column| %>
+    <div>
+        <h1><%= column.title %></h1>
+        <%= link_to column.topic.name, root_path %>
+        <div>
+            <%= column.article %>
+        </div>
+        <p>Written by: <%= column.writer %></p>
+    </div>
+    <% end %>
+</div>
+ 
