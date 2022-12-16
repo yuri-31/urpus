@@ -1,11 +1,5 @@
 class Admin::TopicsController < ApplicationController
     
-    def index
-        @topic = Topic.new
-        @topics = current_admin.topics
-        @columns = Column.all
-    end
-    
     def create
         @topic = Topic.new(topic_params)
         @topic.admin_id = current_admin.id
