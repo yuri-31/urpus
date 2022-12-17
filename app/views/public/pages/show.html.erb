@@ -26,7 +26,7 @@
     </div>
     <div>
         <% @words.each do |word| %>
-            <h3><%= word.name %></h3>
+            <h3><%= link_to word.name, edit_word_path(word.id) %></h3>
             <% if word.form %>
                 <p>[<%= word.form %>]</p>
             <% end %>

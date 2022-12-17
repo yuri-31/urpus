@@ -20,7 +20,14 @@ class Public::WordsController < ApplicationController
     
     def index
         @words = current_user.words.order("name")
-        
+    end
+    
+    def edit
+        @word = Word.find(params[:id])
+        @meaning = Meaning.new
+        @meanings = @word.meanings
+        @example = Example.new
+        @examples = @word.examples
     end
     
     private
