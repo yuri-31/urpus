@@ -8,6 +8,8 @@ class Public::PagesController < ApplicationController
     
     def show
         @word = Word.new
+        @meanings = @word.meanings.build
+        @examples = @word.examples.build
         @page = Page.find(params[:id])
         @words = @page.words
     end

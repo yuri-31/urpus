@@ -13,12 +13,18 @@
             <%= f.select :form, Word.forms.keys.to_a, include_blank: "not selected" %>
         </div>
         <div>
-            <%= f.label :content, 'meaning' %><br>
-            <%= f.text_area :content %>
+            <%= link_to_add_association 'ADD MEANINGS', f, :meanings,
+                data: {association_insertion_method: 'append' } %>
+            <%= f.fields_for :meanings do |meaning| %>
+                <%= render "meaning_fields", f: meaning %>
+            <% end %>
         </div>
         <div>
-            <%= f.label :sentence, 'example' %><br>
-            <%= f.text_area :sentence %>
+            <%= link_to_add_association 'ADD EXAMPLES', f, :examples,
+                data: {association_insertion_method: 'append' } %>
+            <%= f.fields_for :examples do |example| %>
+                <%= render "example_fields", f: example %>
+            <% end %>
         </div>
         <%= f.hidden_field :page_id, :value => @page.id %>
         <%= f.hidden_field :user_id, :value => current_user.id %>

@@ -59,3 +59,6 @@ gem "net-smtp"
 gem "devise"
 
 gem "enum_help"
+
+gem "cocoon"
+gem 'jquery-rails'
