@@ -1,36 +1,32 @@
-
+<%= form_with model: @word, url: word_path(@word.id), method: :patch do |f| %>
 <div>
     <%= link_to 'BACK', page_path(@word.page_id) %>
     <div>
-    <%= form_with model: @word, url: word_path(@word.id), method: :patch do |f| %>
         <h2><%= f.label :name, 'WORD:' %></h2>
         <h2><%= f.text_field :name %></h2>
         <%= f.label :form, 'WORD FORM' %>
         <%= f.select :form, Word.forms.keys.to_a, include_blank: "not selected" %>
-    <% end %>
     </div>
     <div>
         <h2>MEANINGS:</h2>
-    <%= form_with model: @meaning, url: meanings_path, method: :post do |f| %>
-        <%= f.hidden_field :word_id, :value => @word.id %>
-        <%= f.text_field :content %> <%= f.submit 'ADD' %>
-    <% end %>
-    <% @meanings.each do |meaning| %>
-        <%= form_with model: meaning, url: meaning_path(meaning.id), method: :patch do |f| %>
-            <%= f.text_area :content %>
-        <% end %>
-    <% end %>
+        <div>
+            <%= link_to_add_association 'ADD', f, :meanings,
+            data: {association_insertion_method: 'append' } %>
+            <%= f.fields_for :meanings do |meaning| %>
+                <%= render "meaning_fields", f: meaning %>
+            <% end %>
+        </div>
     </div>
     <div>
         <h2>EXAMPLES:</h2>
-    <%= form_with model: @example, url: examples_path, method: :post do |f| %>
-        <%= f.hidden_field :word_id, :value => @word.id %>
-        <%= f.text_field :sentence %> <%= f.submit 'ADD' %>
-    <% end %>
-    <% @examples.each do |example| %>
-        <%= form_with model: example, url: example_path(example.id), method: :patch do |f| %>
-            <%= f.text_area :sentence %><br>
-        <% end %>
-    <% end %>
+        <div>
+            <%= link_to_add_association 'ADD', f, :examples,
+            data: {association_insertion_method: 'append' } %>
+            <%= f.fields_for :examples do |example| %>
+                <%= render "example_fields", f: example %>
+            <% end %>
+        </div>
     </div>
+    <%= f.submit 'UPDATE!' %>
 </div>
+<% end %>

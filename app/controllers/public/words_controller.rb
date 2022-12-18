@@ -28,10 +28,20 @@ class Public::WordsController < ApplicationController
     
     def edit
         @word = Word.find(params[:id])
+        
         @meaning = Meaning.new
         @meanings = @word.meanings
+        @add_meanings = @word.meanings.build
+        
         @example = Example.new
         @examples = @word.examples
+        @add_examples = @word.examples.build
+    end
+    
+    def update
+        @word = Word.find(params[:id])
+        @word.update(word_params)
+        redirect_to page_path(@word.page_id)
     end
     
     private
