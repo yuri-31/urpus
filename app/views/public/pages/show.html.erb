@@ -33,6 +33,18 @@
     <div>
         <% @words.each do |word| %>
             <h3><%= link_to word.name, edit_word_path(word.id) %></h3>
+            <% if word.is_learnt == false %>
+                <%= link_to update_status_path(word.id), method: :patch do %>
+                    <i class="fa-regular fa-circle-check"></i>
+                <% end %>
+            <% elsif word.is_learnt == true %>
+                <%= link_to update_status_path(word.id), method: :patch do %>
+                    <i class="fa-solid fa-circle-check"></i>
+                <% end %>
+            <% end %>
+            <%= link_to word_path(word.id), method: :delete do %>
+                <i class="fa-solid fa-trash-can"></i>
+            <% end %>
             <% if word.form %>
                 <p>[<%= word.form %>]</p>
             <% end %>

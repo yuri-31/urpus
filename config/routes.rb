@@ -25,13 +25,14 @@ Rails.application.routes.draw do
   get '/users/my_page' => 'public/users#show', as: 'my_page'
   get '/users/info/edit' => 'public/users#edit', as: 'edit_user'
   patch '/users/info' => 'public/users#update', as: 'update_user'
-  get 'users/unsubscribe' => 'public/users#unsubscribe', as: 'unsubscribe'
-  patch 'users/withdraw' => 'public/users#withdraw', as: 'withdraw'
+  get '/users/unsubscribe' => 'public/users#unsubscribe', as: 'unsubscribe'
+  patch '/users/withdraw' => 'public/users#withdraw', as: 'withdraw'
+  patch '/words/:id' => 'public/words#update_status', as: 'update_status'
   
   scope module: 'public' do
     resources :books, only: [:index, :create, :show, :edit, :update, :destroy]
     resources :pages, only: [:create, :show]
-    resources :words, only: [:create, :index, :edit, :update]
+    resources :words, only: [:create, :index, :edit, :update, :destroy]
     resources :topics, only: [:index]
     resources :meanings, only: [:update, :create]
     resources :examples, only: [:update, :create]

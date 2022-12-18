@@ -44,6 +44,19 @@ class Public::WordsController < ApplicationController
         redirect_to page_path(@word.page_id)
     end
     
+    def update_status
+        @word = Word.find(params[:id])
+        @word.is_learnt = !@word.is_learnt
+        @word.save
+        redirect_to request.referer
+    end
+    
+    def destroy
+        word = Word.find(params[:id])
+        word.destroy
+        redirect_to request.referer
+    end
+    
     private
     def word_params
         params.require(:word).permit(:page_id, :user_id, :form, :name, meanings_attributes:[:id, :content, :_destroy], examples_attributes:[:id, :sentence, :_destroy])
