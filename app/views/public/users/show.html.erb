@@ -1,17 +1,25 @@
-<div>
+<div class="col-4 mx-auto mt-5">
     <div>
-        <h2>MY PAGE</h2>
+        <h2 class="mb-4">MY PAGE</h2>
     </div>
     <div>
-        <p>NICKNAME: <%= @user.nickname %></p>
+        <table class="col-10 mx-auto">
+            <tbody>
+                <tr>
+                    <th>NICKNAME:</th>
+                    <td class="text-right"><%= @user.nickname %></td>
+                </tr>
+                <tr>
+                    <th>lOGIN ID:</th>
+                    <td class="text-right">@<%= @user.login_id %></td>
+                </tr>
+                <tr>
+                    <th>NOTE:</th>
+                    <td class="text-right"><%= @user.note %></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div>
-        <p>lOGIN ID: @<%= @user.login_id %></p>
-    <div>
-        <p>NOTE: <%= @user.note %></p>
-    </div>
-    <div>
-        <%= link_to "EDIT", edit_user_path %>
-        <%= link_to "LOG OUT", destroy_user_session_path, method: :delete %>
-    </div>
+    <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: 'col-12 mt-4 btn btn-blue' %>
+    <%= link_to "DELETE ACCOUNT", root_path, class: 'col-12 mt-3 btn btn-light' %>
 </div>

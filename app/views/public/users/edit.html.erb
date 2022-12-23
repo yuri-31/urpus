@@ -1,27 +1,27 @@
 <%= form_with model: @user, url: update_user_path, method: :patch do |f| %>
-<div>
-    <h2>USER INFO</h2>
-    <table>
+<div class="col-4 mx-auto mt-5">
+    <h2 class="mb-4">USER INFO</h2>
+    <table class="col-12">
         <tbody>
             <tr>
                 <th><%= f.label :nickname, "NICKNAME:"%></th>
-                <td><%= f.text_field :nickname %></td>
+                <td><%= f.text_field :nickname, class: 'col-12 fields' %></td>
             </tr>
             <tr>
                 <th><%= f.label :login_id, "LOGIN ID:" %></th>
-                <td><%= f.text_field :login_id %></td>
+                <td><%= f.text_field :login_id, class: 'col-12 fields' %></td>
             </tr>
             <tr>
                 <th><%= f.label :note, "NOTE:" %></th>
-                <td><%= f.text_field :note %></td>
+                <td><%= f.text_field :note, class: 'col-12 fields' %></td>
             </tr>
             <tr>
                 <th><%= f.label :email, "EMAIL:" %></th>
-                <td><%= f.text_field :email %></td>
+                <td><%= f.text_field :email, class: 'col-12 fields' %></td>
             </tr>
         </tbody>
     </table>
-    <%= f.submit "UPDATE" %><br>
-    <%= link_to "DELETE ACCOUNT", unsubscribe_path %>
+    <%= f.submit "UPDATE", class: 'col-12 btn btn-blue mt-4' %><br>
+    <%= link_to "DELETE ACCOUNT", unsubscribe_path, class: 'col-12 btn btn-light mt-2' %>
 </div>
 <% end %>

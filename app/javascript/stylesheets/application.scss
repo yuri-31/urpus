@@ -1,2 +1,49 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #91B6E6;
+    color: white;
+}
+
+main {
+    width: 100%;
+    min-height: 540px;
+}
+
+.container {
+    margin: 0px auto;
+}
+
+.btn {
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.fields {
+    background-color: white;
+    color: #91B6E6;
+    border-radius: 5px;
+    border: none;
+}
+
+th {
+    font-weight: normal;
+    padding-right: 20px;
+}
+
+td {
+    
+}
+
+.btn-light {
+    color: #91B6E6;
+}
+
+.btn-blue {
+    background-color: #4D72A2;
+    color: white;
+}

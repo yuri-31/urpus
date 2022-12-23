@@ -1,12 +1,16 @@
 <%= form_with model: @user, url: withdraw_path, method: :patch do |f| %>
-<div>
-    <h1>ARE YOU SURE?</h1>
+<div class="col-4 mx-auto mt-5">
+    <h1 class="mb-4">ARE YOU SURE?</h1>
     <p>
         Once you delete your account,<br>
         you will immediately lose access to your account<br>
         or any information you have registered.
     </p>
-    <%= link_to "NOT GONNA DO THIS", root_path %>
-    <%= f.submit "DELETE ACCOUNT" %>
+    <div>
+        <%= link_to "NOT GONNA DO THIS", root_path, class: 'col-12 mt-4 btn btn-blue' %>
+    </div>
+    <div>
+        <%= f.submit "DELETE ACCOUNT", class: 'col-12 mt-3 btn btn-light' %>
+    </div>
 </div>
 <% end %>

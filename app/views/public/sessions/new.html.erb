@@ -1,20 +1,22 @@
-<h2>LOG IN</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, "EMAIL" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "PASSWORD" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit "LOG IN" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+<div class="col-3 mx-auto  mt-5">
+  <h2>LOG IN</h2>
+  
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email, "EMAIL" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'col-12 mb-3 fields' %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :password, "PASSWORD" %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class: 'col-12 fields' %>
+    </div>
+  
+  
+    <div class="actions text-center">
+      <%= f.submit "LOG IN", class: 'btn btn-light mt-4' %>
+    </div>
+  <% end %>
+  
+  <%= render "public/shared/links" %>
+</div>

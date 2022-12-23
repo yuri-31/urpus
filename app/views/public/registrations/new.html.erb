@@ -1,46 +1,50 @@
-<h2>SIGN UP</h2>
+<div class="col-5 mx-auto mt-5">
+  
+  <h2>SIGN UP</h2>
+  
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "public/shared/error_messages", resource: resource %>
+  
+  
+  <table>
+    <tbody>
+      <tr>
+        <th><%= f.label :nickname, "NICKNAME" %></th>
+        <td><%= f.text_field :nickname, autofocus: true, class:'col-12 fields' %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :login_id, "LOGIN ID" %></th>
+        <td><%= f.text_field :login_id, class:'col-12 fields' %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :note, "NOTE" %></th>
+        <td><%= f.text_field :note, class:'col-12 fields' %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :email, "EMAIL" %></th>
+        <td><%= f.email_field :email, autocomplete: "email", class:'col-12 fields' %></td>
+      </tr>
+      <tr>
+        <th>
+          <%= f.label :password, "PASSWORD" %>
+          <% if @minimum_password_length %>
+          <p>(<%= @minimum_password_length %> CHARACTERS MINIMUM)</p>
+          <% end %>
+        </th>
+        <td><%= f.password_field :password, autocomplete: "new-password", class:'col-12 fields' %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :password_confirmation, "PASSWORD CONFIRMATION" %></th>
+        <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class:'col-12 fields' %></td>
+      </tr>
+      <tr>
+        <th colspan="1"></th>
+        <td><%= f.submit "SIGN UP", class: 'btn btn-light mt-4' %></td>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>
+  
+  <%= render "public/shared/links" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-
-
-<table>
-  <tbody>
-    <tr>
-      <th><%= f.label :nickname, "NICKNAME" %></th>
-      <td><%= f.text_field :nickname, autofocus: true %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :login_id, "LOGIN ID" %></th>
-      <td><%= f.text_field :login_id %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :note, "NOTE" %></th>
-      <td><%= f.text_field :note %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :email, "EMAIL" %></th>
-      <td><%= f.email_field :email, autocomplete: "email" %></td>
-    </tr>
-    <tr>
-      <th>
-        <%= f.label :password, "PASSWORD" %><br>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> CHARACTERS MINIMUM)</em>
-        <% end %>
-      </th>
-      <td><%= f.password_field :password, autocomplete: "new-password" %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :password_confirmation, "PASSWORD CONFIRMATION" %></th>
-      <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-    </tr>
-    <tr>
-      <th colspan="1"></th>
-      <td><%= f.submit "SIGN UP" %></td>
-    </tr>
-  </tbody>
-</table>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>
