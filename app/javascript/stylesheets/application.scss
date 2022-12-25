@@ -5,6 +5,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    // color: #274D7E;
+}
+
+
+header {
     background-color: #91B6E6;
     color: white;
 }
@@ -12,10 +17,21 @@
 main {
     width: 100%;
     min-height: 540px;
+    background-color: #91B6E6;
+    color: white;
+}
+
+footer {
+    background-color: #91B6E6;
+    color: white;
 }
 
 .container {
     margin: 0px auto;
+}
+
+.links {
+    text-decoration: none;
 }
 
 .btn {
@@ -46,4 +62,64 @@ td {
 .btn-blue {
     background-color: #4D72A2;
     color: white;
+}
+
+.btn-navy {
+    background-color: #274D7E;
+    color: white;
+}
+
+.book-title {
+    color: #274D7E;
+}
+
+.page-title {
+    color: #4D72A2;
+}
+
+.new-word-container {
+    background-color: white;
+    padding: 10px;
+    color: #274D7E;
+    border-radius: 10px;
+}
+
+.word-field {
+    background-color: white;
+    color: #274D7E;
+    border-radius: 5px;
+}
+
+.fa-circle-check {
+    color: #14FE3B;
+}
+
+.cross {
+    width: 45px;
+    height: 45px;
+}
+
+.index {
+    color: #274D7E;
+    background-color: white;
+    border-radius: 3px;
+    padding-left: 8px;
+    margin-top: 3px;
+}
+
+.column-container {
+    color: #274D7E;
+    background-color: white;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.topic-tag {
+    // background-color: #4D72A2;
+}
+
+.topic-sidebar {
+    border: solid white 4px;
+    border-radius: 8px;
+    padding: 12px;
 }

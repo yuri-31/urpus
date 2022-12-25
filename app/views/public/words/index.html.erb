@@ -1,165 +1,177 @@
-<div>
-    <h2>DICTIONARY INDEX:</h2>
-    <div>
-        <%= form_tag do %>
-            <%= text_field_tag :search %>
-            <%= submit_tag 'SEARCH' %>
-        <% end %>
+<div class="container mt-4">
+    <div class="d-flex">
+        <h2 class="mr-3">DICTIONARY INDEX:</h2>
+        <div class="ml-auto">
+            <%= form_tag do %>
+                <%= text_field_tag :search %>
+                <%= submit_tag 'SEARCH', class: 'btn btn-blue' %>
+            <% end %>
+        </div>
     </div>
-    <h3>-A</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('A', 'a') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-B</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('B', 'b') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-C</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('C', 'c') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-D</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('D', 'd') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-E</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('E', 'e') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-F</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('F', 'f') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-G</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('G', 'g') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-H</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('H', 'h') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-I</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('I', 'i') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-J</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('J', 'j') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-K</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('K', 'k') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-L</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('L', 'l') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-M</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('M', 'm') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-N</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('N', 'n') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-O</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('O', 'o') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-P</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('P', 'p') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-Q</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('Q', 'q') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-R</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('R', 'r') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-S</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('S', 's') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-T</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('T', 't') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-U</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('U', 'u') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-V</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('V', 'v') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-W</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('W', 'w') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-S</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('X', 'x') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-Y</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('Y', 'y') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
-    <h3>-Z</h3>
-    <% @words.each do |word| %>
-        <% if word.name.start_with?('Z', 'z') %>
-            <%= word.name %><br>
-        <% end %>
-    <% end %>
+    <div class="row mt-3">
+        <div class="col-3">
+            <h3 class="index">- A</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('A', 'a') %>
+                    <%= word.name %>
+                <% end %>
+            <% end %>
+            <h3 class="index">- B</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('B', 'b') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- C</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('C', 'c') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- D</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('D', 'd') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- E</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('E', 'e') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- F</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('F', 'f') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="col-3">
+            <h3 class="index">- G</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('G', 'g') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- H</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('H', 'h') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- I</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('I', 'i') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- J</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('J', 'j') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- K</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('K', 'k') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- L</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('L', 'l') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="col-3">
+            <h3 class="index">- M</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('M', 'm') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- N</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('N', 'n') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- O</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('O', 'o') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- P</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('P', 'p') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- Q</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('Q', 'q') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- R</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('R', 'r') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- S</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('S', 's') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- T</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('T', 't') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="col-3">
+            <h3 class="index">- U</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('U', 'u') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- V</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('V', 'v') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- W</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('W', 'w') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- S</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('X', 'x') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- Y</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('Y', 'y') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+            <h3 class="index">- Z</h3>
+            <% @words.each do |word| %>
+                <% if word.name.start_with?('Z', 'z') %>
+                    <%= word.name %><br>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
 </div>

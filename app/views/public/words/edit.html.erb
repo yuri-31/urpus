@@ -1,32 +1,36 @@
 <%= form_with model: @word, url: word_path(@word.id), method: :patch do |f| %>
-<div>
-    <%= link_to 'BACK', page_path(@word.page_id) %>
-    <div>
-        <h2><%= f.label :name, 'WORD:' %></h2>
-        <h2><%= f.text_field :name %></h2>
-        <%= f.label :form, 'WORD FORM' %>
+<div class="container col-9 mx-auto mt-4">
+    <div class="d-flex">
+        <%= link_to 'BACK', page_path(@word.page_id), class: 'btn btn-light mr-3' %>
+        <h2><%= f.label :name, 'WORD:', class: 'mr-3' %></h2>
+        <%= f.text_field :name, class: 'word-field mr-4' %>
+        <h2><%= f.label :form, 'WORD FORM:', class: 'mr-3' %></h2>
         <%= f.select :form, Word.forms.keys.to_a, include_blank: "not selected" %>
     </div>
-    <div>
-        <h2>MEANINGS:</h2>
-        <div>
-            <%= link_to_add_association 'ADD', f, :meanings,
-            data: {association_insertion_method: 'append' } %>
-            <%= f.fields_for :meanings do |meaning| %>
-                <%= render "meaning_fields", f: meaning %>
-            <% end %>
+    <div class="row mt-5 justify-content-between">
+        <div class="col-6">
+            <h2>MEANINGS:</h2>
+            <div>
+                <%= link_to_add_association 'ADD', f, :meanings,
+                data: {association_insertion_method: 'append' } %>
+                <%= f.fields_for :meanings do |meaning| %>
+                    <%= render "meaning_fields", f: meaning %>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-6">
+            <h2>EXAMPLES:</h2>
+            <div>
+                <%= link_to_add_association 'ADD', f, :examples,
+                data: {association_insertion_method: 'append' } %>
+                <%= f.fields_for :examples do |example| %>
+                    <%= render "example_fields", f: example %>
+                <% end %>
+            </div>
         </div>
     </div>
-    <div>
-        <h2>EXAMPLES:</h2>
-        <div>
-            <%= link_to_add_association 'ADD', f, :examples,
-            data: {association_insertion_method: 'append' } %>
-            <%= f.fields_for :examples do |example| %>
-                <%= render "example_fields", f: example %>
-            <% end %>
-        </div>
+    <div class="col-4 mt-4 mx-auto">
+        <%= f.submit 'UPDATE!', class: 'col-12 btn btn-blue' %>
     </div>
-    <%= f.submit 'UPDATE!' %>
 </div>
 <% end %>

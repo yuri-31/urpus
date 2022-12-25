@@ -1,11 +1,13 @@
 <%= form_with model: @new_page, url: pages_path, method: :post do |f| %>
-<div>
-    <h2>PAGES of: <%= @book.name %></h2>
-    <%= f.text_field :name %>
-    <%= f.submit 'ADD NEW PAGE' %>
-    <div>
+<div class="container mt-4">
+    <div class="d-flex mb-5">
+        <h2 class="mr-5">PAGES of: <strong class="book-title ml-2"><%= @book.name %></strong></h2>
+        <%= f.text_field :name, class: 'col-4 mr-3 fields' %>
+        <%= f.submit 'ADD NEW PAGE', class: 'btn btn-light' %>
+    </div>
+    <div class="col-10 mx-auto d-flex flex-wrap justify-content-between">
         <% @pages.each do |page| %>
-            <%= link_to page.name, page_path(page.id) %><br>
+            <%= link_to page.name, page_path(page.id), class: 'col-5 mb-2 btn btn-blue' %><br>
         <% end %>
     </div>
 </div>

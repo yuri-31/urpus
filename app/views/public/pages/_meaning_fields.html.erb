@@ -1,5 +1,4 @@
-<div class="nested-fields">
-  <%= f.label :content, "meaning" %>
-  <%= f.text_field :content %>
+<div class="nested-fields text-right">
   <%= link_to_remove_association "delete", f %>
+  <%= f.text_area :content, class: 'col-12 mb-2' %>
 </div>

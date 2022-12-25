@@ -1,21 +1,36 @@
-<div>
-    <div>
-        <h2>TOPICS</h2>
-        <ul>
-            <% @topics.each do |topic| %>
-                <li><%= topic.name %> (<%= topic.columns.where(is_public: true).count %>)</li><br>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-9">
+            <% @columns.each do |column| %>
+            <div class="column-container">
+                <div class="d-flex">
+                    <h1><%= column.title %></h1>
+                    <div class="ml-auto topic-tag">
+                        <i class="fa-sharp fa-solid fa-tag mr-2"></i>
+                        <%= link_to column.topic.name, root_path, class: 'links' %>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <%= column.article %>
+                </div>
+                <div>
+                    <p class="mt-4"><strong class="mr-2">Written by: </strong><%= column.writer %></p>
+                    <p><%= column.updated_at.strftime('%m/%d/%y %H:%M')%></p>
+                </div>
             <% end %>
-        </ul>
-    </div>
-    <% @columns.each do |column| %>
-    <div>
-        <h1><%= column.title %></h1>
-        <%= link_to column.topic.name, root_path %>
-        <div>
-            <%= column.article %>
+            </div>
         </div>
-        <p>Written by: <%= column.writer %></p>
+        <div class="topic-sidebar col-2 ml-auto mr-3">
+            <h3 class="mb-3"><i class="fa-sharp fa-solid fa-tags mr-2"></i>TOPICS</h3>
+            <ul>
+                <% @topics.each do |topic| %>
+                    <%= link_to root_path, method: :get, class: 'col-12 mb-2 btn btn-blue text-light border border-light' do %>
+                        <%= topic.name %>
+                        (<%= topic.columns.where(is_public: true).count %>)
+                    <% end %>
+                <% end %>
+            </ul>
+        </div>
     </div>
-    <% end %>
 </div>
  

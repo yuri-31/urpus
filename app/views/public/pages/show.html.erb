@@ -1,64 +1,74 @@
 <%= form_with model: @word, url: words_path, method: :post do |f| %>
-<div>
-    <%= link_to 'BACK', book_path(@page.book_id) %>
-    <h2><%= @page.name %></h2>
-    <p>(<%= @page.words.count %> words)</p>
-    <div>
-        <div>
-            <%= f.label :name, 'word' %><br>
-            <%= f.text_field :name %>
-        </div>
-        <div>
-            <%= f.label :form, 'word form' %><br>
-            <%= f.select :form, Word.forms.keys.to_a, include_blank: "not selected" %>
-        </div>
-        <div>
-            <%= link_to_add_association 'ADD MEANINGS', f, :meanings,
-                data: {association_insertion_method: 'append' } %>
-            <%= f.fields_for :meanings do |meaning| %>
-                <%= render "meaning_fields", f: meaning %>
-            <% end %>
-        </div>
-        <div>
-            <%= link_to_add_association 'ADD EXAMPLES', f, :examples,
-                data: {association_insertion_method: 'append' } %>
-            <%= f.fields_for :examples do |example| %>
-                <%= render "example_fields", f: example %>
-            <% end %>
-        </div>
-        <%= f.hidden_field :page_id, :value => @page.id %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.submit 'ADD!' %>
+<div class="container mt-3">
+    <div class="d-flex">
+        <%= link_to 'BACK', book_path(@page.book_id), class: 'btn btn-light mr-3' %>
+        <h2 class="book-title mr-3"><strong><%= @page.name %></strong></h2>
+        <p>(<%= @page.words.count %> words)</p>
     </div>
-    <div>
-        <% @words.each do |word| %>
-            <h3><%= link_to word.name, edit_word_path(word.id) %></h3>
-            <% if word.is_learnt == false %>
-                <%= link_to update_status_path(word.id), method: :patch do %>
-                    <i class="fa-regular fa-circle-check"></i>
+    <div class="row mx-auto mt-2">
+        <div class="col-8">
+            <% @words.each do |word| %>
+            <div class="d-flex mt-4">
+                <h2 class="mr-3"><%= link_to word.name, edit_word_path(word.id), class: 'links' %></h2>
+                <% if word.form %>
+                    <p class="mr-3">[<%= word.form %>]</p>
                 <% end %>
-            <% elsif word.is_learnt == true %>
-                <%= link_to update_status_path(word.id), method: :patch do %>
-                    <i class="fa-solid fa-circle-check"></i>
+                <% if word.is_learnt == false %>
+                    <%= link_to update_status_path(word.id), method: :patch do %>
+                        <i class="fa-regular fa-circle-check mr-2"></i>
+                    <% end %>
+                <% elsif word.is_learnt == true %>
+                    <%= link_to update_status_path(word.id), method: :patch do %>
+                        <i class="fa-solid fa-circle-check mr-2"></i>
+                    <% end %>
+                <% end %>
+                <%= link_to word_path(word.id), method: :delete do %>
+                    <i class="fa-solid fa-trash-can"></i>
+                <% end %>
+            </div>
+                <% if word.meanings %>
+                    <% word.meanings.each do |meaning| %>
+                        <p><%= meaning.content %></p>
+                    <% end %>
+                <% end %>
+                <% if word.examples %>
+                    <% word.examples.each do |example| %>
+                        <p><%= example.sentence %></p>
+                    <% end %>
                 <% end %>
             <% end %>
-            <%= link_to word_path(word.id), method: :delete do %>
-                <i class="fa-solid fa-trash-can"></i>
-            <% end %>
-            <% if word.form %>
-                <p>[<%= word.form %>]</p>
-            <% end %>
-            <% if word.meanings %>
-                <% word.meanings.each do |meaning| %>
-                    <p><%= meaning.content %></p>
-                <% end %>
-            <% end %>
-            <% if word.examples %>
-                <% word.examples.each do |example| %>
-                    <p><%= example.sentence %></p>
-                <% end %>
-            <% end %>
-        <% end %>
+        </div>
+        <div class="col-3 ml-auto">
+            <div class="new-word-container">
+                <div>
+                    <%= f.label :name, 'WORD', class: 'text-secondary' %><br>
+                    <%= f.text_field :name, class: 'col-12 word-field' %>
+                </div>
+                <div>
+                    <%= f.label :form, 'WORD FORM', class: 'mt-2 text-secondary' %><br>
+                    <span class="text-secondary"><%= f.select :form, Word.forms.keys.to_a, include_blank: "not selected" %></span>
+                </div>
+                <div class="mt-3">
+                    <%= link_to_add_association '+ ADD MEANINGS', f, :meanings,
+                        data: {association_insertion_method: 'append' }, class: 'links text-secondary' %>
+                    <%= f.fields_for :meanings do |meaning| %>
+                        <%= render "meaning_fields", f: meaning %>
+                    <% end %>
+                </div>
+                <div>
+                    <%= link_to_add_association '+ ADD EXAMPLES', f, :examples,
+                        data: {association_insertion_method: 'append' }, class: 'links text-secondary' %>
+                    <%= f.fields_for :examples do |example| %>
+                        <%= render "example_fields", f: example %>
+                    <% end %>
+                </div>
+                <%= f.hidden_field :page_id, :value => @page.id %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <div class="text-center">
+                    <%= f.submit 'ADD!', class: 'col-4 mt-3 btn btn-navy' %>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <% end %>
