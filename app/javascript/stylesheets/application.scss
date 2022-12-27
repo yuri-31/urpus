@@ -41,7 +41,8 @@ footer {
 
 .fields {
     background-color: white;
-    color: #91B6E6;
+    color: #274D7E;
+    text-align: center;
     border-radius: 5px;
     border: none;
 }
@@ -110,7 +111,7 @@ td {
 .column-container {
     color: #274D7E;
     background-color: white;
-    padding: 16px;
+    padding: 20px;
     border-radius: 8px;
 }
 
@@ -122,4 +123,16 @@ td {
     border: solid white 4px;
     border-radius: 8px;
     padding: 12px;
+}
+
+.fa-gear {
+    font-size: 24px;
+}
+
+.fa-circle-plus {
+    font-size: 24px;
+}
+
+.column-field {
+    height: 200px;
 }

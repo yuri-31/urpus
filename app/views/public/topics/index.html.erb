@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-9">
             <% @columns.each do |column| %>
-            <div class="column-container">
+            <div class="column-container mb-5">
                 <div class="d-flex">
                     <h1><%= column.title %></h1>
                     <div class="ml-auto topic-tag">
@@ -17,19 +17,21 @@
                     <p class="mt-4"><strong class="mr-2">Written by: </strong><%= column.writer %></p>
                     <p><%= column.updated_at.strftime('%m/%d/%y %H:%M')%></p>
                 </div>
-            <% end %>
             </div>
+            <% end %>
         </div>
-        <div class="topic-sidebar col-2 ml-auto mr-3">
-            <h3 class="mb-3"><i class="fa-sharp fa-solid fa-tags mr-2"></i>TOPICS</h3>
-            <ul>
-                <% @topics.each do |topic| %>
-                    <%= link_to root_path, method: :get, class: 'col-12 mb-2 btn btn-blue text-light border border-light' do %>
-                        <%= topic.name %>
-                        (<%= topic.columns.where(is_public: true).count %>)
+        <div class="col-3">
+            <div class="col-10 topic-sidebar ml-auto">
+                <h3 class="mb-3"><i class="fa-sharp fa-solid fa-tags mr-2"></i>TOPICS</h3>
+                <ul>
+                    <% @topics.each do |topic| %>
+                        <%= link_to root_path, method: :get, class: 'col-12 mb-2 btn btn-blue text-light border border-light' do %>
+                            <%= topic.name %>
+                            (<%= topic.columns.where(is_public: true).count %>)
+                        <% end %>
                     <% end %>
-                <% end %>
-            </ul>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

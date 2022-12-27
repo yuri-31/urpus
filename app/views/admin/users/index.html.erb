@@ -1,14 +1,14 @@
-<div>
-    <h2>USERS:</h2>
+<div class="col-6 mx-auto mt-5 border-top border-light pt-4">
+    <h2 class="mb-4">USERS :</h2>
     <div>
-        <table>
+        <table class="table table-borderless text-light">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>NICKNAME</th>
-                    <th>LOG IN ID</th>
-                    <th>EMAIL</th>
-                    <th>STATUS</th>
+                    <th><strong>ID</strong></th>
+                    <th><strong>NICKNAME</strong></th>
+                    <th><strong>LOG IN ID</strong></th>
+                    <th><strong>EMAIL</strong></th>
+                    <th><strong>STATUS</strong></th>
                 </tr>
             </thead>
             <tbody>
@@ -22,16 +22,15 @@
                             <%= form_with model: user, url: admin_user_path(user.id), method: :patch do |f| %>
                                 <% if user.is_deleted == false %>
                                     <%= f.hidden_field :is_deleted, :value => true %>
-                                    <%= f.submit 'ACTIVE' %>
+                                    <%= f.submit 'ACTIVE', class: 'btn btn-blue' %>
                                 <% elsif user.is_deleted == true %>
                                     <%= f.hidden_field :is_deleted, :value => false %>
-                                    <%= f.submit 'DELETED' %>
+                                    <%= f.submit 'DELETED', class: 'btn btn-secondary' %>
                                 <% end %>
                             <% end %>
                         </td>
                     <% end %>
                 </tr>
-                
             </tbody>
         </table>
     </div>

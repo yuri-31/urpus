@@ -1,29 +1,51 @@
-<div>
-    <div>
-        <h2>TOPICS</h2>
-        <ul>
-            <% @topics.each do |topic| %>
-                <li><%= topic.name %> (<%= topic.columns.count %>)</li><br>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-9">
+            <% @columns.each do |column| %>
+            <div class="column-container mb-5">
+                <div class="d-flex">
+                    <h1 class="mr-4"><%= column.title %></h1>
+                    <div class="topic-tag">
+                        <i class="fa-sharp fa-solid fa-tag mr-2"></i>
+                        <%= link_to column.topic.name, root_path, class: 'links' %>
+                    </div>
+                    <div class="ml-auto">
+                        <%= form_with model: column, url: update_column_status_path(column.id), method: :patch do |f| %>
+                            <% if column.is_public == true %>
+                                <%= f.hidden_field :is_public, :value => false %>
+                                <%= f.submit 'PUBLIC', class: 'btn btn-navy' %>
+                            <% elsif column.is_public == false %>
+                                <%= f.hidden_field :is_public, :value => true %>
+                                <%= f.submit 'HIDDEN', class: 'btn btn-secondary' %>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <%= column.article %>
+                </div>
+                <div>
+                    <p class="mt-4"><strong class="mr-2">Written by: </strong><%= column.writer %></p>
+                    <div class="d-flex ml-auto">
+                        <p class="mr-2"><strong>Created at: </strong><%= column.created_at.strftime('%m/%d/%y %H:%M')%></p>
+                        <p><strong>Updated at: </strong><%= column.updated_at.strftime('%m/%d/%y %H:%M')%></p>
+                    </div>
+                </div>
+            </div>
             <% end %>
-        </ul>
-    </div>
-    <% @columns.each do |column| %>
-    <div>
-        <h1><%= column.title %></h1>
-        <%= form_with model: column, url: update_column_status_path(column.id), method: :patch do |f| %>
-            <% if column.is_public == true %>
-                <%= f.hidden_field :is_public, :value => false %>
-                <%= f.submit 'PUBLIC' %>
-            <% elsif column.is_public == false %>
-                <%= f.hidden_field :is_public, :value => true %>
-                <%= f.submit 'HIDDEN' %>
-            <% end %>
-        <% end %>
-        <div>
-            <%= column.article %>
         </div>
-        <p>Written by: <%= column.writer %></p>
+        <div class="col-3">
+            <div class="col-10 topic-sidebar ml-auto">
+                <h3 class="mb-3"><i class="fa-sharp fa-solid fa-tags mr-2"></i>TOPICS</h3>
+                <ul>
+                    <% @topics.each do |topic| %>
+                        <%= link_to root_path, method: :get, class: 'col-12 mb-2 btn btn-blue text-light border border-light' do %>
+                            <%= topic.name %> (<%= topic.columns.count %>)
+                        <% end %>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
     </div>
-    <% end %>
 </div>
  
