@@ -24,6 +24,22 @@ class Public::BooksController < ApplicationController
         @pages = @book.pages
     end
     
+    def edit
+        @books = current_user.books
+    end
+    
+    def update
+        book = Book.find(params[:id])
+        book.update(book_params)
+        redirect_to request.referer
+    end
+    
+    def destroy
+        book = Book.find(params[:id])
+        book.destroy
+        redirect_to request.referer
+    end
+    
     
     private
     def book_params

@@ -1,0 +1,15 @@
+<%= link_to '<< BACK', books_path, class: 'btn btn-light mt-3 ml-3' %>
+<div class="col-5 mx-auto">
+    <h2 class="mb-4">Edit BOOKS :</h2>
+    <div>
+        <% @books.each do |book| %>
+            <%= form_with model: book, url: book_path(book.id), method: :patch do |f| %>
+                <h5>
+                    <%= f.text_field :name, class: 'book-field fields' %>
+                    <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
+                    <%= link_to 'DELETE', book_path(book.id), method: :delete, class: 'btn btn-secondary' %>
+                </h5>
+            <% end %>
+        <% end %>
+    </div>
+</div>
