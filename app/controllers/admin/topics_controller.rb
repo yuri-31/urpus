@@ -7,6 +7,21 @@ class Admin::TopicsController < ApplicationController
         redirect_to request.referer
     end
     
+    def edit
+        @topics = Topic.all
+    end
+    
+    def update
+        topic = Topic.find(params[:id])
+        topic.update(topic_params)
+        redirect_to request.referer
+    end
+    
+    def destroy
+        topic = Topic.find(params[:id])
+        topic.destroy
+        redirect_to request.referer
+    end
     
     private
     def topic_params

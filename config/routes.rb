@@ -13,10 +13,11 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
   
+  get '/admin/topics/edit' => 'admin/topics#edit', as: 'edit_topics'
   patch '/admin/column_status/:id' => 'admin/columns#update_status', as: 'update_column_status'
   
   namespace :admin do
-    resources :topics, only: [:index, :create]
+    resources :topics, only: [:index, :create, :update, :destroy]
     resources :columns, only: [:new, :create, :edit, :update]
     resources :users, only: [:index, :edit, :update]
   end

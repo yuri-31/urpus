@@ -1,0 +1,13 @@
+<%= link_to '<< BACK', new_admin_column_path, class: 'btn btn-light mt-2 ml-2' %>
+<div class="col-5 mx-auto">
+    <h2 class="mb-4">Edit TOPICS :</h2>
+    <% @topics.each do |topic| %>
+        <%= form_with model: topic, url: admin_topic_path(topic.id), method: :patch do |f| %>
+            <h5 class="d-flex justify-content-between">
+                <%= f.text_field :name, class: 'topic-field fields' %>
+                <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
+                <%= link_to 'DELETE', admin_topic_path(topic.id), method: :delete, class: 'btn btn-secondary' %>
+            </h5>
+        <% end %>
+    <% end %>
+</div>
