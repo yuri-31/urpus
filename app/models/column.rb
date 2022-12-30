@@ -6,5 +6,5 @@ class Column < ApplicationRecord
     validates :title, presence: true
     validates :article, presence: true
     validates :writer, presence: true
-    validates :is_public, presence: true
+    validates :is_public, inclusion: {in: [true, false]}
 end
