@@ -7,8 +7,15 @@ class Admin::ColumnsController < ApplicationController
     
     def create
         @column = Column.new(column_params)
-        @column.save
-        redirect_to edit_admin_column_path(@column.id)
+        if @column.save
+            flash[:notice] = "You have created book successfully."
+            redirect_to admin_top_path
+        else
+            # @column = Column.new
+            @topics = current_admin.topics
+            @topic = Topic.new
+            render :new
+        end
     end
     
     def edit
@@ -19,8 +26,13 @@ class Admin::ColumnsController < ApplicationController
     
     def update
         @column = Column.find(params[:id])
-        @column.update(column_params)
-        redirect_to admin_top_path
+        if @column.update(column_params)
+            redirect_to admin_top_path
+        else
+            @topic = Topic.new
+            @topics = Topic.all
+            render :edit
+        end
     end
     
     def destroy

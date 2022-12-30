@@ -1,4 +1,24 @@
-<div class="container mt-5">
+<div class="col-11 mx-auto mt-3">
+    <%= render 'public/shared/errors_show', model: @column %>
+</div>
+<div class="col-11 mt-3 ml-5">
+<% if flash[:danger] %>
+    <div class="error-container">
+        <strong class="text-danger">
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <%= flash[:danger] %>
+        </strong>
+    </div>
+<% elsif flash[:success] %>
+    <div class="error-container">
+        <strong class="text-green">
+            <i class="fa-sharp fa-solid fa-circle-check"></i>
+            <%= flash[:success] %>
+        </strong>
+    </div>
+<% end %>
+</div>
+<div class="container mt-4">
     <div class="row">
         <div class="col-9">
             <div class="column-container">
@@ -38,7 +58,7 @@
                 <h3><i class="fa-sharp fa-solid fa-tags mr-2"></i>TOPICS</h3>
                 <div>
                     <%= form_with model: @topic, url: admin_topics_path, method: :post, class: 'row justify-content-center mt-3 mb-3' do |f| %>
-                        <%= f.text_field :name, class: 'col-7 fields text-left' %>
+                        <%= f.text_field :name, class: 'col-7 fields' %>
                         <%= button_tag type: "submit", class: "col-3 btn btn-default" do %>
                             <i class="fa-sharp fa-solid fa-circle-plus ml-auto"></i>
                         <% end %>
@@ -54,8 +74,4 @@
             </div>
         </div>
     </div>
-</div>
-
-<div>
-    
 </div>

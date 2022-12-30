@@ -3,8 +3,13 @@ class Admin::TopicsController < ApplicationController
     def create
         @topic = Topic.new(topic_params)
         @topic.admin_id = current_admin.id
-        @topic.save
-        redirect_to request.referer
+        if @topic.save
+            flash[:success] = "You have successfully created TOPIC."
+            redirect_to request.referer
+        else
+            flash[:danger] = "You failed to create new TOPIC."
+            redirect_to request.referer
+        end
     end
     
     def edit
@@ -13,14 +18,24 @@ class Admin::TopicsController < ApplicationController
     
     def update
         topic = Topic.find(params[:id])
-        topic.update(topic_params)
-        redirect_to request.referer
+        if topic.update(topic_params)
+            @topics = Topic.all
+            flash.now[:success] = "You have successfully updated TOPIC."
+            render :edit
+        else
+            @topics = Topic.all
+            flash.now[:danger] = "You failed to update TOPIC."
+            render :edit
+            # redirect_to template: "admin/columns/edit", locals:{id: params[:id]}
+        end
     end
     
     def destroy
         topic = Topic.find(params[:id])
-        topic.destroy
-        redirect_to request.referer
+        if topic.destroy
+            flash[:notice] = "The TOPIC has been deleted."
+            redirect_to request.referer
+        end
     end
     
     private

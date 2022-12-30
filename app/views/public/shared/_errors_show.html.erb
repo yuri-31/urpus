@@ -1,0 +1,13 @@
+<% if model.errors.any? %>
+    <div class="error-container">
+        <strong class="text-danger">
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <%= pluralize(model.errors.count, "error") %> prohibited this object from being saved:
+        </strong>
+        <ul class="text-navy ml-5">
+            <% model.errors.full_messages.each do |message| %>
+                <li>- <%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>

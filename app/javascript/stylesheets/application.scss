@@ -26,8 +26,22 @@ footer {
     color: white;
 }
 
+ul {
+    list-style: none;
+}
+
 .container {
     margin: 0px auto;
+}
+
+.error-container {
+    padding: 16px;
+    background-color: rgba(39,77,126,0.1);
+}
+
+.flash-container {
+    padding: 8px;
+    background-color: rgba(39,77,126,0.1);
 }
 
 .links {
@@ -70,6 +84,10 @@ td {
     color: white;
 }
 
+.text-navy {
+    color: #274D7E;
+}
+
 .book-title {
     color: #274D7E;
 }
@@ -91,7 +109,7 @@ td {
     border-radius: 5px;
 }
 
-.fa-circle-check {
+.fa-circle-check, .text-green {
     color: #14FE3B;
 }
 
