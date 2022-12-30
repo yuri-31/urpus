@@ -34,7 +34,7 @@
             <h5 class="d-flex justify-content-between">
                 <%= f.text_field :name, class: 'topic-field fields' %>
                 <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
-                <%= link_to 'DELETE', admin_topic_path(topic.id), method: :delete, class: 'btn btn-secondary' %>
+                <%= link_to 'DELETE', admin_topic_path(topic.id), method: :delete, data: {confirm: 'Are you sure you want to delete TOPIC?' }, class: 'btn btn-secondary' %>
             </h5>
         <% end %>
     <% end %>
