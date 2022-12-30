@@ -14,6 +14,22 @@ class Public::PagesController < ApplicationController
         @words = @page.words
     end
     
+    def edit
+        @book = Book.find(params[:id])
+        @pages = @book.pages
+    end
+    
+    def update
+        page = Page.find(params[:id])
+        page.update(page_params)
+        redirect_to request.referer
+    end
+    
+    def destroy
+        page = Page.find(params[:id])
+        page.destroy
+        redirect_to request.referer
+    end
     
     private
     def page_params

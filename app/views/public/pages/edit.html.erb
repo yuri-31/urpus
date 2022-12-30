@@ -1,0 +1,13 @@
+<%= link_to '<< BACK', book_path(@book.id), class: 'btn btn-light mt-2 ml-2' %>
+<div class="col-7 mx-auto">
+    <h2 class="mb-4">Edit PAGES :</h2>
+    <% @pages.each do |page| %>
+        <%= form_with model: page, url: page_path(page.id), method: :patch do |f| %>
+            <h5 class="d-flex justify-content-between">
+                <%= f.text_field :name, class: 'col-7 mr-0 page-field fields' %>
+                <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
+                <%= link_to 'DELETE', page_path(page.id), method: :delete, class: 'btn btn-secondary' %>
+            </h5>
+        <% end %>
+    <% end %>
+</div>

@@ -29,11 +29,12 @@ Rails.application.routes.draw do
   get '/users/unsubscribe' => 'public/users#unsubscribe', as: 'unsubscribe'
   patch '/users/withdraw' => 'public/users#withdraw', as: 'withdraw'
   get '/users/books/edit' => 'public/books#edit', as: 'edit_books'
+  get '/users/pages/edit' => 'public/pages#edit', as: 'edit_pages'
   patch '/words/:id' => 'public/words#update_status', as: 'update_status'
   
   scope module: 'public' do
     resources :books, only: [:index, :create, :show, :update, :destroy]
-    resources :pages, only: [:create, :show]
+    resources :pages, only: [:create, :show, :update, :destroy]
     resources :words, only: [:create, :index, :edit, :update, :destroy]
     resources :topics, only: [:index]
     resources :meanings, only: [:update, :create]
