@@ -12,6 +12,21 @@ class Admin::ColumnsController < ApplicationController
     end
     
     def edit
+        @column = Column.find(params[:id])
+        @topic = Topic.new
+        @topics = Topic.all
+    end
+    
+    def update
+        @column = Column.find(params[:id])
+        @column.update(column_params)
+        redirect_to admin_top_path
+    end
+    
+    def destroy
+        @column = Column.find(params[:id])
+        @column.destroy
+        redirect_to admin_top_path
     end
     
     def update_status

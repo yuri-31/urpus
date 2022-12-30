@@ -4,7 +4,7 @@
             <% @columns.each do |column| %>
             <div class="column-container mb-5">
                 <div class="d-flex">
-                    <h1 class="mr-4"><%= column.title %></h1>
+                    <h1 class="mr-4"><%= link_to column.title, edit_admin_column_path(column.id) %></h1>
                     <div class="topic-tag">
                         <i class="fa-sharp fa-solid fa-tag mr-2"></i>
                         <%= link_to column.topic.name, root_path, class: 'links' %>
