@@ -1,12 +1,36 @@
 <%= link_to '<< BACK', book_path(@book.id), class: 'btn btn-light mt-2 ml-2' %>
-<div class="col-7 mx-auto">
+<div class="col-11 mt-3 ml-5">
+<% if flash[:danger] %>
+    <div class="error-container">
+        <strong class="text-danger">
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <%= flash[:danger] %>
+        </strong>
+    </div>
+<% elsif flash[:success] %>
+    <div class="error-container">
+        <strong class="text-green">
+            <i class="fa-sharp fa-solid fa-circle-check"></i>
+            <%= flash[:success] %>
+        </strong>
+    </div>
+<% elsif flash[:notice] %>
+    <div class="flash-container">
+        <strong class="text-secondary" >
+            <i class="fa-sharp fa-solid fa-bolt-lightning mr-1"></i>
+            <%= flash[:notice] %>
+        </strong>
+    </div>
+<% end %>
+</div>
+<div class="col-7 mx-auto mt-4">
     <h2 class="mb-4">Edit PAGES :</h2>
     <% @pages.each do |page| %>
         <%= form_with model: page, url: page_path(page.id), method: :patch do |f| %>
             <h5 class="d-flex justify-content-between">
                 <%= f.text_field :name, class: 'col-7 mr-0 page-field fields' %>
                 <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
-                <%= link_to 'DELETE', page_path(page.id), method: :delete, class: 'btn btn-secondary' %>
+                <%= link_to 'DELETE', page_path(page.id), method: :delete, data: {confirm: 'Are you sure you want to delete the PAGE?' }, class: 'btn btn-secondary' %>
             </h5>
         <% end %>
     <% end %>

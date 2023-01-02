@@ -1,3 +1,23 @@
+<div class="col-11 mx-auto mt-3">
+    <%= render 'public/shared/errors_show', model: @new_book %>
+</div>
+<div class="col-11 mt-3 ml-5">
+<% if flash[:danger] %>
+    <div class="error-container">
+        <strong class="text-danger">
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <%= flash[:danger] %>
+        </strong>
+    </div>
+<% elsif flash[:success] %>
+    <div class="error-container">
+        <strong class="text-green">
+            <i class="fa-sharp fa-solid fa-circle-check"></i>
+            <%= flash[:success] %>
+        </strong>
+    </div>
+<% end %>
+</div>
 <%= form_with model: @new_book, url: books_path, method: :post do |f| %>
 <div class="container mt-4">
     <div class="d-flex mb-4">
@@ -27,7 +47,7 @@
             <% if params[:id] %>
             <div class="mt-4">
                 <% @pages.each do |page| %>
-                    <%= link_to page.name, root_path, class: 'col-12 mb-2 btn btn-blue' %><br>
+                    <%= link_to page.name, page_path(page.id), class: 'col-12 mb-2 btn btn-blue' %><br>
                 <% end %>
             </div>
             <% end %>

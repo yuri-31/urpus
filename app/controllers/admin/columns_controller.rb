@@ -8,7 +8,7 @@ class Admin::ColumnsController < ApplicationController
     def create
         @column = Column.new(column_params)
         if @column.save
-            flash[:notice] = "You have created book successfully."
+            flash[:notice] = "You have created COLUMN successfully."
             redirect_to admin_top_path
         else
             # @column = Column.new

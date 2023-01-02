@@ -14,8 +14,15 @@ class Public::BooksController < ApplicationController
     def create
         @new_book = Book.new(book_params)
         @new_book.user_id = current_user.id
-        @new_book.save
-        redirect_to request.referer
+        if @new_book.save
+            flash[:success] = "You have created BOOK successfully."
+            redirect_to request.referer
+        else
+            @new_book = Book.new
+            @books = current_user.books
+            flash[:danger] = "You failed to create new BOOK."
+            render :index
+        end
     end
 
     def show
@@ -30,14 +37,25 @@ class Public::BooksController < ApplicationController
     
     def update
         book = Book.find(params[:id])
-        book.update(book_params)
-        redirect_to request.referer
+        if book.update(book_params)
+            flash[:success] = "You have updated the BOOK successfully."
+            redirect_to request.referer
+        else
+            @books = current_user.books
+            flash[:danger] = "You failed to update the BOOK."
+            render :edit
+        end
     end
     
     def destroy
         book = Book.find(params[:id])
-        book.destroy
-        redirect_to request.referer
+        if book.destroy
+            flash[:notice] = "The BOOK has been deleted."
+            redirect_to request.referer
+        else
+            @books = current_user.books
+            render :edit
+        end
     end
     
     

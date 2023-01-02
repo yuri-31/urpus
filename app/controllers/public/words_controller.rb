@@ -6,7 +6,7 @@ class Public::WordsController < ApplicationController
         if @word.save
           redirect_to request.referer
         else
-          redirect_to root_path
+          render template: 'public/pages/show'
         end
         
         # meaning = Meaning.new(meaning_params)

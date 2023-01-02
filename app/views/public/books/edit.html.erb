@@ -1,5 +1,29 @@
 <%= link_to '<< BACK', books_path, class: 'btn btn-light mt-3 ml-3' %>
-<div class="col-5 mx-auto">
+<div class="col-11 mt-3 ml-5">
+<% if flash[:danger] %>
+    <div class="error-container">
+        <strong class="text-danger">
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <%= flash[:danger] %>
+        </strong>
+    </div>
+<% elsif flash[:success] %>
+    <div class="error-container">
+        <strong class="text-green">
+            <i class="fa-sharp fa-solid fa-circle-check"></i>
+            <%= flash[:success] %>
+        </strong>
+    </div>
+<% elsif flash[:notice] %>
+    <div class="flash-container">
+        <strong class="text-secondary" >
+            <i class="fa-sharp fa-solid fa-bolt-lightning mr-1"></i>
+            <%= flash[:notice] %>
+        </strong>
+    </div>
+<% end %>
+</div>
+<div class="col-5 mx-auto mt-4">
     <h2 class="mb-4">Edit BOOKS :</h2>
     <div>
         <% @books.each do |book| %>
@@ -7,7 +31,7 @@
                 <h5>
                     <%= f.text_field :name, class: 'book-field fields' %>
                     <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
-                    <%= link_to 'DELETE', book_path(book.id), method: :delete, class: 'btn btn-secondary' %>
+                    <%= link_to 'DELETE', book_path(book.id), method: :delete, data: {confirm: 'Are you sure you want to delete the BOOK?' }, class: 'btn btn-secondary' %>
                 </h5>
             <% end %>
         <% end %>
