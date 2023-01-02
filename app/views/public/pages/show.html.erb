@@ -1,6 +1,7 @@
 <div class="col-11 mx-auto mt-3">
     <%= render 'public/shared/errors_show', model: @word %>
 </div>
+<div class="col-11 mt-3 ml-5">
 <% if flash[:danger] %>
     <div class="error-container">
         <strong class="text-danger">
@@ -40,15 +41,15 @@
                     <p class="mr-3">[<%= word.form %>]</p>
                 <% end %>
                 <% if word.is_learnt == false %>
-                    <%= link_to update_status_path(word.id), method: :patch do %>
+                    <%= link_to update_word_status_path(word.id), method: :patch do %>
                         <i class="fa-regular fa-circle-check mr-2"></i>
                     <% end %>
                 <% elsif word.is_learnt == true %>
-                    <%= link_to update_status_path(word.id), method: :patch do %>
+                    <%= link_to update_word_status_path(word.id), method: :patch do %>
                         <i class="fa-solid fa-circle-check mr-2"></i>
                     <% end %>
                 <% end %>
-                <%= link_to word_path(word.id), method: :delete do %>
+                <%= link_to word_path(word.id), method: :delete, data: {confirm: 'Are you sure you want to delete the WORD?'} do %>
                     <i class="fa-solid fa-trash-can"></i>
                 <% end %>
             </div>

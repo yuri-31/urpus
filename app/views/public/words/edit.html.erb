@@ -1,5 +1,25 @@
+<div class="col-11 mx-auto mt-3">
+    <%= render 'public/shared/errors_show', model: @word %>
+</div>
+<div class="col-11 mt-3 ml-5">
+<% if flash[:danger] %>
+    <div class="error-container">
+        <strong class="text-danger">
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <%= flash[:danger] %>
+        </strong>
+    </div>
+<% elsif flash[:success] %>
+    <div class="error-container">
+        <strong class="text-green">
+            <i class="fa-sharp fa-solid fa-circle-check"></i>
+            <%= flash[:success] %>
+        </strong>
+    </div>
+<% end %>
+</div>
 <%= form_with model: @word, url: word_path(@word.id), method: :patch do |f| %>
-<div class="container col-9 mx-auto mt-4">
+<div class="container col-9 mx-auto mt-5">
     <div class="d-flex">
         <%= link_to 'BACK', page_path(@word.page_id), class: 'btn btn-light mr-3' %>
         <h2><%= f.label :name, 'WORD:', class: 'mr-3' %></h2>

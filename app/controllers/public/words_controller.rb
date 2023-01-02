@@ -4,8 +4,11 @@ class Public::WordsController < ApplicationController
     def create
         @word = Word.new(word_params)
         if @word.save
-          redirect_to request.referer
+          flash[:success] = "WORD was created successfully."
+          redirect_to page_path(@word.page_id)
         else
+          @page = Page.find(params[:word][:page_id])
+          @words = @page.words
           render template: 'public/pages/show'
         end
         
@@ -40,8 +43,12 @@ class Public::WordsController < ApplicationController
     
     def update
         @word = Word.find(params[:id])
-        @word.update(word_params)
-        redirect_to page_path(@word.page_id)
+        if @word.update(word_params)
+            flash[:success] = "The WORD has been updated successfully."
+            redirect_to page_path(@word.page_id)
+        else
+            render :edit
+        end
     end
     
     def update_status
@@ -53,8 +60,10 @@ class Public::WordsController < ApplicationController
     
     def destroy
         word = Word.find(params[:id])
-        word.destroy
-        redirect_to request.referer
+        if word.destroy
+            flash[:notice] = "The WORD has been deleted."
+            redirect_to request.referer
+        end
     end
     
     private
