@@ -1,4 +1,4 @@
-<%= form_with model: @user, url: withdraw_path, method: :patch do |f| %>
+<%= form_with model: @user, url: withdraw_path, method: :patch, data: {confirm: 'Are you sure you want to delete your ACCOUNT?' } do |f| %>
 <div class="col-4 mx-auto mt-5">
     <h1 class="mb-4">ARE YOU SURE?</h1>
     <p>
