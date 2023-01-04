@@ -49,9 +49,38 @@ ul {
     background-color: rgba(39,77,126,0.1);
 }
 
+.header-profile-img-container {
+    width: 120px;
+    height: 120px;
+}
+
+.profile-img-container {
+    width: 180px;
+    height: 180px;
+}
+
+.header-profile-img-container img,
+.profile-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.file-field {
+    display: none;
+}
+
+.file-field-container {
+    
+}
+
 .links {
     text-decoration: none;
 }
+
+// .nav-link {
+    
+// }
 
 .btn {
     border-radius: 5px;
