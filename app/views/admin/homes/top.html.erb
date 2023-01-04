@@ -1,8 +1,12 @@
 <div class="container mt-5">
+    <div class="d-inline border border-light mb-3 px-2 pt-1 pb-1">
+        <i class="fa-sharp fa-solid fa-pen-nib"></i>
+        <strong><%= pluralize(@columns.count, "post") %> </strong>
+    </div>
     <div class="row">
         <div class="col-9">
             <% @columns.each do |column| %>
-            <div class="column-container mb-5">
+            <div class="column-container mt-3 mb-5">
                 <div class="d-flex">
                     <h1 class="mr-4"><%= link_to column.title, edit_admin_column_path(column.id) %></h1>
                     <div class="topic-tag">
@@ -39,7 +43,7 @@
                 <h3 class="mb-3"><i class="fa-sharp fa-solid fa-tags mr-2"></i>TOPICS</h3>
                 <ul>
                     <% @topics.each do |topic| %>
-                        <%= link_to root_path, method: :get, class: 'col-12 mb-2 btn btn-blue text-light border border-light' do %>
+                        <%= link_to admin_top_path(topic_id: topic.id), method: :get, class: 'col-12 mb-2 btn btn-blue text-light border border-light' do %>
                             <%= topic.name %> (<%= topic.columns.count %>)
                         <% end %>
                     <% end %>

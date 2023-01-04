@@ -66,7 +66,7 @@
                 </div>
                 <ul>
                     <% @topics.each do |topic| %>
-                        <%= link_to root_path, method: :get, class: 'col-12 mb-2 btn btn-blue text-light border border-light' do %>
+                        <%= link_to admin_top_path(topic_id: topic.id), method: :get, class: 'col-12 mb-2 btn btn-blue text-light border border-light' do %>
                             <%= topic.name %> (<%= topic.columns.count %>)
                         <% end %>
                     <% end %>
