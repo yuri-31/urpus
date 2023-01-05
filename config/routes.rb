@@ -32,8 +32,9 @@ Rails.application.routes.draw do
   patch '/users/info' => 'public/users#update', as: 'update_user'
   get '/users/unsubscribe' => 'public/users#unsubscribe', as: 'unsubscribe'
   patch '/users/withdraw' => 'public/users#withdraw', as: 'withdraw'
-  get '/users/books/edit' => 'public/books#edit', as: 'edit_books'
-  get '/users/pages/edit' => 'public/pages#edit', as: 'edit_pages'
+  get '/books/edit' => 'public/books#edit', as: 'edit_books'
+  patch '/books/status/:id' => 'public/books#update_status', as: 'update_book_status'
+  get '/pages/edit' => 'public/pages#edit', as: 'edit_pages'
   patch '/words/status/:id' => 'public/words#update_status', as: 'update_word_status'
   get '/words/dictionary' => 'public/words#index', as: 'dictionary'
   

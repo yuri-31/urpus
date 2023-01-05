@@ -35,6 +35,15 @@ class Public::BooksController < ApplicationController
         @books = current_user.books
     end
     
+    def update_status
+        book = Book.find(params[:id])
+        book.is_private = !book.is_private
+        if book.save
+            flash[:success] = "BOOK status has been updated successfully."
+            redirect_to request.referer
+        end
+    end
+    
     def update
         book = Book.find(params[:id])
         if book.update(book_params)
@@ -62,6 +71,10 @@ class Public::BooksController < ApplicationController
     private
     def book_params
         params.require(:book).permit(:name)
+    end
+    
+    def book_status_params
+        params.require(:book).permit(:is_private)
     end
     
     def page_params

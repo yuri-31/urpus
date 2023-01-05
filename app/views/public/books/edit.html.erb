@@ -23,7 +23,7 @@
     </div>
 <% end %>
 </div>
-<div class="col-5 mx-auto mt-4">
+<div class="col-6 mx-auto mt-4">
     <h2 class="mb-4">Edit BOOKS :</h2>
     <div>
         <% @books.each do |book| %>
@@ -31,6 +31,11 @@
                 <h5>
                     <%= f.text_field :name, class: 'book-field fields' %>
                     <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
+                    <% if book.is_private == true %>
+                        <%= link_to 'PRIVATE', update_book_status_path(book.id), method: :patch, class: 'btn btn-pink mr-2' %>
+                    <% elsif book.is_private == false %>
+                        <%= link_to 'PUBLIC', update_book_status_path(book.id), method: :patch, class: 'btn btn-green mr-3' %>
+                    <% end %>
                     <%= link_to 'DELETE', book_path(book.id), method: :delete, data: {confirm: 'Are you sure you want to delete the BOOK?' }, class: 'btn btn-secondary' %>
                 </h5>
             <% end %>
