@@ -12,7 +12,7 @@
                     <h1><%= column.title %></h1>
                     <div class="ml-auto topic-tag">
                         <i class="fa-sharp fa-solid fa-tag mr-2"></i>
-                        <%= link_to column.topic.name, root_path, class: 'links' %>
+                        <%= link_to column.topic.name, topics_path(topic_id: column.topic_id), method: :get, class: 'links' %>
                     </div>
                 </div>
                 <div class="mt-2">

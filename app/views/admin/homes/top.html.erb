@@ -11,7 +11,7 @@
                     <h1 class="mr-4"><%= link_to column.title, edit_admin_column_path(column.id) %></h1>
                     <div class="topic-tag">
                         <i class="fa-sharp fa-solid fa-tag mr-2"></i>
-                        <%= link_to column.topic.name, root_path, class: 'links' %>
+                        <%= link_to column.topic.name, admin_top_path(topic_id: column.topic_id), method: :get, class: 'links' %>
                     </div>
                     <div class="ml-auto">
                         <%= form_with model: column, url: update_column_status_path(column.id), method: :patch do |f| %>
