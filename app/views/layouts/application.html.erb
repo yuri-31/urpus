@@ -48,28 +48,28 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <div class="nav-link">
-                  <%= link_to "MY BOOK", books_path, class: 'btn btn-light' %>
+                  <%= link_to "MY BOOK", books_path, class: 'text-light btn btn-outline-light' %>
                 </div>
               </li>
               <li class="nav-item">
                 <div class="nav-link">
-                  <%= link_to "FIND A BOOK", root_path, class: 'btn btn-light' %>
+                  <%= link_to "FIND A BOOK", root_path, class: 'text-light btn btn-outline-light' %>
                 </div>
               </li>
               <li class="nav-item">
                 <div class="nav-link">
-                  <%= link_to "DICTIONARY", dictionary_path, class: 'btn btn-light' %>
+                  <%= link_to "DICTIONARY", dictionary_path, class: 'text-light btn btn-outline-light' %>
                 </div>
               </li>
               <li class="nav-item">
                 <div class="nav-link">
-                  <%= link_to "TIMELINE", topics_path, class: 'btn btn-light' %>
+                  <%= link_to "TIMELINE", topics_path, class: 'text-light btn btn-outline-light' %>
                 </div>
               </li>
-              <li class="nav-item">
-                <div class="nav-link header-profile-img-container">
-                  <%= link_to  my_page_path, method: :get, class: 'rounded-circle' do %>
-                    <%= image_tag current_user.get_profile_image(700, 700), class: 'rounded-circle' %>
+              <li class="nav-item header-profile-img-container">
+                <div class="nav-link">
+                  <%= link_to  my_page_path, method: :get do %>
+                    <%= image_tag current_user.get_profile_image(700, 700) %>
                   <% end %>
                 </div>
               </li>

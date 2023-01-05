@@ -14,6 +14,15 @@ header {
     color: white;
 }
 
+.navbar-toggler {
+    width: 70px;
+    height: 70px;
+}
+
+.fa-list {
+    font-size: 50px;
+}
+
 .notice, .alert {
     margin-top: 14px;
     margin-left: 14px;
@@ -52,11 +61,16 @@ ul {
 .header-profile-img-container {
     width: 120px;
     height: 120px;
+    padding: 0px 0px;
+    
+    border-radius: 60px;
 }
 
 .profile-img-container {
     width: 180px;
     height: 180px;
+    padding: 0px;
+    border-radius: 50%;
 }
 
 .header-profile-img-container img,
@@ -64,6 +78,7 @@ ul {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 50%;
 }
 
 .file-field {
@@ -107,6 +122,17 @@ td {
 .btn-light {
     color: #91B6E6;
 }
+
+.btn-outline-light {
+    border: solid 2px white;
+}
+
+// .btn-sky {
+//     color: white;
+//     border: solid white 4px;
+//     padding-top: 2px;
+//     padding-bottom: 2px;
+// }
 
 .btn-blue {
     background-color: #4D72A2;
