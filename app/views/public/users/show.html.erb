@@ -1,3 +1,13 @@
+<div class="col-11 mt-3 ml-5">
+<% if flash[:success] %>
+    <div class="error-container">
+        <strong class="text-green">
+            <i class="fa-sharp fa-solid fa-circle-check"></i>
+            <%= flash[:success] %>
+        </strong>
+    </div>
+<% end %>
+</div>
 <div class="col-4 mx-auto mt-5 border border-outline-light px-4 pt-3 pb-3 rounded">
     <div class="row">
         <h2 class="mb-4">MY PAGE :</h2>
@@ -15,7 +25,13 @@
             <tbody>
                 <tr>
                     <th>NICKNAME:</th>
-                    <td class="text-right"><%= @user.nickname %></td>
+                    <td class="text-right">
+                        <% if @user.nickname.blank? %>
+                            <%= @user.login_id %>
+                        <% else %>
+                            <%= @user.nickname %>
+                        <% end %>
+                    </td>
                 </tr>
                 <tr>
                     <th>lOGIN ID:</th>

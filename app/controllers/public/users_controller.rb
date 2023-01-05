@@ -11,7 +11,10 @@ class Public::UsersController < ApplicationController
     def update
         @user = current_user
         if @user.update(user_params)
+            flash[:success] = "Profile info has been updated successfully."
             redirect_to my_page_path
+        else
+            render :edit
         end
     end
     
@@ -27,6 +30,6 @@ class Public::UsersController < ApplicationController
     
     private
     def user_params
-        params.require(:user).permit(:nickname, :login_id, :email, :profile_image)
+        params.require(:user).permit(:nickname, :login_id, :email, :profile_image, :note)
     end
 end
