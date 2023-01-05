@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
   
+  devise_scope :user do
+    post 'public/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
+  
   get '/admin/topics/edit' => 'admin/topics#edit', as: 'edit_topics'
   patch '/admin/column_status/:id' => 'admin/columns#update_status', as: 'update_column_status'
   

@@ -1,4 +1,12 @@
 class Public::UsersController < ApplicationController
+     before_action :ensure_normal_user, only: %i[update withdraw]
+
+    def ensure_normal_user
+      if current_user.email == 'guest@example.com'
+        flash[:danger] = "Guest account cannot be deleted or updated."
+        redirect_to request.referer
+      end
+    end
     
     def show
         @user = current_user

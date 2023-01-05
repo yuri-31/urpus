@@ -1,3 +1,13 @@
+<div class="col-11 mt-3 ml-5">
+<% if flash[:danger] %>
+    <div class="error-container">
+        <strong class="text-danger">
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <%= flash[:danger] %>
+        </strong>
+    </div>
+<% end %>
+</div>
 <%= form_with model: @user, url: withdraw_path, method: :patch, data: {confirm: 'Are you sure you want to delete your ACCOUNT?' } do |f| %>
 <div class="col-4 mx-auto mt-5">
     <h1 class="mb-4">ARE YOU SURE?</h1>

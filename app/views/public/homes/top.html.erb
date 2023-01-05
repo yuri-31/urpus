@@ -1,3 +1,13 @@
+<div class="col-11 mt-3 ml-5">
+<% if flash[:success] %>
+    <div class="error-container">
+        <strong class="text-green">
+            <i class="fa-sharp fa-solid fa-circle-check"></i>
+            <%= flash[:success] %>
+        </strong>
+    </div>
+<% end %>
+</div>
 <div class="container col-8 text-light mt-5">
     <div>
         <h2>Welcome.</h2>
@@ -10,4 +20,5 @@
         </h2>
         <%= link_to "SEE THOSE WORDS", root_path %>
     </div>
+    <%= link_to 'SIGN IN AS A GUEST', public_guest_sign_in_path, method: :post %>
 </div>
