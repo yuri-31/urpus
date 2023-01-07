@@ -8,7 +8,7 @@ class Public::UsersController < ApplicationController
       end
     end
     
-    def show
+    def my_page
         @user = current_user
     end
     

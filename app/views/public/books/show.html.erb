@@ -1,22 +1,5 @@
-<div class="col-11 mx-auto mt-3">
-    <%= render 'public/shared/errors_show', model: @new_page %>
-</div>
-<div class="col-11 mt-3 ml-5">
-<% if flash[:danger] %>
-    <div class="error-container">
-        <strong class="text-danger">
-            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
-            <%= flash[:danger] %>
-        </strong>
-    </div>
-<% elsif flash[:success] %>
-    <div class="error-container">
-        <strong class="text-green">
-            <i class="fa-sharp fa-solid fa-circle-check"></i>
-            <%= flash[:success] %>
-        </strong>
-    </div>
-<% end %>
+<%= render 'public/shared/flash_show' %>
+
 <%= form_with model: @new_page, url: pages_path, method: :post do |f| %>
 <div class="container mt-4">
     <div class="d-flex mb-5">

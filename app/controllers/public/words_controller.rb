@@ -54,8 +54,10 @@ class Public::WordsController < ApplicationController
     def update_status
         @word = Word.find(params[:id])
         @word.is_learnt = !@word.is_learnt
-        @word.save
-        redirect_to request.referer
+        if @word.save
+            flash[:success] = 'Word status updated successfully.'
+            redirect_to request.referer
+        end
     end
     
     def destroy

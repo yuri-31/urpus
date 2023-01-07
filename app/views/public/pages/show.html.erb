@@ -1,37 +1,15 @@
-<div class="col-11 mx-auto mt-3">
-    <%= render 'public/shared/errors_show', model: @word %>
+<div class="d-flex mt-5 ml-3">
+    <%= link_to 'BACK', book_path(@page.book_id), class: 'btn btn-light mr-3' %>
+    <h2 class="book-title mr-3"><strong><%= @page.name %></strong></h2>
+    <p>(<%= @page.words.count %> words)</p>
 </div>
-<div class="col-11 mt-3 ml-5">
-<% if flash[:danger] %>
-    <div class="error-container">
-        <strong class="text-danger">
-            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
-            <%= flash[:danger] %>
-        </strong>
-    </div>
-<% elsif flash[:success] %>
-    <div class="error-container">
-        <strong class="text-green">
-            <i class="fa-sharp fa-solid fa-circle-check"></i>
-            <%= flash[:success] %>
-        </strong>
-    </div>
-<% elsif flash[:notice] %>
-    <div class="flash-container">
-        <strong class="text-secondary" >
-            <i class="fa-sharp fa-solid fa-bolt-lightning mr-1"></i>
-            <%= flash[:notice] %>
-        </strong>
-    </div>
-<% end %>
-</div>
+
+<%= render 'public/shared/errors_show', model: @word %>
+
+<%= render 'public/shared/flash_show' %>
+
 <%= form_with model: @word, url: words_path, method: :post do |f| %>
 <div class="container mt-3">
-    <div class="d-flex">
-        <%= link_to 'BACK', book_path(@page.book_id), class: 'btn btn-light mr-3' %>
-        <h2 class="book-title mr-3"><strong><%= @page.name %></strong></h2>
-        <p>(<%= @page.words.count %> words)</p>
-    </div>
     <div class="row mx-auto mt-2">
         <div class="col-8">
             <% @words.each do |word| %>

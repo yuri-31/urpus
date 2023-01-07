@@ -10,21 +10,29 @@ class Public::BooksController < ApplicationController
         end
     end
     
-    
     def create
         @new_book = Book.new(book_params)
         @new_book.user_id = current_user.id
         if @new_book.save
             flash[:success] = "You have created BOOK successfully."
-            redirect_to request.referer
+            redirect_to new_book_path
         else
             @new_book = Book.new
             @books = current_user.books
             flash[:danger] = "You failed to create new BOOK."
-            render :index
+            redirect_to new_book_path
         end
     end
 
+    def index
+        @q = Book.ransack(params[:q])
+        @books = @q.result(distinct: true).where(is_private: false)
+        if params[:id]
+            @book = Book.find(params[:id])
+            @pages = @book.pages
+        end
+    end
+    
     def show
         @new_page = Page.new
         @book = Book.find(params[:id])
@@ -46,7 +54,7 @@ class Public::BooksController < ApplicationController
         book.is_private = !book.is_private
         if book.save
             flash[:success] = "BOOK status has been updated successfully."
-            redirect_to request.referer
+            redirect_to edit_books_path
         end
     end
     
@@ -54,7 +62,7 @@ class Public::BooksController < ApplicationController
         book = Book.find(params[:id])
         if book.update(book_params)
             flash[:success] = "You have updated the BOOK successfully."
-            redirect_to request.referer
+            redirect_to edit_books_path
         else
             @books = current_user.books
             flash[:danger] = "You failed to update the BOOK."
@@ -66,22 +74,12 @@ class Public::BooksController < ApplicationController
         book = Book.find(params[:id])
         if book.destroy
             flash[:notice] = "The BOOK has been deleted."
-            redirect_to request.referer
+            redirect_to edit_books_path
         else
             @books = current_user.books
             render :edit
         end
     end
-    
-    def index
-        @q = Book.ransack(params[:q])
-        @books = @q.result(distinct: true).where(is_private: false)
-        if params[:id]
-            @book = Book.find(params[:id])
-            @pages = @book.pages
-        end
-    end
-    
     
     
     

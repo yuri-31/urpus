@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   end
   
   
-  get '/users/my_page' => 'public/users#show', as: 'my_page'
+  get '/users/my_page' => 'public/users#my_page', as: 'my_page'
   get '/users/info/edit' => 'public/users#edit', as: 'edit_user'
   patch '/users/info' => 'public/users#update', as: 'update_user'
   get '/users/unsubscribe' => 'public/users#unsubscribe', as: 'unsubscribe'
