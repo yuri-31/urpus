@@ -63,5 +63,8 @@ gem "devise"
 
 gem "enum_help"
 
-gem "cocoon"
 gem 'jquery-rails'
+
+gem "cocoon"
+
+gem 'ransack'

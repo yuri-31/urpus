@@ -32,14 +32,18 @@ Rails.application.routes.draw do
   patch '/users/info' => 'public/users#update', as: 'update_user'
   get '/users/unsubscribe' => 'public/users#unsubscribe', as: 'unsubscribe'
   patch '/users/withdraw' => 'public/users#withdraw', as: 'withdraw'
+  
   get '/books/edit' => 'public/books#edit', as: 'edit_books'
   patch '/books/status/:id' => 'public/books#update_status', as: 'update_book_status'
+  # get 'books/find' => 'public/books#find', as: 'find_book'
+  
   get '/pages/edit' => 'public/pages#edit', as: 'edit_pages'
+  
   patch '/words/status/:id' => 'public/words#update_status', as: 'update_word_status'
   get '/words/dictionary' => 'public/words#index', as: 'dictionary'
   
   scope module: 'public' do
-    resources :books, only: [:index, :create, :show, :update, :destroy]
+    resources :books, only: [:new, :index, :create, :show, :update, :destroy]
     resources :pages, only: [:create, :show, :update, :destroy]
     resources :words, only: [:create, :edit, :update, :destroy]
     resources :topics, only: [:index]

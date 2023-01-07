@@ -1,0 +1,62 @@
+<div class="col-11 mx-auto mt-3">
+    <%= render 'public/shared/errors_show', model: @new_book %>
+</div>
+<div class="col-11 mt-3 ml-5">
+<% if flash[:danger] %>
+    <div class="error-container">
+        <strong class="text-danger">
+            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+            <%= flash[:danger] %>
+        </strong>
+    </div>
+<% elsif flash[:success] %>
+    <div class="error-container">
+        <strong class="text-green">
+            <i class="fa-sharp fa-solid fa-circle-check"></i>
+            <%= flash[:success] %>
+        </strong>
+    </div>
+<% end %>
+</div>
+<%= form_with model: @new_book, url: books_path, method: :post do |f| %>
+<div class="container mt-4">
+    <div class="d-flex mb-4">
+        <h2 class="mr-5">CREATE NEW BOOK:</h2>
+        <%= f.text_field :name, class: 'col-4 mr-3 fields' %>
+        <%= f.submit 'CREATE', class: 'btn btn-light mr-5' %>
+        <%= link_to edit_books_path, method: :get do %>
+            <i class="fa-sharp fa-solid fa-gears btn text-light ml-5"></i>
+        <% end %>
+    </div>
+    <div class="row col-10 mx-auto">
+        <div class="col-5">
+            <h2>BOOKS:</h2>
+            <div class="mt-4">
+                <% @books.each do |book| %>
+                    <%= link_to book.name, new_book_path(id: book.id), class: 'col-12 mb-2 btn btn-navy' %><br>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-6 offset-md-1">
+            <h2>
+                PAGES of:
+                <% if params[:id] %>
+                    <%= @book.name %>
+                <% end %>
+            </h2>
+            <% if params[:id] %>
+            <div class="mt-4">
+                <% @pages.each do |page| %>
+                    <%= link_to page.name, page_path(page.id), class: 'col-12 mb-2 btn btn-blue' %><br>
+                <% end %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="col-3 mx-auto mt-3">
+        <% if params[:id] %>
+        <%= link_to "GO CHECK THIS BOOK!", book_path(@book.id), class: 'col-12 btn btn-light' %>
+        <% end %>
+    </div>
+</div>
+<% end %>

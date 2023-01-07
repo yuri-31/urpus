@@ -1,6 +1,6 @@
 class Public::BooksController < ApplicationController
     
-    def index
+    def new
         @new_book = Book.new
         @books = current_user.books
         
@@ -66,6 +66,17 @@ class Public::BooksController < ApplicationController
             render :edit
         end
     end
+    
+    def index
+        @q = Book.ransack(params[:q])
+        @books = @q.result(distinct: true).where(is_private: false)
+        if params[:id]
+            @book = Book.find(params[:id])
+            @pages = @book.pages
+        end
+    end
+    
+    
     
     
     private
