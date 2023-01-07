@@ -40,17 +40,19 @@
                 <% if word.form %>
                     <p class="mr-3">[<%= word.form %>]</p>
                 <% end %>
-                <% if word.is_learnt == false %>
-                    <%= link_to update_word_status_path(word.id), method: :patch do %>
-                        <i class="fa-regular fa-circle-check mr-2"></i>
+                <% if word.user == current_user %>
+                    <% if word.is_learnt == false %>
+                        <%= link_to update_word_status_path(word.id), method: :patch do %>
+                            <i class="fa-regular fa-circle-check mr-2"></i>
+                        <% end %>
+                    <% elsif word.is_learnt == true %>
+                        <%= link_to update_word_status_path(word.id), method: :patch do %>
+                            <i class="fa-solid fa-circle-check mr-2"></i>
+                        <% end %>
                     <% end %>
-                <% elsif word.is_learnt == true %>
-                    <%= link_to update_word_status_path(word.id), method: :patch do %>
-                        <i class="fa-solid fa-circle-check mr-2"></i>
+                    <%= link_to word_path(word.id), method: :delete, data: {confirm: 'Are you sure you want to delete the WORD?'} do %>
+                        <i class="fa-solid fa-trash-can"></i>
                     <% end %>
-                <% end %>
-                <%= link_to word_path(word.id), method: :delete, data: {confirm: 'Are you sure you want to delete the WORD?'} do %>
-                    <i class="fa-solid fa-trash-can"></i>
                 <% end %>
             </div>
                 <% if word.meanings %>
@@ -65,6 +67,7 @@
                 <% end %>
             <% end %>
         </div>
+        <% if @page.book.user == current_user %>
         <div class="col-3 ml-auto">
             <div class="new-word-container">
                 <div>
@@ -96,6 +99,7 @@
                 </div>
             </div>
         </div>
+        <% end %>
     </div>
 </div>
 <% end %>

@@ -28,6 +28,12 @@ class Public::BooksController < ApplicationController
     def show
         @new_page = Page.new
         @book = Book.find(params[:id])
+        
+        if @book.is_private? && @book.user != current_user
+            flash[:notice] = 'The BOOK is set private.'
+            redirect_to books_path
+        end
+        
         @pages = @book.pages
     end
     

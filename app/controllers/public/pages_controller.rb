@@ -1,5 +1,5 @@
 class Public::PagesController < ApplicationController
-    
+        
     def create
         @new_page = Page.new(page_params)
         if @new_page.save
@@ -12,15 +12,22 @@ class Public::PagesController < ApplicationController
     end
     
     def show
+        @page = Page.find(params[:id])
+        if @page.book.is_private? && @page.book.user != current_user
+            flash[:notice] = 'The BOOK is set private.'
+            redirect_to books_path
+        end
+        @words = @page.words
         @word = Word.new
         @meanings = @word.meanings.build
         @examples = @word.examples.build
-        @page = Page.find(params[:id])
-        @words = @page.words
     end
     
     def edit
         @book = Book.find(params[:id])
+        if @book.user != current_user
+            redirect_to books_path
+        end
         @pages = @book.pages
     end
     

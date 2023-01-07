@@ -21,10 +21,12 @@
 <div class="container mt-4">
     <div class="d-flex mb-5">
         <h2 class="mr-5">PAGES of: <strong class="book-title ml-2"><%= @book.name %></strong></h2>
-        <%= f.text_field :name, class: 'col-4 mr-3 fields' %>
-        <%= f.submit 'ADD NEW PAGE', class: 'btn btn-light' %>
-        <%= link_to edit_pages_path(id: @book.id), method: :get do %>
-            <i class="fa-sharp fa-solid fa-gears btn text-light ml-5"></i>
+        <% if @book.user == current_user %>
+            <%= f.text_field :name, class: 'col-4 mr-3 fields' %>
+            <%= f.submit 'ADD NEW PAGE', class: 'btn btn-light' %>
+            <%= link_to edit_pages_path(id: @book.id), method: :get do %>
+                <i class="fa-sharp fa-solid fa-gears btn text-light ml-5"></i>
+            <% end %>
         <% end %>
     </div>
     <div class="col-10 mx-auto d-flex flex-wrap justify-content-between">

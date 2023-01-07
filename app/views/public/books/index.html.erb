@@ -1,3 +1,13 @@
+<div class="col-11 mt-3 ml-5">
+<% if flash[:notice] %>
+    <div class="error-container">
+        <strong class="text-secondary">
+            <i class="fa-sharp fa-solid fa-bolt-lightning mr-1"></i>
+            <%= flash[:notice] %>
+        </strong>
+    </div>
+<% end %>
+</div>
 <div class="mt-3 ml-3">
     <h2>FIND A BOOK: </h2>
     <div class="ml-5">
@@ -25,11 +35,11 @@
         <div class="col-6">
             <h4>
                 PAGES of:
-                <% if params[:id] %>
+                <% if params[:id] && @book.is_private == false %>
                     <%= @book.name %>
                 <% end %>
             </h4>
-            <% if params[:id] %>
+            <% if params[:id] && @book.is_private == false%>
             <div class="mt-4">
                 <% @pages.each do |page| %>
                     <%= link_to page.name, page_path(page.id), class: 'col-12 mb-2 btn btn-blue' %><br>
