@@ -1,24 +1,28 @@
-<div class="col-11 mt-3 ml-5">
-<% if flash[:success] %>
-    <div class="error-container">
-        <strong class="text-green">
-            <i class="fa-sharp fa-solid fa-circle-check"></i>
-            <%= flash[:success] %>
-        </strong>
-    </div>
-<% end %>
-</div>
-<div class="container col-8 text-light mt-5">
+<p class="notice mt-5 ml-3"><%= notice %></p>
+
+<div class="container col-7 text-light">
     <div>
-        <h2>Welcome.</h2>
-        <h1>Create your own corpus on URPUS!</h1>
+        <h1>Welcome on URPUS.</h1>
+        <% if user_signed_in? %>
+            <h1 class="text-right">Keep up with your vocabulary with us.</h1>
+        <% else %>
+            <h1 class="text-center">Create your own corpus!</h1>
+        <% end %>
     </div>
-    <div>
-        <h2>
-            YOU'VE lEARNT<br>
-            368 words SO FAR!
-        </h2>
-        <%= link_to "SEE THOSE WORDS", root_path %>
-    </div>
-    <%= link_to 'SIGN IN AS A GUEST', public_guest_sign_in_path, method: :post %>
+    <% if user_signed_in? %>
+        <div class="col-7 mx-auto mt-5">
+            <h2>Now you have</h2>
+            <h1 class="text-center text-navy"><%= pluralize(@words.count, "word") %></h1>
+            <h2 class="text-right">on your books in all.</h2>
+        </div>
+        <div class="text-center mt-5">
+            <%= link_to "SHOW ALL OF THEM >", dictionary_path, class: 'btn btn-blue' %>
+        </div>
+    <% else %>
+        <div class="mt-5 text-center">
+            <%= link_to 'SIGN IN AS A GUEST USER', public_guest_sign_in_path, method: :post, class: 'col-6 btn btn-navy text-light mt-5' %><br>
+            <%= link_to "SIGN UP", new_user_registration_path, class: 'col-6 text-light btn btn-blue mt-4' %><br>
+            <%= link_to "SIGN IN", new_user_session_path, class: 'col-6 text-navy btn btn-light mt-4' %><br>
+        </div>
+    <% end %>
 </div>
