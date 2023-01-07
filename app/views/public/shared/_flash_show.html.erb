@@ -1,0 +1,26 @@
+<div class="col-11 mx-auto ml-5">
+    <p>
+    <% if flash[:danger] %>
+        <div class="flash-container">
+            <strong class="text-danger">
+                <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+                <%= flash[:danger] %>
+            </strong>
+        </div>
+    <% elsif flash[:success] %>
+        <div class="flash-container">
+            <strong class="text-green">
+                <i class="fa-sharp fa-solid fa-circle-check"></i>
+                <%= flash[:success] %>
+            </strong>
+        </div>
+    <% elsif flash[:notice] %>
+        <div class="flash-container">
+            <strong class="text-secondary" >
+                <i class="fa-sharp fa-solid fa-bolt-lightning mr-1"></i>
+                <%= flash[:notice] %>
+            </strong>
+        </div>
+    <% end %>
+    </p>
+</div>

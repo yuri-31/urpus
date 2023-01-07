@@ -1,30 +1,6 @@
 <%= link_to '<< BACK', new_admin_column_path, class: 'btn btn-light mt-2 ml-2' %>
-<div class="col-8 mx-auto ml-5">
-    <p>
-    <% if flash[:danger] %>
-        <div class="flash-container">
-            <strong class="text-danger">
-                <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
-                <%= flash[:danger] %>
-            </strong>
-        </div>
-    <% elsif flash[:success] %>
-        <div class="flash-container">
-            <strong class="text-green">
-                <i class="fa-sharp fa-solid fa-circle-check"></i>
-                <%= flash[:success] %>
-            </strong>
-        </div>
-    <% elsif flash[:notice] %>
-        <div class="flash-container">
-            <strong class="text-secondary" >
-                <i class="fa-sharp fa-solid fa-bolt-lightning mr-1"></i>
-                <%= flash[:notice] %>
-            </strong>
-        </div>
-    <% end %>
-    </p>
-</div>
+<%= render 'public/shared/flash_show' %>
+
 <div class="col-5 mt-3 mx-auto">
     <h2 class="mb-4">Edit TOPICS :</h2>
     <% @topics.each do |topic| %>

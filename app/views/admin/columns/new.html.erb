@@ -1,23 +1,7 @@
-<div class="col-11 mx-auto mt-3">
-    <%= render 'public/shared/errors_show', model: @column %>
-</div>
-<div class="col-11 mt-3 ml-5">
-<% if flash[:danger] %>
-    <div class="error-container">
-        <strong class="text-danger">
-            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
-            <%= flash[:danger] %>
-        </strong>
-    </div>
-<% elsif flash[:success] %>
-    <div class="error-container">
-        <strong class="text-green">
-            <i class="fa-sharp fa-solid fa-circle-check"></i>
-            <%= flash[:success] %>
-        </strong>
-    </div>
-<% end %>
-</div>
+<%= render 'public/shared/errors_show', model: @column %>
+
+<%= render 'public/shared/flash_show' %>
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-9">

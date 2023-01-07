@@ -34,7 +34,8 @@ class Admin::TopicsController < ApplicationController
         topic = Topic.find(params[:id])
         if topic.destroy
             flash[:notice] = "The TOPIC has been deleted."
-            redirect_to request.referer
+            @topics = Topic.all
+            render :edit
         end
     end
     

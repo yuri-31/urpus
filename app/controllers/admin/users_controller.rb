@@ -5,8 +5,11 @@ class Admin::UsersController < ApplicationController
     
     def update
         user = User.find(params[:id])
-        user.update(user_params)
-        redirect_to request.referer
+        if user.update(user_params)
+            flash[:success] = 'Status updated successfully.'
+            @users = User.all
+            redirect_to admin_users_path
+        end
     end
     
     private
