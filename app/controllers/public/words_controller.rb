@@ -1,4 +1,5 @@
 class Public::WordsController < ApplicationController
+    before_action :authenticate_user!
     
 # Posting to three columns at a time via public/words#create
     def create
