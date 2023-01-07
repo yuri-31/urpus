@@ -1,4 +1,6 @@
 class Admin::ColumnsController < ApplicationController
+    before_action :authenticate_admin!
+    
     def new
         @column = Column.new
         @topics = current_admin.topics

@@ -1,4 +1,5 @@
 class Admin::TopicsController < ApplicationController
+    before_action :authenticate_admin!
     
     def create
         @topic = Topic.new(topic_params)
