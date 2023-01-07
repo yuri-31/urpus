@@ -1,9 +1,11 @@
+
 <%= render 'public/shared/flash_show' %>
 
 <%= form_with model: @new_page, url: pages_path, method: :post do |f| %>
-<div class="container mt-4">
-    <div class="d-flex mb-5">
-        <h2 class="mr-5">PAGES of: <strong class="book-title ml-2"><%= @book.name %></strong></h2>
+<div class="container mt-5">
+    <div class="d-flex mb-4">
+        <%= link_to '<< BACK', new_book_path(@book.id), class: 'btn btn-light mr-3' %>
+        <h3 class="mr-5">PAGES of: <strong class="book-title ml-2"><%= @book.name %></strong></h3>
         <% if @book.user == current_user %>
             <%= f.text_field :name, class: 'col-4 mr-3 fields' %>
             <%= f.submit 'ADD NEW PAGE', class: 'btn btn-light' %>

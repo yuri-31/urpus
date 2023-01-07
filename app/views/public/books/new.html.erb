@@ -1,9 +1,9 @@
 <%= render 'public/shared/flash_show' %>
 
 <%= form_with model: @new_book, url: books_path, method: :post do |f| %>
-<div class="container mt-4">
+<div class="container mt-5">
     <div class="d-flex mb-4">
-        <h2 class="mr-5">CREATE NEW BOOK:</h2>
+        <h3 class="mr-5">CREATE NEW BOOK:</h3>
         <%= f.text_field :name, class: 'col-4 mr-3 fields' %>
         <%= f.submit 'CREATE', class: 'btn btn-light mr-5' %>
         <%= link_to edit_books_path, method: :get do %>
@@ -12,7 +12,7 @@
     </div>
     <div class="row col-10 mx-auto">
         <div class="col-5">
-            <h2>BOOKS:</h2>
+            <h3>BOOKS:</h3>
             <div class="mt-4">
                 <% @books.each do |book| %>
                     <%= link_to book.name, new_book_path(id: book.id), class: 'col-12 mb-2 btn btn-navy' %><br>
@@ -20,12 +20,12 @@
             </div>
         </div>
         <div class="col-6 offset-md-1">
-            <h2>
+            <h3>
                 PAGES of:
                 <% if params[:id] %>
                     <%= @book.name %>
                 <% end %>
-            </h2>
+            </h3>
             <% if params[:id] %>
             <div class="mt-4">
                 <% @pages.each do |page| %>

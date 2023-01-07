@@ -1,8 +1,8 @@
-<%= link_to '<< BACK', book_path(@book.id), class: 'btn btn-light mt-2 ml-2' %>
+<%= link_to '<< BACK', book_path(@book.id), class: 'btn btn-light mt-5 ml-3' %>
 
 <%= render 'public/shared/flash_show' %>
 
-<div class="col-7 mx-auto mt-4">
+<div class="col-7 mx-auto">
     <h2 class="mb-4">Edit PAGES :</h2>
     <% @pages.each do |page| %>
         <%= form_with model: page, url: page_path(page.id), method: :patch do |f| %>

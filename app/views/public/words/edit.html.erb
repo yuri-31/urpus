@@ -1,5 +1,5 @@
-<div class="d-flex mt-3 ml-3">
-    <%= link_to 'BACK', page_path(@word.page_id), class: 'btn btn-light mr-3' %>
+<div class="d-flex mt-5 ml-3">
+    <%= link_to '<< BACK', page_path(@word.page_id), class: 'btn btn-light mr-3' %>
     <h2>Edit WORD :</h2>
 </div>
 
@@ -9,7 +9,7 @@
 
 <%= form_with model: @word, url: word_path(@word.id), method: :patch do |f| %>
 <div class="container col-9 mx-auto mt-5">
-    <div class="row mt-5">
+    <div class="row">
         <div class="col-6 d-flex">
             <h4><%= f.label :name, 'WORD :', class: 'mr-3' %></h4>
             <%= f.text_field :name, class: 'word-field mr-4' %>
@@ -19,9 +19,9 @@
             <%= f.select :form, Word.forms.keys.to_a, include_blank: "not selected" %>
         </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-3">
         <div class="col-6">
-            <h4>MEANINGS:</h4>
+            <h4>MEANINGS :</h4>
             <div>
                 <%= link_to_add_association 'ADD', f, :meanings,
                 data: {association_insertion_method: 'append' } %>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="col-6">
-            <h4>EXAMPLES:</h4>
+            <h4>EXAMPLES :</h4>
             <div>
                 <%= link_to_add_association 'ADD', f, :examples,
                 data: {association_insertion_method: 'append' } %>

@@ -13,6 +13,12 @@ class Public::SessionsController < Devise::SessionsController
   end
   
   
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    flash[:notice] = "Successfully signed in as a guest user."
+    redirect_to root_path
+  end
   
   protected
   def user_state
@@ -23,12 +29,6 @@ class Public::SessionsController < Devise::SessionsController
     end
   end
 
-  def guest_sign_in
-    user = User.guest
-    sign_in user
-    flash[:notice] = "Successfully signed in as a guest user."
-    redirect_to root_path
-  end
   # GET /resource/sign_in
   # def new
   #   super

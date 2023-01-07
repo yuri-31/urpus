@@ -1,7 +1,7 @@
-<%= link_to '<< BACK', new_admin_column_path, class: 'btn btn-light mt-2 ml-2' %>
+<%= link_to '<< BACK', new_admin_column_path, class: 'btn btn-light mt-5 ml-3' %>
 <%= render 'public/shared/flash_show' %>
 
-<div class="col-5 mt-3 mx-auto">
+<div class="col-5 mx-auto">
     <h2 class="mb-4">Edit TOPICS :</h2>
     <% @topics.each do |topic| %>
         <%= form_with model: topic, url: admin_topic_path(topic.id), method: :patch do |f| %>
