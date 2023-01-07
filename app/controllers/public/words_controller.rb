@@ -32,6 +32,10 @@ class Public::WordsController < ApplicationController
     def edit
         @word = Word.find(params[:id])
         
+        if @word.page.book.user != current_user
+            redirect_to page_path(@word.page_id)
+        end
+        
         @meaning = Meaning.new
         @meanings = @word.meanings
         @add_meanings = @word.meanings.build
