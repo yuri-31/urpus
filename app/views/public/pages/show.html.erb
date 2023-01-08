@@ -9,8 +9,8 @@
 <%= render 'public/shared/flash_show' %>
 
 <%= form_with model: @word, url: words_path, method: :post do |f| %>
-<div class="container mt-3">
-    <div class="row mx-auto mt-2">
+<div class="container">
+    <div class="row mx-auto">
         <div class="col-8">
             <% @words.each do |word| %>
             <div class="d-flex mt-4">
@@ -46,7 +46,7 @@
                 <% end %>
                 <% if word.examples %>
                     <% word.examples.each do |example| %>
-                        <p class="text-navy"><%= example.sentence %></p>
+                        <p class="text-navy">" <%= example.sentence %> "</p>
                     <% end %>
                 <% end %>
             <% end %>

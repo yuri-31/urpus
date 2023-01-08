@@ -1,7 +1,9 @@
 class Public::HomesController < ApplicationController
     
     def top
-        @words = Word.all
+        if user_signed_in?
+         @words = current_user.words
+        end
     end
     
     def about

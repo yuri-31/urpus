@@ -1,11 +1,11 @@
 class Public::UsersController < ApplicationController
-     before_action :ensure_normal_user, only: %i[update withdraw]
+     before_action :ensure_normal_user, only: %i[update edit withdraw]
      before_action :authenticate_user!
 
     def ensure_normal_user
       if current_user.email == 'guest@example.com'
         flash[:danger] = "Guest account cannot be deleted or updated."
-        redirect_to request.referer
+        redirect_to my_page_path
       end
     end
     
