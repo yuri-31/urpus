@@ -8,6 +8,8 @@ class Word < ApplicationRecord
     validates :page_id, presence: true
     validates :name, presence: true
     validates :is_learnt, inclusion: {in: [true, false]}
+    validates :user_id, presence: true
+    
     
     accepts_nested_attributes_for :meanings, allow_destroy: true, reject_if: :all_blank
     accepts_nested_attributes_for :examples, allow_destroy: true, reject_if: :all_blank
