@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_one_attached :profile_image
   
   validates :nickname, length: { maximum: 20 }
-  validates :login_id, presence: true, length: { minimum: 1, maximum: 20 }
+  validates :login_id, presence: true, length: { minimum: 1, maximum: 20 }, uniqueness: true
   validates :note, length: { maximum: 50 }
   
   def self.guest
