@@ -29,6 +29,7 @@ class Admin::ColumnsController < ApplicationController
     def update
         @column = Column.find(params[:id])
         if @column.update(column_params)
+            flash[:notice] = "Column updated successfully."
             redirect_to admin_top_path
         else
             @topic = Topic.new
@@ -46,7 +47,8 @@ class Admin::ColumnsController < ApplicationController
     def update_status
         column = Column.find(params[:id])
         column.update(column_status_params)
-        redirect_to request.referer
+        flash[:notice] = "Column status updated successfully."
+        redirect_to admin_top_path
     end
     
     private

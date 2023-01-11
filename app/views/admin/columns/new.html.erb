@@ -14,7 +14,7 @@
                     </h1>
                     <div>
                         <strong><%= f.label :topic_id, 'TOPIC :' %></strong>
-                        <%= f.collection_select :topic_id, Topic.all.order(created_at: :desc), :id, :name, include_blank: "not selected" %><br>
+                        <%= f.collection_select :topic_id, Topic.all, :id, :name, include_blank: "not selected" %><br>
                     </div>
                 </div>
                 <div>
