@@ -10,7 +10,8 @@ class Public::WordsController < ApplicationController
         else
           @page = Page.find(params[:word][:page_id])
           @words = @page.words
-          render template: 'public/pages/show'
+          flash[:error] = @word.errors.full_messages
+          redirect_to request.referer
         end
         
         # meaning = Meaning.new(meaning_params)
@@ -52,7 +53,8 @@ class Public::WordsController < ApplicationController
             flash[:success] = "The WORD has been updated successfully."
             redirect_to page_path(@word.page_id)
         else
-            render :edit
+            flash[:error] = @word.errors.full_messages
+            redirect_to request.referer
         end
     end
     

@@ -4,8 +4,6 @@
     <p>(<%= @page.words.count %> words)</p>
 </div>
 
-<%= render 'public/shared/errors_show', model: @word %>
-
 <%= render 'public/shared/flash_show' %>
 
 <%= form_with model: @word, url: words_path, method: :post do |f| %>

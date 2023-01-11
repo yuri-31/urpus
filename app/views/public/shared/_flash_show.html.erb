@@ -1,6 +1,20 @@
 <div class="col-md-11 col-lg-8 mx-auto ml-5 mt-4">
     <p>
-    <% if flash[:danger] %>
+    <% if flash[:error] %>
+        <div class="flash-container">
+            <strong class="text-danger">
+                <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+                <%= pluralize(flash[:error].count, "error") %> prohibited this object from being saved:
+            </strong>
+            <ul class="ml-3 text-dark">
+            <% flash.each do |message_type, messages| %>
+              <% messages.each do |message| %>
+                <li>- <%= message %></li>
+              <% end %>
+            <% end %>
+            </ul>
+        </div>
+    <% elsif flash[:danger] %>
         <div class="flash-container">
             <strong class="text-danger">
                 <i class="fa-sharp fa-solid fa-circle-exclamation"></i>

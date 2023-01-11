@@ -66,8 +66,8 @@ class Public::BooksController < ApplicationController
             redirect_to edit_books_path
         else
             @books = current_user.books
-            flash[:danger] = "You failed to update the BOOK."
-            render :edit
+            flash[:error] = book.errors.full_messages
+            redirect_to request.referer
         end
     end
     

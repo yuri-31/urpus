@@ -3,8 +3,6 @@
     <h2>Edit WORD :</h2>
 </div>
 
-<%= render 'public/shared/errors_show', model: @word %>
-
 <%= render 'public/shared/flash_show' %>
 
 <%= form_with model: @word, url: word_path(@word.id), method: :patch do |f| %>

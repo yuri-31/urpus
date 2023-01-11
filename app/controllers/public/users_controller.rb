@@ -23,7 +23,8 @@ class Public::UsersController < ApplicationController
             flash[:success] = "Profile info has been updated successfully."
             redirect_to my_page_path
         else
-            render :edit
+            flash[:error] = @user.errors.full_messages
+            redirect_to request.referer
         end
     end
     

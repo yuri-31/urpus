@@ -8,7 +8,7 @@ class Admin::TopicsController < ApplicationController
             flash[:success] = "You have successfully created TOPIC."
             redirect_to request.referer
         else
-            flash[:danger] = "You failed to create new TOPIC."
+            flash[:error] = @topic.errors.full_messages
             redirect_to request.referer
         end
     end
@@ -21,12 +21,12 @@ class Admin::TopicsController < ApplicationController
         topic = Topic.find(params[:id])
         if topic.update(topic_params)
             @topics = Topic.all
-            flash.now[:success] = "You have successfully updated TOPIC."
-            render :edit
+            flash[:success] = "You have successfully updated TOPIC."
+            redirect_to request.referer
         else
             @topics = Topic.all
-            flash.now[:danger] = "You failed to update TOPIC."
-            render :edit
+            flash[:error] = topic.errors.full_messages
+            redirect_to request.referer
             # redirect_to template: "admin/columns/edit", locals:{id: params[:id]}
         end
     end
@@ -36,7 +36,7 @@ class Admin::TopicsController < ApplicationController
         if topic.destroy
             flash[:notice] = "The TOPIC has been deleted."
             @topics = Topic.all
-            render :edit
+            redirect_to request.referer
         end
     end
     

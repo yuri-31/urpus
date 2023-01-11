@@ -1,8 +1,5 @@
 <%= link_to "<< Cancel", my_page_path, class: 'btn btn-light mt-5 ml-3' %>
 
-
-<%= render 'public/shared/errors_show', model: @user %>
-
 <%= render 'public/shared/flash_show' %>
 
 <%= form_with model: @user, url: update_user_path, method: :patch do |f| %>

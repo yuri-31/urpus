@@ -3,6 +3,7 @@ class Admin::ColumnsController < ApplicationController
     
     def new
         @column = Column.new
+        # (session[:column] || {})
         @topics = current_admin.topics
         @topic = Topic.new
     end
@@ -10,13 +11,15 @@ class Admin::ColumnsController < ApplicationController
     def create
         @column = Column.new(column_params)
         if @column.save
+            session[:column] = nil
             flash[:notice] = "You have created COLUMN successfully."
             redirect_to admin_top_path
         else
-            # @column = Column.new
+            # session[:column] = @column.attributes.slice(*column_params.keys)
             @topics = current_admin.topics
             @topic = Topic.new
-            render :new
+            flash[:error] = @column.errors.full_messages
+            redirect_to new_admin_column_path
         end
     end
     
@@ -34,7 +37,8 @@ class Admin::ColumnsController < ApplicationController
         else
             @topic = Topic.new
             @topics = Topic.all
-            render :edit
+            flash[:error] = @column.errors.full_messages
+            redirect_to request.referer
         end
     end
     
