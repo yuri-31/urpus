@@ -61,7 +61,7 @@ class Public::BooksController < ApplicationController
     
     def update
         book = Book.find(params[:id])
-        if book.update(book_params)
+        if book.user == current_user && book.update(book_params)
             flash[:success] = "You have updated the BOOK successfully."
             redirect_to edit_books_path
         else
@@ -73,7 +73,7 @@ class Public::BooksController < ApplicationController
     
     def destroy
         book = Book.find(params[:id])
-        if book.destroy
+        if book.user == current_user && book.destroy
             flash[:notice] = "The BOOK has been deleted."
             redirect_to edit_books_path
         else

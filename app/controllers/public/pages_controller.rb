@@ -34,18 +34,18 @@ class Public::PagesController < ApplicationController
     
     def update
         page = Page.find(params[:id])
-        if page.update(page_params)
+        if page.book.user == current_user && page.update(page_params)
             flash[:success] = "The BOOK has been updated successfully."
             redirect_to request.referer
         else
-            flash[:danger] = "You failed to update the BOOK."
+            flash[:danger] = "Failed to update the BOOK."
             redirect_to request.referer
         end
     end
     
     def destroy
         page = Page.find(params[:id])
-        if page.destroy
+        if page.book.user == current_user && page.destroy
             flash[:notice] = "The PAGE has been deleted."
             redirect_to request.referer
         end

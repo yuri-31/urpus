@@ -49,7 +49,7 @@ class Public::WordsController < ApplicationController
     
     def update
         @word = Word.find(params[:id])
-        if @word.update(word_params)
+        if @word.user == current_user && @word.update(word_params)
             flash[:success] = "The WORD has been updated successfully."
             redirect_to page_path(@word.page_id)
         else
@@ -61,7 +61,7 @@ class Public::WordsController < ApplicationController
     def update_status
         @word = Word.find(params[:id])
         @word.is_learnt = !@word.is_learnt
-        if @word.save
+        if @word.user == current_user && @word.save
             flash[:success] = 'Word status updated successfully.'
             redirect_to request.referer
         end
@@ -69,7 +69,7 @@ class Public::WordsController < ApplicationController
     
     def destroy
         word = Word.find(params[:id])
-        if word.destroy
+        if word.user == current_user && word.destroy
             flash[:notice] = "The WORD has been deleted."
             redirect_to request.referer
         end
