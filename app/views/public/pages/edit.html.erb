@@ -1,16 +1,19 @@
-<%= link_to '<< BACK', book_path(@book.id), class: 'btn btn-light mt-5 ml-3' %>
-
 <%= render 'public/shared/flash_show' %>
 
-<div class="col-7 mx-auto">
-    <h2 class="mb-4">Edit PAGES :</h2>
-    <% @pages.each do |page| %>
-        <%= form_with model: page, url: page_path(page.id), method: :patch do |f| %>
-            <h5 class="d-flex justify-content-between">
-                <%= f.text_field :name, class: 'col-7 mr-0 page-field fields' %>
-                <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
-                <%= link_to 'DELETE', page_path(page.id), method: :delete, data: {confirm: 'Are you sure you want to delete the PAGE?' }, class: 'btn btn-secondary' %>
-            </h5>
+<div class="col-8 mx-auto">
+    <div class="col-12 d-flex mt-5 mb-3">
+        <%= link_to '<< BACK', book_path(@book.id), class: 'btn btn-light mr-3', style: 'height: 38px;' %>
+        <h2>Edit PAGES :</h2>
+    </div>
+    <div class="col-10 mx-auto">
+        <% @pages.each do |page| %>
+            <%= form_with model: page, url: page_path(page.id), method: :patch do |f| %>
+                <h5 class="d-flex justify-content-between">
+                    <%= f.text_field :name, class: 'col-7 mr-0 page-field fields' %>
+                    <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
+                    <%= link_to 'DELETE', page_path(page.id), method: :delete, data: {confirm: 'Are you sure you want to delete the PAGE?' }, class: 'btn btn-secondary' %>
+                </h5>
+            <% end %>
         <% end %>
-    <% end %>
+    </div>
 </div>
