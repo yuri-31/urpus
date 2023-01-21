@@ -4,5 +4,5 @@ class Page < ApplicationRecord
     belongs_to :book
     
     validates :book_id, presence: true
-    validates :name, presence: true
+    validates :name, presence: true, format: { with: /\A[a-zA-Z]+\z/ }
 end
