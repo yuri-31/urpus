@@ -1,7 +1,7 @@
 <div class="d-flex mt-5 ml-3">
     <%= link_to '<<BACK', book_path(@page.book_id), class: 'btn btn-light mr-3', style: 'height: 38px;' %>
     <h2 class="book-title mr-3"><strong><%= @page.name %></strong></h2>
-    <p>(<%= @page.words.count %> words)</p>
+    <p class="words-count">(<%= @page.words.count %> words)</p>
 </div>
 
 <%= render 'public/shared/flash_show' %>
@@ -20,7 +20,7 @@
                     <% end %>
                 </h2>
                 <% if word.form %>
-                    <p class="mr-3">[<%= word.form %>]</p>
+                    <p class="mr-3 word-form">[<%= word.form %>]</p>
                 <% end %>
                 <% if word.user == current_user %>
                     <% if word.is_learnt == false %>
@@ -37,6 +37,7 @@
                     <% end %>
                 <% end %>
             </div>
+            <div>
                 <% if word.meanings %>
                     <% word.meanings.each do |meaning| %>
                         <p class="text-navy"><%= meaning.content %></p>
@@ -47,6 +48,7 @@
                         <p class="text-navy">" <%= example.sentence %> "</p>
                     <% end %>
                 <% end %>
+            </div>
             <% end %>
         </div>
         <% if @page.book.user == current_user %>

@@ -1,41 +1,46 @@
-<%= link_to "<< Cancel", my_page_path, class: 'btn btn-light mt-5 ml-3' %>
+
 
 <%= render 'public/shared/flash_show' %>
 
 <%= form_with model: @user, url: update_user_path, method: :patch do |f| %>
-<div class="col-4 mx-auto">
-    <h2 class="mb-4">USER INFO :</h2>
-    <div>
-        <div class="profile-img-container mx-auto">
-            <%= image_tag @user.get_profile_image(700, 700), class: 'rounded-circle' %>
+<div class="col-7 mx-auto">
+    <div class="col-12 d-flex mt-5">
+        <%= link_to "<< CANCEL", my_page_path, class: 'btn btn-light mr-5', style: 'height: 38px;' %>
+        <h2 class="mb-4">USER INFO :</h2>
+    </div>
+    <div class="col-7 mx-auto">
+        <div>
+            <div class="profile-img-container mx-auto">
+                <%= image_tag @user.get_profile_image(700, 700), class: 'rounded-circle' %>
+            </div>
         </div>
+        <div class="col-6 mx-auto text-center">
+            <label class="file-field-container">
+                <%= f.file_field :profile_image, class: 'file-field' %>Change profile photo
+            </label>
+        </div>
+        <table class="col-12 mt-3">
+            <tbody>
+                <tr>
+                    <th><%= f.label :nickname, "NICKNAME:"%></th>
+                    <td><%= f.text_field :nickname, class: 'col-12 fields' %></td>
+                </tr>
+                <tr>
+                    <th><%= f.label :login_id, "LOGIN ID:" %></th>
+                    <td><%= f.text_field :login_id, class: 'col-12 fields' %></td>
+                </tr>
+                <tr>
+                    <th><%= f.label :note, "NOTE:" %></th>
+                    <td><%= f.text_field :note, class: 'col-12 fields' %></td>
+                </tr>
+                <tr>
+                    <th><%= f.label :email, "EMAIL:" %></th>
+                    <td><%= f.text_field :email, class: 'col-12 fields' %></td>
+                </tr>
+            </tbody>
+        </table>
+        <%= f.submit "UPDATE", class: 'col-12 btn btn-blue mt-4' %><br>
+        <%= link_to "DELETE ACCOUNT", unsubscribe_path, class: 'col-12 btn btn-light mt-2' %>
     </div>
-    <div class="col-6 mx-auto text-center">
-        <label class="file-field-container">
-            <%= f.file_field :profile_image, class: 'file-field' %>Change profile photo
-        </label>
-    </div>
-    <table class="col-12 mt-3">
-        <tbody>
-            <tr>
-                <th><%= f.label :nickname, "NICKNAME:"%></th>
-                <td><%= f.text_field :nickname, class: 'col-12 fields' %></td>
-            </tr>
-            <tr>
-                <th><%= f.label :login_id, "LOGIN ID:" %></th>
-                <td><%= f.text_field :login_id, class: 'col-12 fields' %></td>
-            </tr>
-            <tr>
-                <th><%= f.label :note, "NOTE:" %></th>
-                <td><%= f.text_field :note, class: 'col-12 fields' %></td>
-            </tr>
-            <tr>
-                <th><%= f.label :email, "EMAIL:" %></th>
-                <td><%= f.text_field :email, class: 'col-12 fields' %></td>
-            </tr>
-        </tbody>
-    </table>
-    <%= f.submit "UPDATE", class: 'col-12 btn btn-blue mt-4' %><br>
-    <%= link_to "DELETE ACCOUNT", unsubscribe_path, class: 'col-12 btn btn-light mt-2' %>
 </div>
 <% end %>
