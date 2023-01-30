@@ -10,7 +10,7 @@
         <% @books.each do |book| %>
             <%= form_with model: book, url: book_path(book.id), method: :patch do |f| %>
                 <h5>
-                    <%= f.text_field :name, class: 'book-field fields mr-2' %>
+                    <%= f.text_field :name, class: 'book-field field-style mr-2' %>
                     <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
                     <% if book.is_private == true %>
                         <%= link_to 'PRIVATE', update_book_status_path(book.id), method: :patch, class: 'btn btn-pink mr-2' %>

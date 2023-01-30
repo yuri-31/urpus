@@ -8,7 +8,7 @@
                 <div class="d-flex justify-content-between">
                     <h1>
                         <%= f.label :title, 'TITLE :' %>
-                        <%= f.text_field :title, class: 'fields border border-dark' %>
+                        <%= f.text_field :title, class: 'field-style border border-dark' %>
                     </h1>
                     <div>
                         <strong><%= f.label :topic_id, 'TOPIC :' %></strong>
@@ -16,10 +16,10 @@
                     </div>
                 </div>
                 <div>
-                    <%= f.text_area :article, class: 'col-12 column-field fields mt-3 mb-3 border border-dark text-left' %><br>
+                    <%= f.text_area :article, class: 'col-12 column-field field-style mt-3 mb-3 border border-dark text-left' %><br>
                 </div>
                 <strong><%= f.label :writer, 'WRITER :' %></strong>
-                <%= f.text_field :writer, class: 'fields border border-dark mb-3' %><br>
+                <%= f.text_field :writer, class: 'field-style border border-dark mb-3' %><br>
                 <%= f.radio_button :is_public, true %>
                 <%= f.label :is_public, 'PUBLIC', value: true, class: 'mr-3 mb-3' %>
                 <%= f.radio_button :is_public, false %>
@@ -40,7 +40,7 @@
                 <h3><i class="fa-sharp fa-solid fa-tags mr-2"></i>TOPICS</h3>
                 <div>
                     <%= form_with model: @topic, url: admin_topics_path, method: :post, class: 'row justify-content-center mt-3 mb-3' do |f| %>
-                        <%= f.text_field :name, class: 'col-7 fields' %>
+                        <%= f.text_field :name, class: 'col-7 field-style' %>
                         <%= button_tag type: "submit", class: "col-3 btn btn-default" do %>
                             <i class="fa-sharp fa-solid fa-circle-plus ml-auto"></i>
                         <% end %>

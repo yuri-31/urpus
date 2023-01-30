@@ -9,7 +9,7 @@
         <% @pages.each do |page| %>
             <%= form_with model: page, url: page_path(page.id), method: :patch do |f| %>
                 <h5 class="d-flex justify-content-between">
-                    <%= f.text_field :name, class: 'col-7 mr-0 page-field fields' %>
+                    <%= f.text_field :name, class: 'col-7 mr-0 page-field field-style' %>
                     <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
                     <%= link_to 'DELETE', page_path(page.id), method: :delete, data: {confirm: 'Are you sure you want to delete the PAGE?' }, class: 'btn btn-secondary' %>
                 </h5>

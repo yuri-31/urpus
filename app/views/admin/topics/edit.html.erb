@@ -6,7 +6,7 @@
     <% @topics.each do |topic| %>
         <%= form_with model: topic, url: admin_topic_path(topic.id), method: :patch do |f| %>
             <h5 class="d-flex justify-content-between">
-                <%= f.text_field :name, class: 'topic-field fields' %>
+                <%= f.text_field :name, class: 'topic-field field-style' %>
                 <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
                 <%= link_to 'DELETE', admin_topic_path(topic.id), method: :delete, data: {confirm: 'Are you sure you want to delete the TOPIC?' }, class: 'btn btn-secondary' %>
             </h5>

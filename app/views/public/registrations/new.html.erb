@@ -12,19 +12,19 @@
     <tbody>
       <tr>
         <th><%= f.label :nickname, "NICKNAME" %></th>
-        <td><%= f.text_field :nickname, autofocus: true, class:'col-12 fields' %></td>
+        <td><%= f.text_field :nickname, autofocus: true, class:'col-12 field-style' %></td>
       </tr>
       <tr>
         <th><%= f.label :login_id, "LOGIN ID" %></th>
-        <td><%= f.text_field :login_id, class:'col-12 fields' %></td>
+        <td><%= f.text_field :login_id, class:'col-12 field-style' %></td>
       </tr>
       <tr>
         <th><%= f.label :note, "NOTE" %></th>
-        <td><%= f.text_field :note, class:'col-12 fields' %></td>
+        <td><%= f.text_field :note, class:'col-12 field-style' %></td>
       </tr>
       <tr>
         <th><%= f.label :email, "EMAIL" %></th>
-        <td><%= f.email_field :email, autocomplete: "email", class:'col-12 fields' %></td>
+        <td><%= f.email_field :email, autocomplete: "email", class:'col-12 field-style' %></td>
       </tr>
       <tr>
         <th>
@@ -33,11 +33,11 @@
           <p>(<%= @minimum_password_length %> CHARACTERS MINIMUM)</p>
           <% end %>
         </th>
-        <td><%= f.password_field :password, autocomplete: "new-password", class:'col-12 fields' %></td>
+        <td><%= f.password_field :password, autocomplete: "new-password", class:'col-12 field-style' %></td>
       </tr>
       <tr>
         <th><%= f.label :password_confirmation, "PASSWORD CONFIRMATION" %></th>
-        <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class:'col-12 fields' %></td>
+        <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class:'col-12 field-style' %></td>
       </tr>
       <tr>
         <th colspan="1"></th>
