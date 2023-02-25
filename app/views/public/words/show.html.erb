@@ -5,11 +5,11 @@
         </div>
         <div class="col-9">
             <div>
-                <div class="word-container d-flex align-items-center mb-4">
+                <div class="word-container d-flex align-items-center mb-5">
                     <h3 class="mr-3"><%= @word.name %></h3>
                     <p class="mb-0">[<%= @word.form %>]</p>
                 </div>
-                <div>
+                <div class="mb-4">
                     <h6>MEANINGS:</h6>
                     <% @word.meanings.each do |meaning| %>
                     <div class="container d-flex">

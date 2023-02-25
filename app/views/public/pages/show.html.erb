@@ -11,7 +11,7 @@
     <div class="row mx-auto">
         <div class="col-8">
             <% @words.each do |word| %>
-            <div class="d-flex mt-4">
+            <div class="d-flex align-items-center mt-4">
                 <h2 class="mr-3">
                     <% if word.user == current_user %>
                         <%= link_to word.name, edit_word_path(word.id), class: 'link-style' %>
@@ -20,7 +20,7 @@
                     <% end %>
                 </h2>
                 <% if word.form %>
-                    <p class="mr-3 word-form">[<%= word.form %>]</p>
+                    <p class="mr-3 mb-0">[<%= word.form %>]</p>
                 <% end %>
                 <% if word.user == current_user %>
                     <% if word.is_learnt == false %>
