@@ -1,0 +1,42 @@
+<div>
+    <div class="row col-7 mx-auto mt-5">
+        <div class="col-2 mr-3">
+            <%= link_to "<<BACK", dictionary_path, class: 'btn btn-light' %>
+        </div>
+        <div class="col-9">
+            <div>
+                <div class="word-container d-flex align-items-center mb-4">
+                    <h3 class="mr-3"><%= @word.name %></h3>
+                    <p class="mb-0">[<%= @word.form %>]</p>
+                </div>
+                <div>
+                    <h6>MEANINGS:</h6>
+                    <% @word.meanings.each do |meaning| %>
+                    <div class="container d-flex">
+                        <div class="col-1">
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <div class="col-11">
+                            <%= meaning.content %><br>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+                <div>
+                    <h6>EXAMPLES:</h6>
+                    <% @word.examples.each do |example| %>
+                    <div class="container d-flex">
+                        <div class="col-1">
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <div class="col-11">
+                            <%= example.sentence %><br>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

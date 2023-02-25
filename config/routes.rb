@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   scope module: 'public' do
     resources :books, only: [:new, :index, :create, :show, :update, :destroy]
     resources :pages, only: [:create, :show, :update, :destroy]
-    resources :words, only: [:create, :edit, :update, :destroy]
+    resources :words, only: [:show, :create, :edit, :update, :destroy]
     resources :topics, only: [:index]
     resources :meanings, only: [:update, :create]
     resources :examples, only: [:update, :create]

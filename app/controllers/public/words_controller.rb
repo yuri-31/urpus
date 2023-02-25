@@ -67,6 +67,10 @@ class Public::WordsController < ApplicationController
         end
     end
     
+    def show
+        @word = Word.find(params[:id])
+    end
+    
     def destroy
         word = Word.find(params[:id])
         if word.user == current_user && word.destroy
