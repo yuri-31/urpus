@@ -168,11 +168,11 @@ td {
 
 .new-word-container {
     background-color: white;
-    padding: 10px;
+    padding: 24px;
     color: #274D7E;
     border-radius: 10px;
     position: fixed;
-    top: 140px;
+    top: 160px;
 }
 
 .fa-circle-check, .text-green {
@@ -230,10 +230,6 @@ td {
 
 .book-field, .topic-field {
     height: 38px;
-}
-
-.words-count {
-    line-height: 43px;
 }
 
 .footer-text {

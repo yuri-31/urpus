@@ -1,4 +1,4 @@
-<div class="nested-fields text-right">
-  <%= link_to_remove_association "delete", f %>
-  <%= f.text_area :sentence, class: 'col-12 mb-2' %>
+<div class="nested-fields text-right d-flex align-items-center">
+  <%= f.text_area :sentence, class: 'col-12 mb-2 mr-2' %>
+  <strong><%= link_to_remove_association "×", f, class: 'link-style text-secondary' %></strong>
 </div>

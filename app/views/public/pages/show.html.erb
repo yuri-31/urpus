@@ -1,7 +1,7 @@
-<div class="d-flex mt-5 ml-3">
+<div class="d-flex align-items-center mt-5 ml-3">
     <%= link_to '<<BACK', book_path(@page.book_id), class: 'btn btn-light mr-3', style: 'height: 38px;' %>
     <h2 class="book-title mr-3"><strong><%= @page.name %></strong></h2>
-    <p class="words-count">(<%= @page.words.count %> words)</p>
+    <p class="mb-0">(<%= pluralize(@page.words.count, "word") %>)</p>
 </div>
 
 <%= render 'public/shared/flash_show' %>
@@ -55,10 +55,10 @@
         <div class="col-3 ml-auto">
             <div class="new-word-container">
                 <div>
-                    <%= f.label :name, 'WORD', class: 'text-secondary' %><br>
+                    <strong><%= f.label :name, 'NEW WORD', class: 'text-secondary' %></strong><br>
                     <%= f.text_field :name, class: 'col-12 field-style border border-dark' %>
                 </div>
-                <div>
+                <div class="mt-2">
                     <%= f.label :form, 'WORD FORM', class: 'mt-2 text-secondary' %><br>
                     <span class="text-secondary"><%= f.select :form, Word.forms.keys.to_a, include_blank: "not selected" %></span>
                 </div>
@@ -69,7 +69,7 @@
                         <%= render "meaning_fields", f: meaning %>
                     <% end %>
                 </div>
-                <div>
+                <div class="mt-2">
                     <%= link_to_add_association '+ ADD EXAMPLES', f, :examples,
                         data: {association_insertion_method: 'append' }, class: 'link-style text-secondary' %>
                     <%= f.fields_for :examples do |example| %>
