@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show]
     resources :words, only: [:show, :create, :edit, :update, :destroy]
     resources :topics, only: [:index]
+    resources :columns, only: [:show]
     resources :meanings, only: [:update, :create]
     resources :examples, only: [:update, :create]
   end

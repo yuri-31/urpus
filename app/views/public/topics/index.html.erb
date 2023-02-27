@@ -6,28 +6,46 @@
     </div>
     <div class="row">
         <div class="col-9">
-            <% @columns.each do |column| %>
-            <div class="column-container mt-3 mb-5">
-                <div class="d-flex">
-                    <h1><%= column.title %></h1>
-                    <div class="ml-auto topic-tag">
-                        <i class="fa-sharp fa-solid fa-tag mr-2"></i>
-                        <%= link_to column.topic.name, topics_path(topic_id: column.topic_id), method: :get, class: 'link-style' %>
+            <% if params[:topic_id] %>
+                <% @columns.each do |column| %>
+                    <div class="column-container mt-3 mb-3 d-flex">
+                        <h5 class="ml-4">
+                            <strong><%= link_to column.title, column_path(column.id), class: 'link-style text-navy' %></strong>
+                            </h5>
+                        <div class="ml-auto topic-tag d-flex align-items-center">
+                            <p class="mb-0 mr-3"><%= column.updated_at.strftime('%m/%d/%y')%></p>
+                            <i class="fa-sharp fa-solid fa-tag mr-2"></i>
+                            <%= link_to column.topic.name, topics_path(topic_id: column.topic_id), method: :get, class: 'link-style text-navy' %>
+                        </div>
                     </div>
-                </div>
-                <div class="mt-2">
-                    <%= column.article %>
-                </div>
-                <div>
-                    <p class="mt-4"><strong class="mr-2">Written by: </strong><%= column.writer %></p>
-                    <p><%= column.updated_at.strftime('%m/%d/%y %H:%M')%></p>
-                </div>
-            </div>
+                <% end %>
+            <% else %>
+                <% @columns.each do |column| %>
+                    <div class="column-container mt-3 mb-5">
+                        <div class="d-flex">
+                            <h1><%= column.title %></h1>
+                            <div class="ml-auto topic-tag">
+                                <i class="fa-sharp fa-solid fa-tag mr-2"></i>
+                                <%= link_to column.topic.name, topics_path(topic_id: column.topic_id), method: :get, class: 'link-style text-navy' %>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <%= column.article %>
+                        </div>
+                        <div>
+                            <p class="mt-4"><strong class="mr-2">Written by: </strong><%= column.writer %></p>
+                            <p><%= column.updated_at.strftime('%m/%d/%y %H:%M')%></p>
+                        </div>
+                    </div>
+                <% end %>
             <% end %>
         </div>
         <div class="col-3">
             <div class="col-10 topic-sidebar ml-auto">
-                <h3 class="mb-3"><i class="fa-sharp fa-solid fa-tags mr-2"></i>TOPICS</h3>
+                <h3 class="mb-3">
+                    <i class="fa-sharp fa-solid fa-tags mr-2"></i>
+                    <%= link_to 'TOPICS', topics_path, class: 'link-style text-light' %>
+                </h3>
                 <ul>
                     <% @topics.each do |topic| %>
                         <%= link_to topics_path(topic_id: topic.id), method: :get, class: 'col-12 mb-2 btn btn-blue text-light border border-light' do %>
