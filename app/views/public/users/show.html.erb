@@ -1,0 +1,17 @@
+<div>
+    <%= link_to "<<BACK", books_path, class: 'btn btn-light ml-5 mt-5' %>
+    <div class="col-5 mx-auto text-center border border-outline-light p-4">
+        <h6><%= @user.login_id %></h6>
+        <div class="profile-img-container mx-auto">
+            <%= image_tag @user.get_profile_image(700, 700) %>
+        </div>
+        <div class="col-8 mx-auto mt-3">
+            <h5><strong><%= @user.nickname %></strong></h5>
+            <%= @user.note %>
+            <div class="mt-4">
+                <%= link_to pluralize(@user.books.where(is_private: false).count, "book"), root_path, class: 'col-12 btn btn-navy mb-2' %><br>
+                <%= link_to pluralize(@user.words.count, "word"), root_path, class: 'col-12 btn btn-light' %>
+            </div>
+        </div>
+    </div>
+</div>
