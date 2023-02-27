@@ -20,7 +20,7 @@
                 <% @books.each do |book| %>
                     <% unless book.user.email == 'guest@example.com' %>
                         <%= link_to book.name, books_path(id: book.id), class: 'col-8 mb-2 btn btn-navy mr-2' %>
-                        <%= 'by @' %><%= link_to book.user.login_id, user_path(book.user.id), class: 'link-style text-light' %><br>
+                        <%= '@' %><%= link_to book.user.login_id, user_path(book.user.id), class: 'link-style text-light' %><br>
                     <% end %>
                 <% end %>
             </div>
