@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <div class="row col-8 mx-auto">
+        <div class="col-3 text-center">
+            <div class="header-profile-img-container mx-auto">
+                <%= image_tag @user.get_profile_image(700, 700) %>
+            </div>
+            <h5 class="mt-2"><strong><%= link_to @user.nickname, user_path(@user.id), class: 'link-style text-light' %></strong></h5>
+        </div>
+        <div class="col-9">
+            <h4>BOOKS from @<%= link_to @user.login_id, user_path(@user.id), class: 'link-style text-light' %>:</h4>
+            <div class="mt-4">
+                <% @books.each do |book| %>
+                    <%= link_to book.name, library_path(id: book.id), class: 'col-8 mb-2 btn btn-navy mr-2' %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

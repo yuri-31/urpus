@@ -46,6 +46,11 @@ class Public::BooksController < ApplicationController
         @pages = @book.pages
     end
     
+    def library
+        @user = User.find(params[:id])
+        @books = @user.books.where(is_private: false)
+    end
+    
     def edit
         @books = current_user.books
     end
