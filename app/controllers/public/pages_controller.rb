@@ -24,6 +24,12 @@ class Public::PagesController < ApplicationController
         @examples = @word.examples.build
     end
     
+    def library
+        @book = Book.find(params[:id])
+        @user = @book.user
+        @pages = @book.pages
+    end
+    
     def edit
         @book = Book.find(params[:id])
         if @book.user != current_user

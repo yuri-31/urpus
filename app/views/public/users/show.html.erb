@@ -9,7 +9,7 @@
             <h5><strong><%= @user.nickname %></strong></h5>
             <%= @user.note %>
             <div class="mt-4">
-                <%= link_to pluralize(@user.books.where(is_private: false).count, "book"), library_path(@user.id), class: 'col-12 btn btn-navy mb-2' %><br>
+                <%= link_to pluralize(@user.books.where(is_private: false).count, "book"), book_library_path(@user.id), class: 'col-12 btn btn-navy mb-2' %><br>
                 <%= link_to pluralize(@user.words.count, "word"), root_path, class: 'col-12 btn btn-light' %>
             </div>
         </div>

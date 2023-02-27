@@ -8,10 +8,10 @@
             <p>@<%= @user.login_id %></p>
         </div>
         <div class="col-9">
-            <h4>BOOKS :</h4>
+            <h4>PAGES of <%= @book.name %> :</h4>
             <div class="mt-4">
-                <% @books.each do |book| %>
-                    <%= link_to book.name, page_library_path(book.id), class: 'col-8 mb-2 btn btn-navy mr-2' %>
+                <% @pages.each do |page| %>
+                    <%= link_to page.name, page_path(page.id), class: 'col-8 mb-2 btn btn-blue mr-2' %>
                 <% end %>
             </div>
         </div>

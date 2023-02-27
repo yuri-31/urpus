@@ -35,10 +35,11 @@ Rails.application.routes.draw do
   
   get '/books/edit' => 'public/books#edit', as: 'edit_books'
   patch '/books/status/:id' => 'public/books#update_status', as: 'update_book_status'
-  get '/books/library/:id' => 'public/books#library', as: 'library'
+  get '/books/library/:id' => 'public/books#library', as: 'book_library'
   # get 'books/find' => 'public/books#find', as: 'find_book'
   
   get '/pages/edit' => 'public/pages#edit', as: 'edit_pages'
+  get '/pages/library/:id' => 'public/pages#library', as: 'page_library'
   
   patch '/words/status/:id' => 'public/words#update_status', as: 'update_word_status'
   get '/words/dictionary' => 'public/words#index', as: 'dictionary'
