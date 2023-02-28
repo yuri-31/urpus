@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <%= link_to '<< BACK', topics_path(topic_id: @column.topic_id), class: 'btn btn-light mb-3' %>
+    <div class="column-container p-5">
+        <div class="d-flex">
+            <h1><%= @column.title %></h1>
+            <div class="ml-auto topic-tag">
+                <i class="fa-sharp fa-solid fa-tag mr-2"></i>
+                <%= link_to @column.topic.name, topics_path(topic_id: @column.topic_id), method: :get, class: 'link-style text-navy' %>
+            </div>
+        </div>
+        <div class="mt-2">
+            <%= @column.article %>
+        </div>
+        <div>
+            <p class="mt-4"><strong class="mr-2">Written by: </strong><%= @column.writer %></p>
+            <p><%= @column.updated_at.strftime('%m/%d/%y %H:%M')%></p>
+        </div>
+    </div>
+</div>

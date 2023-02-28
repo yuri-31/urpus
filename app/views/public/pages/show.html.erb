@@ -53,7 +53,7 @@
         </div>
         <% if @page.book.user == current_user %>
         <div class="col-3 ml-auto">
-            <div class="new-word-container">
+            <div class="new-word-container p-4">
                 <div>
                     <strong><%= f.label :name, 'NEW WORD', class: 'text-secondary' %></strong><br>
                     <%= f.text_field :name, class: 'col-12 field-style border border-dark' %>
