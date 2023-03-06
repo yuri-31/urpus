@@ -6,7 +6,7 @@ class Word < ApplicationRecord
     has_many :examples, dependent: :destroy
     
     validates :page_id, presence: true
-    validates :name, presence: true, format: { with: /\A[a-zA-Z]+\z/ }
+    validates :name, presence: true, format: {with: /\A[a-zA-Z\s!-"&'~*,.?]+\z/ }
     validates :is_learnt, inclusion: {in: [true, false]}
     validates :user_id, presence: true
     
