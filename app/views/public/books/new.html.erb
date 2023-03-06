@@ -15,7 +15,7 @@
             <h3>BOOKS:</h3>
             <div class="mt-4">
                 <% @books.each do |book| %>
-                    <%= link_to book.name, new_book_path(id: book.id), class: 'col-12 mb-2 btn btn-navy' %><br>
+                    <%= link_to book.name.truncate(28), new_book_path(id: book.id), class: 'col-12 mb-2 btn btn-navy' %><br>
                 <% end %>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <h3>
                 PAGES of:
                 <% if params[:id] %>
-                    <%= @book.name %>
+                    <%= @book.name.truncate(38) %>
                 <% end %>
             </h3>
             <% if params[:id] %>

@@ -5,7 +5,7 @@
 <div class="container mt-5">
     <div class="d-flex mb-2">
         <%= link_to '<< BACK', new_book_path(@book.id), class: 'btn btn-light mr-3', style: 'height: 38px;' %>
-        <h3 class="mr-5">PAGES of: <strong class="book-title ml-2"><%= @book.name %></strong></h3>
+        <h3 class="mr-5">PAGES of: <strong class="book-title ml-2"><%= @book.name.truncate(45) %></strong></h3>
     </div>
     <div class="col-7 mx-auto d-flex mb-4">
         <% if @book.user == current_user %>
@@ -18,7 +18,7 @@
     </div>
     <div class="col-10 mx-auto d-flex flex-wrap justify-content-between">
         <% @pages.each do |page| %>
-            <%= link_to page.name, page_path(page.id), class: 'col-5 mb-2 btn btn-blue' %><br>
+            <%= link_to page.name.truncate(28), page_path(page.id), class: 'col-5 mb-2 btn btn-blue' %><br>
         <% end %>
     </div>
 </div>
