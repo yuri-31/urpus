@@ -2,12 +2,14 @@
 
 <%= form_with model: @new_book, url: books_path, method: :post do |f| %>
 <div class="container mt-5">
-    <div class="d-flex mb-4">
-        <h3 class="mr-5">CREATE NEW BOOK:</h3>
-        <%= f.text_field :name, class: 'col-4 mr-3 field-style' %>
-        <%= f.submit 'CREATE', class: 'btn btn-light mr-5' %>
+    <div class="col-11 mx-auto d-flex justify-content-between align-items-center mb-4">
+        <h3>CREATE NEW BOOK:</h3>
+        <div class="col-7">
+            <%= f.text_field :name, class: 'col-9 mr-3 field-style', style: 'height: 38px;' %>
+            <%= f.submit 'CREATE', class: 'col-2 btn btn-light' %>
+        </div>
         <%= link_to edit_books_path, method: :get do %>
-            <i class="fa-sharp fa-solid fa-gears btn text-light ml-5"></i>
+            <i class="fa-sharp fa-solid fa-gears btn text-light"></i>
         <% end %>
     </div>
     <div class="row col-10 mx-auto">
