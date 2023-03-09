@@ -39,6 +39,11 @@ class Public::UsersController < ApplicationController
     
     def show
         @user = User.find(params[:id])
+        
+        if @user.is_deleted == true
+            flash[:notice] = 'This user has been deleted.'
+            redirect_to books_path
+        end
     end
     
     

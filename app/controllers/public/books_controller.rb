@@ -28,9 +28,14 @@ class Public::BooksController < ApplicationController
     def index
         @q = Book.ransack(params[:q])
         @books = @q.result(distinct: true).where(is_private: false)
-        if params[:id]
+        if params[:id] 
             @book = Book.find(params[:id])
-            @pages = @book.pages
+            if @book.is_private == false && @book.user.is_deleted == false
+                @pages = @book.pages
+            else
+                flash[:notice] = "This BOOK has been deleted."
+                redirect_to books_path
+            end
         end
     end
     
@@ -49,6 +54,11 @@ class Public::BooksController < ApplicationController
     def library
         @user = User.find(params[:id])
         @books = @user.books.where(is_private: false)
+        
+        if @user.is_deleted
+            flash[:notice] = "The user has been deleted."
+            redirect_to books_path
+        end
     end
     
     def edit

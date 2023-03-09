@@ -18,6 +18,10 @@ class Public::PagesController < ApplicationController
             flash[:notice] = 'The BOOK is set private.'
             redirect_to books_path
         end
+        if @page.book.user.is_deleted
+            flash[:notice] = 'The user has been deleted.'
+            redirect_to books_path
+        end
         @words = @page.words
         @word = Word.new
         @meanings = @word.meanings.build
@@ -28,6 +32,15 @@ class Public::PagesController < ApplicationController
         @book = Book.find(params[:id])
         @user = @book.user
         @pages = @book.pages
+        
+        if @book.is_private
+            flash[:notice] = "This BOOK is set private."
+            redirect_to books_path
+        end
+        if @user.is_deleted
+            flash[:notice] = "This user has been deleted."
+            redirect_to books_path
+        end
     end
     
     def edit
