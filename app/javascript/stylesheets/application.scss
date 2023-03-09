@@ -231,3 +231,7 @@ td {
 .footer-text {
     line-height: 56px;
 }
+
+.page-btn :nth-child(odd) {
+    color: black;
+}
