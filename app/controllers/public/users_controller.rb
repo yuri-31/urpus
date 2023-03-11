@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
      before_action :ensure_normal_user, only: %i[update edit withdraw]
-     before_action :authenticate_user!
+     before_action :authenticate_user!, except: [:show]
 
     def ensure_normal_user
       if current_user.email == 'guest@example.com'

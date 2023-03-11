@@ -1,5 +1,5 @@
 class Public::PagesController < ApplicationController
-    before_action :authenticate_user!, except: [:show]
+    before_action :authenticate_user!, except: [:show, :library]
         
     def create
         @new_page = Page.new(page_params)

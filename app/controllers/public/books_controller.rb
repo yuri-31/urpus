@@ -1,5 +1,5 @@
 class Public::BooksController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show]
+    before_action :authenticate_user!, except: [:index, :show, :library]
     
     def new
         @new_book = Book.new
