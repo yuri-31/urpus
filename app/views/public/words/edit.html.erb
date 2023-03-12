@@ -19,24 +19,24 @@
     </div>
     <div class="row mt-3">
         <div class="col-6">
-            <h4 class="col-9 d-inline-block mb-4 px-0">MEANINGS :</h4>
-            <%= link_to_add_association '+ ADD', f, :meanings,
-            data: {association_insertion_method: 'append' }, class: 'col-2 btn btn-light mb-2' %>
+            <h4 class="col-6 d-inline-block mb-4 px-0">MEANINGS :</h4>
+            <%= link_to_add_association '+ ADD FIELD', f, :meanings,
+            data: {association_insertion_method: 'append' }, class: 'col-5 btn btn-light mb-2' %>
             <%= f.fields_for :meanings do |meaning| %>
                 <%= render "meaning_fields", f: meaning %>
             <% end %>
         </div>
         <div class="col-6">
-            <h4 class="col-9 d-inline-block mb-4 px-0">EXAMPLES :</h4>
-            <%= link_to_add_association '+ ADD', f, :examples,
-            data: {association_insertion_method: 'append' }, class: 'col-2 btn btn-light mb-2' %>
+            <h4 class="col-6 d-inline-block mb-4 px-0">EXAMPLES :</h4>
+            <%= link_to_add_association '+ ADD FIELD', f, :examples,
+            data: {association_insertion_method: 'append' }, class: 'col-5 btn btn-light mb-2' %>
             <%= f.fields_for :examples do |example| %>
                 <%= render "example_fields", f: example %>
             <% end %>
         </div>
     </div>
     <div class="col-4 mt-4 mx-auto">
-        <%= f.submit 'UPDATE!', class: 'col-12 btn btn-blue' %>
+        <%= f.submit 'UPDATE !', class: 'col-12 btn btn-blue' %>
     </div>
 </div>
 <% end %>
