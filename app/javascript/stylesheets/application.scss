@@ -10,13 +10,23 @@
 
 
 header {
+    height: 80px;
     background-color: #91B6E6;
     color: white;
 }
 
-.navbar-toggler {
-    width: 70px;
-    height: 70px;
+// .navbar-toggler {
+//     width: 70px;
+//     height: 70px;
+// }
+
+.logo {
+    height: 96px;
+    width: 132px;
+}
+
+.nav-mypage {
+    display: none;
 }
 
 .fa-list {
@@ -234,4 +244,72 @@ td {
 
 .page-btn :nth-child(odd) {
     color: black;
+}
+
+/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
+@media screen and (max-width:990px) {
+    
+  header {
+      z-index: 10;
+  }
+    
+  .navbar-toggler .fa-bars {
+      font-size: 60px;
+      color: white;
+  }
+  
+  .navbar-nav {
+      text-align: center;
+      background-color: rgba(39,77,126,0.7);
+      border-radius: 5px;
+      width: 30%;
+  }
+  
+  .nav-link a {
+      width: 90%;
+  }
+  
+  .nav-profile-img {
+      display: none;
+  }
+  
+  .nav-mypage {
+      display: inline-block;
+  }
+  
+}
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+    
+  header {
+      height: 50px;
+  }
+
+  .logo {
+      height: 60px;
+      width: 82px;
+  }
+
+  .navbar-toggler .fa-bars {
+      font-size: 40px;
+      color: white;
+  }
+}
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:500px) {
+  
+//   header {
+//       z-index: 10;
+//   }
+  
+  .navbar-nav {
+      text-align: center;
+      width: 100%;
+    //   background-color: rgba(39,77,126,0.7);
+    //   border-radius: 5px;
+  }
+  
+  .nav-link a {
+      width: 80%;
+  }
 }

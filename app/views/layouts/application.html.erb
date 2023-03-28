@@ -12,17 +12,17 @@
   </head>
 
   <body class="d-flex flex-column">
-    <header style="height: 80px;" class="shadow-sm border border-light">
+    <header class="shadow-sm border border-light">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <h1 class="logo-container">
             <a class="navbar-brand" href="/">
-              <%= image_tag 'urpus_logo.png', width: 132, height: 96 %>
+              <%= image_tag 'urpus_logo.png', class: 'logo' %>
             </a>
           </h1>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+              <i class="fa-solid fa-bars"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <% if admin_signed_in? %>
@@ -70,11 +70,16 @@
                   <%= link_to "TIMELINE", topics_path, class: 'text-light btn btn-outline-light' %>
                 </div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item nav-profile-img">
                 <div class="nav-link header-profile-img-container p-0 ml-3">
                   <%= link_to  my_page_path, method: :get do %>
                     <%= image_tag current_user.get_profile_image(500, 500) %>
                   <% end %>
+                </div>
+              </li>
+              <li class="nav-item nav-mypage">
+                <div class="nav-link">
+                  <%= link_to "MY PAGE", my_page_path, class: 'text-light btn btn-outline-light' %>
                 </div>
               </li>
             </ul>
