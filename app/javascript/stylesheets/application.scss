@@ -246,6 +246,32 @@ td {
     color: black;
 }
 
+.word-list-container {
+    display: flex;
+}
+
+.word-list-group {
+    width: 50%;
+}
+
+.word-list-group-left {
+    margin-right: 20px;
+    display: flex;
+}
+
+.word-list-group-right {
+    display: flex;
+}
+
+.word-list {
+    margin-right: 20px;
+    width: 50%;
+}
+
+.word-list:nth-child(2n) {
+    margin-right: 0;
+}
+
 /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
 @media screen and (max-width:990px) {
     
@@ -277,6 +303,18 @@ td {
       display: inline-block;
   }
   
+  .container {
+      width: 80%;
+  }
+  
+  .word-list-group {
+    display: block;
+  }
+  
+  .word-list {
+      width: 100%;
+  }
+
 }
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width:768px) {
@@ -294,6 +332,10 @@ td {
       font-size: 40px;
       color: white;
   }
+
+  
+
+
 }
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width:500px) {
@@ -318,10 +360,15 @@ td {
   }
   
   h2 {
+      font-size: 20px;
+  }
+  
+  h3 {
       font-size: 18px;
   }
   
   .container {
       width: 90%;
   }
+  
 }

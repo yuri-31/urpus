@@ -8,170 +8,174 @@
         <!--    <% end %>-->
         <!--</div>-->
     </div>
-    <div class="row mt-3">
-        <div class="col-3">
-            <h3 class="index">- A</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('A', 'a') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+    <div class="mt-3 word-list-container">
+        <div class="word-list-group word-list-group-left">
+            <ul class="word-list">
+                <li class="index">- A</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('A', 'a') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- B</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('B', 'b') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- B</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('B', 'b') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- C</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('C', 'c') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- C</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('C', 'c') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- D</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('D', 'd') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- D</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('D', 'd') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- E</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('E', 'e') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- E</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('E', 'e') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- F</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('F', 'f') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- F</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('F', 'f') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
+            </ul>
+            <ul class="word-list">
+                <li class="index">- G</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('G', 'g') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
+                <% end %>
+                <li class="index">- H</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('H', 'h') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
+                <% end %>
+                <li class="index">- I</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('I', 'i') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
+                <% end %>
+                <li class="index">- J</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('J', 'j') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
+                <% end %>
+                <li class="index">- K</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('K', 'k') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
+                <% end %>
+                <li class="index">- L</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('L', 'l') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
+                <% end %>
+            </ul>
         </div>
-        <div class="col-3">
-            <h3 class="index">- G</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('G', 'g') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+        <div class="word-list-group word-list-group-right">
+            <ul class="word-list">
+                <li class="index">- M</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('M', 'm') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- H</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('H', 'h') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- N</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('N', 'n') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- I</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('I', 'i') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- O</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('O', 'o') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- J</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('J', 'j') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- P</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('P', 'p') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- K</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('K', 'k') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- Q</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('Q', 'q') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- L</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('L', 'l') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- R</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('R', 'r') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-        </div>
-        <div class="col-3">
-            <h3 class="index">- M</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('M', 'm') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- S</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('S', 's') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- N</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('N', 'n') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- T</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('T', 't') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- O</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('O', 'o') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+            </ul>
+            <ul class="word-list">
+                <li class="index">- U</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('U', 'u') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- P</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('P', 'p') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- V</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('V', 'v') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- Q</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('Q', 'q') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- W</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('W', 'w') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- R</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('R', 'r') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- S</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('X', 'x') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- S</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('S', 's') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- Y</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('Y', 'y') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <h3 class="index">- T</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('T', 't') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                <li class="index">- Z</li>
+                <% @words.each do |word| %>
+                    <% if word.name.start_with?('Z', 'z') %>
+                        <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
+                    <% end %>
                 <% end %>
-            <% end %>
-        </div>
-        <div class="col-3">
-            <h3 class="index">- U</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('U', 'u') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
-                <% end %>
-            <% end %>
-            <h3 class="index">- V</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('V', 'v') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
-                <% end %>
-            <% end %>
-            <h3 class="index">- W</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('W', 'w') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
-                <% end %>
-            <% end %>
-            <h3 class="index">- S</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('X', 'x') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
-                <% end %>
-            <% end %>
-            <h3 class="index">- Y</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('Y', 'y') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
-                <% end %>
-            <% end %>
-            <h3 class="index">- Z</h3>
-            <% @words.each do |word| %>
-                <% if word.name.start_with?('Z', 'z') %>
-                    <%= link_to word.name, word_path(word.id), class: 'link-style word-link' %><br>
-                <% end %>
-            <% end %>
+            </ul>
         </div>
     </div>
 </div>
