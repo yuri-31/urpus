@@ -1,44 +1,50 @@
 <%= render 'public/shared/flash_show', model: @user %>
 
 <div class="container">
-    <div class="col-5 mx-auto">
+    <div class="col-md-8 col-lg-5 mx-auto">
         <h2 class="mb-4">MY PAGE :</h2>
-        <div class="border border-outline-light px-4 pt-3 pb-3 rounded">
+        <div class="border border-outline-light px-2 px-sm-4 pt-3 pb-3 rounded">
             <div class="text-right">
                 <%= link_to edit_user_path, method: :get do %>
                 <i class="fa-sharp fa-solid fa-gear text-secondary"></i>
                 <% end %>
             </div>
             <div>
-                <table class="col-10 mx-auto">
-                    <div class="mb-4">
-                        <div class="profile-img-container mx-auto">
-                            <%= image_tag @user.get_profile_image(700, 700) %>
-                        </div>
+                <div class="mb-4">
+                    <div class="profile-img-container mx-auto">
+                        <%= image_tag @user.get_profile_image(700, 700) %>
                     </div>
-                    <tbody>
-                        <tr>
-                            <th>NICKNAME:</th>
-                            <td class="text-right">
-                                <% if current_user.email == 'guest@example.com'%>
-                                    <%= 'GUEST' %>
-                                <% elsif @user.nickname.blank? %>
-                                    <%= @user.login_id %>
-                                <% else %>
-                                    <%= @user.nickname %>
-                                <% end %>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>lOGIN ID:</th>
-                            <td class="text-right">@<%= @user.login_id %></td>
-                        </tr>
-                        <tr>
-                            <th class="align-top">NOTE:</th>
-                            <td class="text-right align-top"><%= @user.note %></td>
-                        </tr>
-                    </tbody>
-                </table>
+                </div>
+                <div class="col-10 mx-auto px-0">
+                    <table class="table table-borderless table-sm text-light mb-0">
+                        <tbody>
+                            <tr>
+                                <th>NICKNAME:</th>
+                                <td class="text-right">
+                                    <% if current_user.email == 'guest@example.com'%>
+                                        <%= 'GUEST' %>
+                                    <% elsif @user.nickname.blank? %>
+                                        <%= @user.login_id %>
+                                    <% else %>
+                                        <%= @user.nickname %>
+                                    <% end %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>lOGIN ID:</th>
+                                <td class="text-right">@<%= @user.login_id %></td>
+                            </tr>
+                            <tr class="mypage-note">
+                                <th class="align-top">NOTE:</th>
+                                <td class="text-right align-top"><%= @user.note %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="mypage-note-mobile px-0">
+                        <p>NOTE:</p>
+                        <p><%= @user.note %></p>
+                    </div>
+                </div>
             </div>
             <%= link_to "LOG OUT", destroy_user_session_path, method: :get, class: 'col-12 mt-4 btn btn-blue' %>
         </div>

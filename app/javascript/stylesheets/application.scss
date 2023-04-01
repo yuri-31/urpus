@@ -122,7 +122,6 @@ ul {
 
 th {
     font-weight: normal;
-    padding-right: 20px;
 }
 
 td {
@@ -272,6 +271,10 @@ td {
     margin-right: 0;
 }
 
+.mypage-note-mobile {
+    display: none;
+}
+
 /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
 @media screen and (max-width:991.5px) {
     
@@ -375,6 +378,19 @@ td {
   
   .container {
       width: 90%;
+  }
+  
+  .mypage-note {
+      display: none;
+  }
+  
+  .mypage-note-mobile {
+      display: block;
+  }
+  
+  .mypage-note-mobile p {
+      margin-bottom: 0;
+      padding-left: 4.8px;
   }
   
 }
