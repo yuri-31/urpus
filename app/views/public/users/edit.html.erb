@@ -3,12 +3,12 @@
 <%= render 'public/shared/flash_show' %>
 
 <%= form_with model: @user, url: update_user_path, method: :patch do |f| %>
-<div class="col-11 col-sm-9 mx-auto px-0">
+<div>
     <div class="col-12 d-sm-flex mt-5">
         <%= link_to "<< CANCEL", my_page_path, class: 'btn btn-light mr-5', style: 'height: 38px;' %>
         <h2 class="mb-4 mt-3 mt-sm-0">USER INFO :</h2>
     </div>
-    <div class="col-md-8 col-lg-6 mx-auto">
+    <div class="col-11 col-sm-8 col-md-6 col-lg-5 mx-auto px-0">
         <div>
             <div class="profile-img-container mx-auto">
                 <%= image_tag @user.get_profile_image(700, 700), class: 'rounded-circle' %>
