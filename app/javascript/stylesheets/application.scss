@@ -175,6 +175,7 @@ td {
     color: #4D72A2;
 }
 
+
 .new-word-container {
     background-color: white;
     // padding: 24px;
@@ -214,11 +215,15 @@ td {
     padding: 12px;
 }
 
+.fa-gears-box {
+    border: solid 3px white;
+    border-radius: 5px;
+}
 
 .fa-gears {
     font-size: 20px;
-    border: solid 3px white;
-    border-radius: 5px;
+    // border: solid 3px white;
+    // border-radius: 5px;
 }
 
 .fa-gear {
@@ -315,6 +320,14 @@ td {
       width: 80%;
   }
   
+  .field-style {
+      height: 40px;
+  }
+  
+  .create-gears-box {
+      height: 43px;
+  }
+  
   .word-list-group {
     display: block;
   }
@@ -379,6 +392,23 @@ td {
   .container {
       width: 90%;
   }
+  
+   .field-style {
+      height: 35px;
+  }
+  
+  .fa-gears {
+      font-size: 16px;
+  }
+  
+  .newbook-pages {
+      display: none;
+  }
+  
+  .create-gears-box {
+      height: 40px;
+  }
+  
   
   .mypage-note {
       display: none;

@@ -1,17 +1,21 @@
 <%= render 'public/shared/flash_show' %>
 
 <%= form_with model: @new_book, url: books_path, method: :post do |f| %>
-<div class="container mt-5">
-    <div class="col-11 mx-auto d-flex justify-content-between mb-4">
-        <h3 class="m-0">CREATE NEW BOOK:</h3>
-        <%= f.text_field :name, class: 'col-5 mr-1 field-style' %>
-        <%= f.submit 'CREATE', class: 'col-2 btn btn-light mr-1' %>
-        <%= link_to edit_books_path, method: :get do %>
-            <i class="fa-sharp fa-solid fa-gears btn text-light"></i>
-        <% end %>
+<div class="container pt-3 pt-lg-5">
+    <div class="col-12 col-sm-11 mx-auto d-lg-flex justify-content-between mb-4 px-0">
+        <h3 class="mb-2 mb-lg-0">CREATE NEW BOOK:</h3>
+        <%= f.text_field :name, class: 'col-lg-4 mb-2 mb-md-3 mb-lg-0 field-style' %>
+        <div class="create-gears-box col-lg-4 d-flex justify-content-between px-0">
+            <%= f.submit 'CREATE', class: 'col-9 mr-1 btn btn-light' %>
+            <div class="fa-gears-box col-3 text-center px-0">
+                <%= link_to edit_books_path, method: :get do %>
+                    <i class="fa-sharp fa-solid fa-gears btn text-light"></i>
+                <% end %>
+            </div>
+        </div>
     </div>
-    <div class="row col-10 mx-auto">
-        <div class="col-5">
+    <div class="row">
+        <div class="col-11 col-sm-5 mx-auto px-0">
             <h3>BOOKS:</h3>
             <div class="mt-4">
                 <% @books.each do |book| %>
@@ -19,7 +23,7 @@
                 <% end %>
             </div>
         </div>
-        <div class="col-6 offset-md-1">
+        <div class="newbook-pages col-6 offset-md-1">
             <h3>
                 PAGES of:
                 <% if params[:id] %>
@@ -35,7 +39,7 @@
             <% end %>
         </div>
     </div>
-    <div class="col-4 mx-auto mt-3">
+    <div class="col-sm-7 col-lg-5 mx-auto mt-3">
         <% if params[:id] %>
         <%= link_to "GO CHECK THIS BOOK !", book_path(@book.id), class: 'col-12 btn btn-light' %>
         <% end %>
