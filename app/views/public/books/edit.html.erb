@@ -1,23 +1,25 @@
 
 <%= render 'public/shared/flash_show' %>
 
-<div class="col-8 mx-auto mt-5">
-    <div class="col-12 d-flex mt-5 mb-4">
-        <%= link_to '<< BACK', new_book_path, class: 'btn btn-light ml-3 mr-4', style: 'height: 38px;' %>
+<div class="col-md-9 col-lg-8 mx-auto pt-3 pt-sm-5 px-0">
+    <div class="col-11 col-sm-12 mx-auto px-0 d-sm-flex mb-3">
+        <%= link_to '<< BACK', new_book_path, class: 'btn btn-light mb-2 mb-sm-0 ml-sm-3 mr-sm-4', style: 'height: 38px;' %>
         <h2>Edit BOOKS :</h2>
     </div>
-    <div class="col-10 mx-auto">
+    <div class="col-11 mx-auto px-0">
         <% @books.each do |book| %>
             <%= form_with model: book, url: book_path(book.id), method: :patch do |f| %>
-                <h5 class="d-flex justify-content-between mb-3">
-                    <%= f.text_field :name, class: 'col-5 book-field field-style' %>
-                    <%= f.submit 'UPDATE !', class: 'col-2 btn btn-navy' %>
-                    <% if book.is_private == true %>
-                        <%= link_to 'PRIVATE', update_book_status_path(book.id), method: :patch, class: 'col-2 btn btn-pink' %>
-                    <% elsif book.is_private == false %>
-                        <%= link_to 'PUBLIC', update_book_status_path(book.id), method: :patch, class: 'col-2 btn btn-green' %>
-                    <% end %>
-                    <%= link_to 'DELETE', book_path(book.id), method: :delete, data: {confirm: 'Are you sure you want to delete the BOOK?' }, class: 'col-2 btn btn-secondary ml-4' %>
+                <h5 class="d-sm-flex justify-content-between mb-3">
+                    <%= f.text_field :name, class: 'col-12 col-sm-5 book-field field-style mb-2 mb-sm-0 mr-sm-2' %>
+                    <div class="col-sm-7 d-flex justify-content-around px-0">
+                        <%= f.submit 'UPDATE', class: 'col-4 mr-sm-1 btn btn-navy' %>
+                        <% if book.is_private == true %>
+                            <%= link_to 'PRIVATE', update_book_status_path(book.id), method: :patch, class: 'col-4 btn btn-pink' %>
+                        <% elsif book.is_private == false %>
+                            <%= link_to 'PUBLIC', update_book_status_path(book.id), method: :patch, class: 'col-4 btn btn-green' %>
+                        <% end %>
+                        <%= link_to 'DELETE', book_path(book.id), method: :delete, data: {confirm: 'Are you sure you want to delete the BOOK?' }, class: 'col-3 btn btn-secondary ml-sm-3' %>
+                    </div>
                 </h5>
             <% end %>
         <% end %>
