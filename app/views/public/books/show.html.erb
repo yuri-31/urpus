@@ -2,25 +2,29 @@
 <%= render 'public/shared/flash_show' %>
 
 <%= form_with model: @new_page, url: pages_path, method: :post do |f| %>
-<div class="container mt-5">
-    <div class="d-flex mb-2">
+<div class="col-11 mx-auto pt-3 px-0">
+    <div class="col-11 d-sm-flex mb-2">
         <%= link_to '<< BACK', new_book_path(@book.id), class: 'btn btn-light mr-3', style: 'height: 38px;' %>
-        <h3 class="mr-5">PAGES of: <strong class="book-title ml-2"><%= @book.name.truncate(45) %></strong></h3>
+        <h3 class="mr-sm-5 pt-2 pt-sm-0">PAGES of: <strong class="book-title ml-2"><%= @book.name.truncate(45) %></strong></h3>
     </div>
-    <div class="col-8 mx-auto d-flex justify-content-between mb-4">
+    <div class="col-11 col-md-10 col-lg-8 mx-auto px-0 d-sm-flex justify-content-between mb-4">
         <% if @book.user == current_user %>
-            <%= f.text_field :name, class: 'col-7 mr-1 field-style' %>
-            <%= f.submit 'ADD NEW PAGE', class: 'btn btn-light mr-1' %>
-            <%= link_to edit_pages_path(id: @book.id), method: :get do %>
-                <i class="fa-sharp fa-solid fa-gears btn text-light"></i>
-            <% end %>
+            <%= f.text_field :name, class: 'col-12 col-sm-7 mr-sm-1 field-style new-page-field' %>
+            <div class="col-sm-5 d-flex justify-content-between px-0 mt-2 mt-sm-0">
+                <%= f.submit 'ADD NEW PAGE', class: 'col-9 btn btn-light mr-1' %>
+                <div class="fa-gears-box col-3 text-center px-0">
+                    <%= link_to edit_pages_path(id: @book.id), method: :get do %>
+                        <i class="fa-sharp fa-solid fa-gears btn text-light"></i>
+                    <% end %>
+                </div>
+            </div>
         <% end %>
     </div>
-    <div class="col-10 mx-auto">
-        <ul class="d-flex flex-wrap justify-content-between">
+    <div class="col-11 col-md-10 mx-auto px-0">
+        <ul class="d-md-flex flex-wrap justify-content-between">
             <% @pages.each do |page| %>
-                <li class="col-6">
-                    <%= link_to page.name.truncate(28), page_path(page.id), class: 'col-12 mb-2 btn btn-blue page-btn' %>
+                <li class="col-md-6 px-0 text-center">
+                    <%= link_to page.name.truncate(28), page_path(page.id), class: 'col-12 col-sm-11 mb-2 btn btn-blue page-btn' %>
                 </li>
             <% end %>
         </ul>
