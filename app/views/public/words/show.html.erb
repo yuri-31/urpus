@@ -1,43 +1,41 @@
 
-<div>
-    <div class="row col-7 mx-auto mt-5">
-        <div class="col-2 mr-3">
-            <%= link_to "<<BACK", dictionary_path, class: 'btn btn-light' %>
-        </div>
-        <div class="col-9">
+<div class="d-sm-flex col-11 justify-content-around col-sm-10 col-md-9 col-lg-6 mx-auto pt-5 px-0">
+    <div class="col-sm-2">
+        <%= link_to "<<BACK", dictionary_path, class: 'btn btn-light' %>
+    </div>
+    <div class="pt-3 pt-sm-0 col-sm-9">
+        <div>
+            <div class="word-container d-flex align-items-center mb-3 mb-sm-5">
+                <h3 class="word-name-show mr-3"><%= @word.name %></h3>
+                <% if @word.form %>
+                    <p class="mb-0">[<%= @word.form %>]</p>
+                <% end %>
+            </div>
+            <div class="mb-3 mb-sm-4">
+                <h6>MEANINGS:</h6>
+                <% @word.meanings.each do |meaning| %>
+                <div class="container d-flex px-0">
+                    <div class="col-1">
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div class="col-11">
+                        <%= meaning.content %><br>
+                    </div>
+                </div>
+                <% end %>
+            </div>
             <div>
-                <div class="word-container d-flex align-items-center mb-5">
-                    <h3 class="mr-3"><%= @word.name %></h3>
-                    <% if @word.form %>
-                        <p class="mb-0">[<%= @word.form %>]</p>
-                    <% end %>
-                </div>
-                <div class="mb-4">
-                    <h6>MEANINGS:</h6>
-                    <% @word.meanings.each do |meaning| %>
-                    <div class="container d-flex">
-                        <div class="col-1">
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <div class="col-11">
-                            <%= meaning.content %><br>
-                        </div>
+                <h6>EXAMPLES:</h6>
+                <% @word.examples.each do |example| %>
+                <div class="container d-flex px-0">
+                    <div class="col-1">
+                        <i class="fa-regular fa-star"></i>
                     </div>
-                    <% end %>
-                </div>
-                <div>
-                    <h6>EXAMPLES:</h6>
-                    <% @word.examples.each do |example| %>
-                    <div class="container d-flex">
-                        <div class="col-1">
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <div class="col-11">
-                            <%= example.sentence %><br>
-                        </div>
+                    <div class="col-11">
+                        <%= example.sentence %><br>
                     </div>
-                    <% end %>
                 </div>
+                <% end %>
             </div>
         </div>
     </div>
