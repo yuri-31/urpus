@@ -1,6 +1,8 @@
-<div>
-    <%= link_to "<<BACK", books_path, class: 'btn btn-light ml-5 mt-5' %>
-    <div class="col-5 mx-auto text-center border border-outline-light p-4">
+<div class="d-sm-flex col-11 justify-content-around col-sm-10 col-md-9 col-lg-6 mx-auto pt-5 px-0">
+    <div class="col-sm-2 px-0">
+        <%= link_to "<<BACK", books_path, class: 'btn btn-light' %>
+    </div>
+    <div class="col-sm-9 mt-2 mt-sm-0 mx-auto text-center border border-outline-light p-4">
         <h6><%= @user.login_id %></h6>
         <div class="profile-img-container mx-auto">
             <%= image_tag @user.get_profile_image(700, 700) %>
