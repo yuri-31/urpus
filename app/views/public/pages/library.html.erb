@@ -1,20 +1,20 @@
-<div class="container mt-5">
-    <div class="mt-5">
+<div class="d-md-flex pt-5">
+    <div class="col-md-3 px-0 text-md-right ml-3 ml-md-0">
         <%= link_to '<< BOOK LIBRARY', book_library_path(@user.id), class: 'btn btn-light d-inline-block' %>
     </div>
-    <div class="row col-8 mx-auto">
-        <div class="col-3 text-center">
+    <div class="d-sm-flex col-sm-10 col-md-8 col-lg-6 mx-sm-auto mx-md-0 text-center px-0 mt-3 mt-md-0">
+        <div class="col-sm-3 text-center">
             <div class="header-profile-img-container mx-auto">
                 <%= image_tag @user.get_profile_image(700, 700) %>
             </div>
             <h5 class="mt-2 mb-0"><strong><%= link_to @user.nickname, user_path(@user.id), class: 'link-style text-light' %></strong></h5>
             <p>@<%= @user.login_id %></p>
         </div>
-        <div class="col-9">
-            <h4>PAGES of <%= @book.name %> :</h4>
-            <div class="mt-4">
+        <div class="col-sm-9">
+            <h4 class="text-left pl-3">PAGES of <%= @book.name %> :</h4>
+            <div class="mt-sm-4">
                 <% @pages.each do |page| %>
-                    <%= link_to page.name, page_path(page.id), class: 'col-8 mb-2 btn btn-blue mr-2' %>
+                    <%= link_to page.name, page_path(page.id), class: 'col-12 mb-2 btn btn-blue mr-2' %>
                 <% end %>
             </div>
         </div>
