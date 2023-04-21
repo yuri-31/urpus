@@ -1,15 +1,21 @@
-<%= link_to '<< BACK', new_admin_column_path, class: 'btn btn-light mt-5 ml-3' %>
 <%= render 'public/shared/flash_show' %>
-
-<div class="col-5 mx-auto">
-    <h2 class="mb-4">Edit TOPICS :</h2>
-    <% @topics.each do |topic| %>
-        <%= form_with model: topic, url: admin_topic_path(topic.id), method: :patch do |f| %>
-            <h5 class="d-flex justify-content-between">
-                <%= f.text_field :name, class: 'topic-field field-style' %>
-                <%= f.submit 'UPDATE !', class: 'btn btn-navy mr-5' %>
-                <%= link_to 'DELETE', admin_topic_path(topic.id), method: :delete, data: {confirm: 'Are you sure you want to delete the TOPIC?' }, class: 'btn btn-secondary' %>
-            </h5>
+<div class="col-md-10 col-lg-8 mx-auto d-sm-flex pt-3 pt-sm-5">
+    <div class="col-sm-2 px-sm-0 text-sm-right">
+        <%= link_to '< BACK', new_admin_column_path, class: 'btn btn-light' %>
+    </div>
+    <div class="col-sm-10 mt-3 mt-sm-0">
+        <h2 class="mb-4">Edit TOPICS :</h2>
+        <% @topics.each do |topic| %>
+            <%= form_with model: topic, url: admin_topic_path(topic.id), method: :patch do |f| %>
+                <h5 class="d-sm-flex justify-content-around">
+                    <%= f.text_field :name, class: 'col-sm-6 topic-field field-style' %>
+                    <div class="col-sm-5 d-flex justify-content-around mt-1 mt-sm-0 mb-3 mb-sm-0 px-0">
+                        <%= f.submit 'UPDATE !', class: 'col-6 btn btn-navy' %>
+                        <%= link_to 'DELETE', admin_topic_path(topic.id), method: :delete, 
+                        data: {confirm: 'Are you sure you want to delete the TOPIC?' }, class: 'col-5 btn btn-secondary' %>
+                    </div>
+                </h5>
+            <% end %>
         <% end %>
-    <% end %>
+    </div>
 </div>
