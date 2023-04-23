@@ -19,10 +19,10 @@
             <%= link_to "SHOW ALL OF THEM >", dictionary_path, class: 'btn btn-blue' %>
         </div>
     <% else %>
-        <div class="mt-5 text-center">
-            <%= link_to 'SIGN IN AS A GUEST USER', public_guest_sign_in_path, method: :post, class: 'col-6 btn btn-navy text-light mt-5' %><br>
-            <%= link_to "SIGN UP", new_user_registration_path, class: 'col-6 text-light btn btn-blue mt-4' %><br>
-            <%= link_to "SIGN IN", new_user_session_path, class: 'col-6 text-navy btn btn-light mt-4' %><br>
+        <div class="mt-sm-5 text-center">
+            <%= link_to 'SIGN IN AS A GUEST USER', public_guest_sign_in_path, method: :post, class: 'col-sm-7 btn btn-navy text-light mt-5' %><br>
+            <%= link_to "SIGN UP", new_user_registration_path, class: 'col-sm-7 text-light btn btn-blue mt-4' %><br>
+            <%= link_to "SIGN IN", new_user_session_path, class: 'col-sm-7 text-navy btn btn-light mt-4' %><br>
         </div>
     <% end %>
 </div>
