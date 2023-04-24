@@ -1,18 +1,36 @@
 
-<div class="container mt-5">
-    <div class="d-inline border border-light mb-3 px-2 pt-1 pb-1">
-        <i class="fa-sharp fa-solid fa-pen-nib"></i>
-        <strong><%= pluralize(@columns.count, "post") %> </strong>
-    </div>
-    <div class="row">
-        <div class="col-9">
+<div class="col-lg-11 mx-auto mt-5">
+    <div class="d-md-flex flex-row-reverse">
+        <div class="col-md-3 px-0 mx-auto mt-md-4">
+            <div class="col-12 col-lg-11 topic-sidebar ml-auto">
+                <h3 class="mb-3">
+                    <i class="fa-sharp fa-solid fa-tags mr-2"></i>
+                    <%= link_to 'TOPICS', topics_path, class: 'link-style text-light' %>
+                </h3>
+                <ul class="d-flex flex-wrap d-md-block">
+                    <% @topics.each do |topic| %>
+                    <li class="col-12 col-sm-6 col-md-12 mb-2 px-1">
+                        <%= link_to topics_path(topic_id: topic.id), method: :get, class: 'col-12 btn btn-blue text-light border border-light' do %>
+                            <%= topic.name %>
+                            (<%= topic.columns.where(is_public: true).count %>)
+                        <% end %>
+                    </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9 px-0 px-md-3 mt-3 mt-md-0">
+            <div class="d-inline border border-light mb-3 px-2 pt-1 pb-1">
+                <i class="fa-sharp fa-solid fa-pen-nib"></i>
+                <strong><%= pluralize(@columns.count, "post") %> </strong>
+            </div>
             <% if params[:topic_id] %>
                 <% @columns.each do |column| %>
-                    <div class="column-container mt-3 mb-3 d-flex">
+                    <div class="column-container mt-3 mb-3 d-sm-flex p-3">
                         <h5 class="ml-4">
                             <strong><%= link_to column.title, column_path(column.id), class: 'link-style text-navy' %></strong>
                             </h5>
-                        <div class="ml-auto topic-tag d-flex align-items-center">
+                        <div class="ml-4 ml-sm-auto topic-tag d-flex align-items-center">
                             <p class="mb-0 mr-3"><%= column.updated_at.strftime('%m/%d/%y')%></p>
                             <i class="fa-sharp fa-solid fa-tag mr-2"></i>
                             <%= link_to column.topic.name, topics_path(topic_id: column.topic_id), method: :get, class: 'link-style text-navy' %>
@@ -21,14 +39,12 @@
                 <% end %>
             <% else %>
                 <% @columns.each do |column| %>
-                    <div class="column-container mt-3 mb-5">
-                        <div class="d-flex">
-                            <h1><%= column.title %></h1>
-                            <div class="ml-auto topic-tag">
-                                <i class="fa-sharp fa-solid fa-tag mr-2"></i>
-                                <%= link_to column.topic.name, topics_path(topic_id: column.topic_id), method: :get, class: 'link-style text-navy' %>
-                            </div>
+                    <div class="column-container mt-3 mb-4">
+                        <div class="text-right topic-tag">
+                            <i class="fa-sharp fa-solid fa-tag mr-2"></i>
+                            <%= link_to column.topic.name, topics_path(topic_id: column.topic_id), method: :get, class: 'link-style text-navy' %>
                         </div>
+                        <h1><%= column.title %></h1>
                         <div class="mt-2">
                             <%= column.article %>
                         </div>
@@ -39,22 +55,6 @@
                     </div>
                 <% end %>
             <% end %>
-        </div>
-        <div class="col-3">
-            <div class="col-10 topic-sidebar ml-auto">
-                <h3 class="mb-3">
-                    <i class="fa-sharp fa-solid fa-tags mr-2"></i>
-                    <%= link_to 'TOPICS', topics_path, class: 'link-style text-light' %>
-                </h3>
-                <ul>
-                    <% @topics.each do |topic| %>
-                        <%= link_to topics_path(topic_id: topic.id), method: :get, class: 'col-12 mb-2 btn btn-blue text-light border border-light' do %>
-                            <%= topic.name %>
-                            (<%= topic.columns.where(is_public: true).count %>)
-                        <% end %>
-                    <% end %>
-                </ul>
-            </div>
         </div>
     </div>
 </div>
