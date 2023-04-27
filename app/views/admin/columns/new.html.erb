@@ -1,15 +1,15 @@
 <%= render 'public/shared/flash_show' %>
 
-<div class="mt-5 px-2">
+<div class="col-lg-11 mt-5 px-2 mx-auto">
     <div class="d-md-flex flex-row-reverse">
         <div class="col-md-3 px-0 mx-auto mt-md-2">
-            <div class="col-md-10 topic-sidebar mx-auto">
+            <div class="col-md-12 col-lg-10 topic-sidebar mx-0 mx-lg-auto">
                 <div class="text-right">
                     <%= link_to edit_topics_path, method: :get do %>
                         <i class="fa-sharp fa-solid fa-gear text-secondary"></i>
                     <% end %>
                 </div>
-                <h3><i class="fa-sharp fa-solid fa-tags mr-2"></i>TOPICS</h3>
+                <h2><i class="fa-sharp fa-solid fa-tags mr-2"></i>TOPICS</h2>
                 <div>
                     <%= form_with model: @topic, url: admin_topics_path, method: :post, class: 'row justify-content-center mt-3 mb-3' do |f| %>
                         <%= f.text_field :name, class: 'col-7 field-style' %>
