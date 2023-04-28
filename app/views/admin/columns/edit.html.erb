@@ -1,11 +1,36 @@
 <%= render 'public/shared/flash_show' %>
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-9">
-            <div class="column-container">
+<div class="col-lg-11 mt-5 px-2 mx-auto">
+    <div class="d-md-flex flex-row-reverse">
+        <div class="col-md-3 px-0 mx-auto mt-md-2">
+            <div class="col-md-12 col-lg-10 topic-sidebar mx-0 mx-lg-auto">
+                <div class="text-right">
+                    <%= link_to edit_topics_path, method: :get do %>
+                        <i class="fa-sharp fa-solid fa-gear text-secondary"></i>
+                    <% end %>
+                </div>
+                <h3><i class="fa-sharp fa-solid fa-tags mr-2"></i>TOPICS</h3>
+                <div>
+                    <%= form_with model: @topic, url: admin_topics_path, method: :post, class: 'row justify-content-center mt-3 mb-3' do |f| %>
+                        <%= f.text_field :name, class: 'col-7 field-style text-left' %>
+                        <%= button_tag type: "submit", class: "col-3 btn btn-default" do %>
+                            <i class="fa-sharp fa-solid fa-circle-plus ml-auto"></i>
+                        <% end %>
+                    <% end %>
+                </div>
+                <ul>
+                    <% @topics.each do |topic| %>
+                        <%= link_to admin_top_path(topic_id: topic.id), method: :get, class: 'col-12 mb-2 btn btn-blue text-light border border-light' do %>
+                            <%= topic.name %> (<%= topic.columns.count %>)
+                        <% end %>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9 px-0 px-md-3 mt-3 mt-md-0">
+            <div class="column-container md-4">
             <%= form_with model: @column, url: admin_column_path(@column.id), method: :patch do |f| %>
-                <div class="d-flex justify-content-between">
+                <div class="d-lg-flex justify-content-between">
                     <h1>
                         <%= f.label :title, 'TITLE :' %>
                         <%= f.text_field :title, class: 'field-style border border-dark' %>
@@ -29,31 +54,6 @@
                     <%= link_to 'DELETE', admin_column_path(@column.id), method: :delete, data: {confirm: 'Are you sure you want to delete the COLUMN?' }, class: 'col-4 btn btn-secondary' %>
                 </div>
             <% end %>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="col-10 topic-sidebar ml-auto">
-                <div class="text-right">
-                    <%= link_to edit_topics_path, method: :get do %>
-                        <i class="fa-sharp fa-solid fa-gear text-secondary"></i>
-                    <% end %>
-                </div>
-                <h3><i class="fa-sharp fa-solid fa-tags mr-2"></i>TOPICS</h3>
-                <div>
-                    <%= form_with model: @topic, url: admin_topics_path, method: :post, class: 'row justify-content-center mt-3 mb-3' do |f| %>
-                        <%= f.text_field :name, class: 'col-7 field-style text-left' %>
-                        <%= button_tag type: "submit", class: "col-3 btn btn-default" do %>
-                            <i class="fa-sharp fa-solid fa-circle-plus ml-auto"></i>
-                        <% end %>
-                    <% end %>
-                </div>
-                <ul>
-                    <% @topics.each do |topic| %>
-                        <%= link_to admin_top_path(topic_id: topic.id), method: :get, class: 'col-12 mb-2 btn btn-blue text-light border border-light' do %>
-                            <%= topic.name %> (<%= topic.columns.count %>)
-                        <% end %>
-                    <% end %>
-                </ul>
             </div>
         </div>
     </div>
