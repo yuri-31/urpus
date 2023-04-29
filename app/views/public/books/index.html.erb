@@ -1,51 +1,50 @@
 
 </div>
-<div class="mt-5 ml-4">
+<div class="mt-5 ml-2 ml-sm-4">
     <h2>FIND A BOOK: </h2>
-    <div class="ml-5">
-        <%= search_form_for @q do |f| %>
-            <%= f.label :name_cont %>
-            <%= f.search_field :name_cont %>
-         
+    <div class="ml-sm-5 d-sm-flex">
+    <%= search_form_for @q do |f| %>
+        <div><%= f.label :name_cont %></div>
+        <div class="d-flex">
+            <%= f.search_field :name_cont, class: 'mr-2' %>
             <%= f.submit %>
-        <% end %>
+        </div>
+    <% end %>
     </div>
 </div>
 
 <%= render 'public/shared/flash_show' %>
 
-<div class="container mt-2">
-    <div class="row col-12 mx-auto">
-        <div class="col-6">
-            <h4>BOOKS:</h4>
-            <div class="mt-4">
-                <% @books.each do |book| %>
-                    <% if book.user.email != 'guest@example.com' && book.user.is_deleted != true  %>
-                        <%= link_to book.name, books_path(id: book.id), class: 'col-8 mb-2 btn btn-navy mr-2' %>
-                        <%= '@' %><%= link_to book.user.login_id, user_path(book.user.id), class: 'link-style text-light' %><br>
-                    <% end %>
+<div class="d-sm-flex col-md-10 mx-auto">
+    <div class="col-sm-6 px-0">
+        <h4>BOOKS:</h4>
+        <div class="mt-4">
+            <% @books.each do |book| %>
+                <% if book.user.email != 'guest@example.com' && book.user.is_deleted != true  %>
+                    <%= link_to book.name, books_path(id: book.id), class: 'col-8 mb-2 btn btn-navy mr-2' %>
+                    <%= '@' %><%= link_to book.user.login_id, user_path(book.user.id), class: 'link-style text-light' %><br>
                 <% end %>
-            </div>
-        </div>
-        <div class="col-6">
-            <h4>
-                PAGES of:
-                <% if params[:id] && @book.is_private == false %>
-                    <%= @book.name %>
-                <% end %>
-            </h4>
-            <% if params[:id] && @book.is_private == false%>
-            <div class="mt-4">
-                <% @pages.each do |page| %>
-                    <%= link_to page.name, page_path(page.id), class: 'col-12 mb-2 btn btn-blue' %><br>
-                <% end %>
-            </div>
             <% end %>
         </div>
     </div>
-    <div class="col-3 mx-auto mt-3">
-        <% if params[:id] %>
-        <%= link_to "GO CHECK THIS BOOK!", book_path(@book.id), class: 'col-12 btn btn-light' %>
+    <div class="mt-4 mt-sm-0 col-sm-6">
+        <h4>
+            PAGES of:
+            <% if params[:id] && @book.is_private == false %>
+                <%= @book.name %>
+            <% end %>
+        </h4>
+        <% if params[:id] && @book.is_private == false%>
+        <div class="mt-4">
+            <% @pages.each do |page| %>
+                <%= link_to page.name, page_path(page.id), class: 'col-12 mb-2 btn btn-blue' %><br>
+            <% end %>
+        </div>
         <% end %>
     </div>
+</div>
+<div class="col-8 col-md-4 mx-auto mt-3">
+    <% if params[:id] %>
+    <%= link_to "GO CHECK THIS BOOK!", book_path(@book.id), class: 'col-12 btn btn-light' %>
+    <% end %>
 </div>
